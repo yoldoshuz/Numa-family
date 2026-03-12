@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "title": "Numa Nutrition — Natural Health Products",
+    "description": "Numa Nutrition — 100% natural and halal health products. Detox, vitamins, Omega 3-6-9, collagen and more. Free delivery across Uzbekistan.",
+    "keywords": "Numa Nutrition, natural products, health, detox, vitamins, omega 3, collagen, halal, Uzbekistan"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "testimonials": "Testimonials",
+    "blog": "Blog",
+    "contact": "Contact",
+    "consultation": "Consultation"
+  },
+  "hero": {
+    "tagline": "Numa Nutrition",
+    "title": "Returning to nature",
+    "subtitle": "with natural products",
+    "description": "100% natural and halal products meeting international quality standards. Unique formulas from natural ingredients for your health.",
+    "cta": "Our Products",
+    "cta2": "Free Consultation"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "A range of natural products for your health and well-being",
+    "buy": "Buy",
+    "details": "Learn More",
+    "contact": "Contact",
+    "hit": "Bestseller",
+    "worldHit": "World Hit",
+    "exclusive": "Exclusive",
+    "items": {
+      "detox": {
+        "name": "Detox Hepar Energy",
+        "shortDesc": "Detox and liver restoration",
+        "benefits": [
+          "Cleanses the body of harmful toxins and waste",
+          "Cleanses and restores the liver",
+          "Neutralizes hepatitis virus",
+          "Fights worms and parasites",
+          "Helps with weight loss",
+          "Regulates cholesterol levels, dissolves fats"
+        ]
+      },
+      "igneus": {
+        "name": "Igneus",
+        "shortDesc": "Immunity and men's health",
+        "benefits": [
+          "Regulates blood pressure",
+          "Fights viral and respiratory diseases",
+          "Boosts immunity, resolves issues in men and women",
+          "Helps regulate blood sugar levels"
+        ]
+      },
+      "endomarine": {
+        "name": "Endo Marine",
+        "shortDesc": "Thyroid and metabolism",
+        "benefits": [
+          "Helps with thyroid diseases (goiter)",
+          "Prevents and restores hormonal imbalances",
+          "Strengthens memory, improves mental performance",
+          "Helps with chronic fatigue and depression",
+          "Normalizes metabolism"
+        ]
+      },
+      "vitamind3": {
+        "name": "Vitamin D3",
+        "shortDesc": "Bones, immunity and pregnancy",
+        "benefits": [
+          "Strengthens bones and joints",
+          "Boosts immunity",
+          "Ensures a smooth pregnancy period",
+          "Eliminates post-COVID-19 complications"
+        ]
+      },
+      "omega369": {
+        "name": "Omega 3•6•9",
+        "shortDesc": "Heart, brain and vision",
+        "benefits": [
+          "Strengthens the heart, helps with atherosclerosis and stroke",
+          "Improves brain function",
+          "Improves vision, prevents eye diseases",
+          "Supports fetal growth and development during pregnancy"
+        ]
+      },
+      "collagen": {
+        "name": "Collagen PRO+",
+        "shortDesc": "Bones, joints and recovery",
+        "benefits": [
+          "Strengthens bones and joints",
+          "Reduces and prevents bone mass loss",
+          "Positive results for osteoporosis and osteochondrosis",
+          "Accelerates recovery after injuries",
+          "Relieves bone and joint pain"
+        ]
+      }
+    }
+  },
+  "advantages": {
+    "title": "Our Advantages",
+    "subtitle": "What you get with our products",
+    "expert": {
+      "title": "Personal Expert",
+      "description": "Our specialists will stay in touch with you until you achieve positive results"
+    },
+    "quality": {
+      "title": "International Quality",
+      "description": "Products meeting international quality standards"
+    },
+    "natural": {
+      "title": "100% Natural Composition",
+      "description": "Our products have a unique formula made from 100% natural and halal ingredients"
+    },
+    "delivery": {
+      "title": "Free Delivery",
+      "description": "After ordering, the product will be delivered to you as quickly as possible"
+    }
+  },
+  "testimonials": {
+    "title": "We love our clients!",
+    "subtitle": "Results and satisfaction are our highest goal!",
+    "professors": "Professors' opinions about Numa Nutrition",
+    "clients": "Client reviews about Numa Nutrition",
+    "celebrities": "Celebrities choose us!"
+  },
+  "certificates": {
+    "title": "Our Certificates",
+    "subtitle": "Confirmation of the quality and safety of our products"
+  },
+  "diseases": {
+    "title": "Health concerns that worry you",
+    "subtitle": "Choose your concern — we'll find the solution",
+    "items": [
+      "Liver diseases",
+      "Immunity",
+      "Kidney diseases",
+      "Neurological diseases",
+      "Cardiovascular diseases",
+      "Excess weight",
+      "General body cleansing",
+      "Diabetes",
+      "Reproductive health",
+      "Gastrointestinal diseases",
+      "Bone and joint diseases",
+      "Hormonal changes"
+    ]
+  },
+  "consultation": {
+    "title": "Would you like a free consultation?",
+    "subtitle": "Your information is guaranteed to remain confidential. Our qualified specialists are always in touch and will guide you to results.",
+    "phone": "Phone",
+    "region": "Which region are you from?",
+    "agree": "I agree to all terms and conditions",
+    "submit": "Get Free Consultation",
+    "regions": [
+      "Tashkent City",
+      "Andijan",
+      "Bukhara",
+      "Fergana",
+      "Jizzakh",
+      "Khorezm",
+      "Namangan",
+      "Navoi",
+      "Kashkadarya",
+      "Republic of Karakalpakstan",
+      "Samarkand",
+      "Syrdarya",
+      "Surkhandarya",
+      "Tashkent Region"
+    ]
+  },
+  "about": {
+    "title": "About Numa Nutrition",
+    "description": "We are a company that brings people back to nature through natural products. Our mission is to help everyone achieve health with 100% natural and halal ingredients.",
+    "mission": "Our Mission",
+    "missionText": "Creating products that bring people back to a healthy lifestyle through the power of nature.",
+    "values": "Our Values",
+    "valuesItems": ["Naturalness", "Quality", "Customer Care", "Innovation"],
+    "story": "Our Story",
+    "storyText": "Numa Nutrition was founded with the goal of providing people with high-quality natural health products. We believe in the power of nature and strive to make a healthy lifestyle accessible to everyone."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Useful articles about health and natural nutrition",
+    "readMore": "Read More",
+    "posts": [
+      {
+        "title": "Why Detox Is Important for Your Body",
+        "excerpt": "Learn how proper body cleansing can improve your well-being and boost energy.",
+        "category": "Health",
+        "date": "2024-01-15"
+      },
+      {
+        "title": "Omega 3-6-9: Complete Guide",
+        "excerpt": "Everything you need to know about fatty acids and their impact on heart and brain health.",
+        "category": "Nutrition",
+        "date": "2024-01-10"
+      },
+      {
+        "title": "Vitamin D3 and Immunity",
+        "excerpt": "How vitamin D3 helps strengthen the immune system and protect the body.",
+        "category": "Vitamins",
+        "date": "2024-01-05"
+      },
+      {
+        "title": "Collagen for Joint Health",
+        "excerpt": "The role of collagen in maintaining healthy bones, joints and skin.",
+        "category": "Health",
+        "date": "2023-12-28"
+      },
+      {
+        "title": "Microbiome and Gut Health",
+        "excerpt": "How gut flora balance affects overall health and immunity.",
+        "category": "Science",
+        "date": "2023-12-20"
+      },
+      {
+        "title": "Natural Products vs Synthetic Supplements",
+        "excerpt": "Advantages of natural ingredients over synthetic alternatives.",
+        "category": "Nutrition",
+        "date": "2023-12-15"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're always ready to help you",
+    "phone": "+998 55 516-77-77",
+    "address": "31 Elbek Street, Tashkent 100047, Uzbekistan",
+    "email": "info@numa.uz",
+    "workingHours": "Mon-Sat: 9:00 AM - 6:00 PM",
+    "sendMessage": "Send Message",
+    "name": "Your Name",
+    "message": "Message"
+  },
+  "footer": {
+    "description": "Numa Nutrition — 100% natural and halal products for your health.",
+    "navigation": "Navigation",
+    "ourProducts": "Products",
+    "contacts": "Contacts",
+    "rights": "All rights reserved.",
+    "backToTop": "Back to top"
+  }
+}
