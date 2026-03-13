@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import type { Product } from "@/data/products";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n/config";
@@ -16,74 +14,102 @@ interface ProductCardProps {
   index: number;
 }
 
+const BADGE_STYLES: Record<string, { bg: string; text: string }> = {
+  hit: { bg: "#dcfce7", text: "#166534" },
+  worldHit: { bg: "#fef9c3", text: "#854d0e" },
+  exclusive: { bg: "#ede9fe", text: "#5b21b6" },
+};
+
 export function ProductCard({ product, dict, locale, index }: ProductCardProps) {
   const productDict = dict.products.items[product.slug];
+  const badgeStyle = product.badge ? BADGE_STYLES[product.badge] : null;
+  const badgeLabel = product.badge === "hit"
+    ? dict.products.hit
+    : product.badge === "worldHit"
+      ? dict.products.worldHit
+      : product.badge === "exclusive"
+        ? dict.products.exclusive
+        : null;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.55, delay: index * 0.08 }}
+      className="h-full"
     >
-      <GlassCard className="group relative overflow-hidden h-full flex flex-col">
-        {product.badge && (
-          <Badge
-            variant={product.badge === "hit" ? "success" : product.badge === "worldHit" ? "warning" : "primary"}
-            className="absolute top-4 right-4 z-10"
+      <div className="group relative bg-white rounded-[1.5rem] border border-[#e8e6e1] overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.09)] hover:-translate-y-0.5">
+        {/* Badge */}
+        {badgeLabel && badgeStyle && (
+          <span
+            className="absolute top-4 left-4 z-10 text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{ backgroundColor: badgeStyle.bg, color: badgeStyle.text }}
           >
-            {product.badge === "hit"
-              ? dict.products.hit
-              : product.badge === "worldHit"
-                ? dict.products.worldHit
-                : dict.products.exclusive}
-          </Badge>
+            {badgeLabel}
+          </span>
         )}
 
-        {/* Product visual */}
-        <div className="relative h-48 flex items-center justify-center overflow-hidden rounded-xl mb-6">
-          <div className={`absolute inset-0 bg-linear-to-br ${product.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
+        {/* Visual */}
+        <div
+          className="relative h-44 sm:h-48 flex items-center justify-center overflow-hidden"
+          style={{ background: `linear-gradient(135deg, ${product.color}15, ${product.color}08)` }}
+        >
           <motion.div
-            className="text-6xl"
-            whileHover={{ scale: 1.2, rotateY: 180 }}
-            transition={{ type: "spring", stiffness: 200 }}
+            className="text-6xl sm:text-7xl select-none"
+            whileHover={{ scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             {product.icon}
           </motion.div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 flex flex-col">
-          <h3 className="text-xl font-bold text-text-primary mb-1">
-            {productDict.name}
-          </h3>
-          <p className="text-sm text-text-secondary mb-4">
-            {productDict.shortDesc}
-          </p>
+        <div className="flex-1 flex flex-col p-5 sm:p-6">
+          <div className="mb-4">
+            <h3 className="text-lg font-bold text-[#1a1a18] tracking-tight mb-1">
+              {productDict.name}
+            </h3>
+            <p className="text-sm text-[#6b6b65]">
+              {productDict.shortDesc}
+            </p>
+          </div>
 
           <ul className="space-y-2 mb-6 flex-1">
             {productDict.benefits.slice(0, 3).map((benefit, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                <svg className="w-4 h-4 text-primary mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <li key={i} className="flex items-start gap-2.5 text-sm text-[#4b4b47]">
+                <div
+                  className="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${product.color}20` }}
+                >
+                  <svg className="w-2.5 h-2.5" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2.5 2.5L8 3" stroke={product.color} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
                 {benefit}
               </li>
             ))}
           </ul>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2.5 mt-auto">
             <Link href={`/${locale}/products/${product.slug}`} className="flex-1">
-              <Button variant="primary" size="sm" className="w-full">
+              <button
+                className="w-full btn-pill text-sm font-medium transition-all duration-200 py-2.5"
+                style={{ backgroundColor: "#1a1a18", color: "white" }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#2d2d2a")}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#1a1a18")}
+              >
                 {dict.products.details}
-              </Button>
+              </button>
             </Link>
-            <Button variant="outline" size="sm">
+            <button
+              className="btn-pill text-sm font-medium border border-[#e8e6e1] text-[#1a1a18] hover:bg-[#f7f6f3] transition-colors duration-200 py-2.5 px-5"
+            >
               {dict.products.buy}
-            </Button>
+            </button>
           </div>
         </div>
-      </GlassCard>
+      </div>
     </motion.div>
   );
 }
