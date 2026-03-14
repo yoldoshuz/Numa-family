@@ -4,7 +4,17 @@
       "WebFetch(domain:numa.uz)",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(find /d/numa-family -not -path */node_modules/* -not -path */.next/* -not -path */.git/* -type d)",
+      "Bash(npx shadcn@latest add input card sheet separator navigation-menu -y)",
+      "Bash(npx next:*)",
+      "Bash(mv src/components/ui/Button.tsx src/components/ui/button.tsx.tmp)",
+      "Bash(mv src/components/ui/button.tsx.tmp src/components/ui/button.tsx)",
+      "Bash(find /d/numa-family -not -path */node_modules/* -not -path */.next/* -not -path */.git/* -type f)",
+      "Bash(cp -r src/components .)",
+      "Bash(cp -r src/lib .)",
+      "Bash(cp -r src/data .)",
+      "Bash(cp -r src/dictionaries .)"
     ]
   }
 }

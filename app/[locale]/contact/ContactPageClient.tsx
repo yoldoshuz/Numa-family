@@ -2,7 +2,8 @@
 
 import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { ConsultationForm } from "@/components/sections/ConsultationForm";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -19,7 +20,7 @@ export function ContactPageClient({ dict, locale }: Props) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
         </svg>
       ),
-      label: dict.consultation.phone,
+      label: locale === "ru" ? "Телефон" : locale === "uz" ? "Telefon" : "Phone",
       value: dict.contact.phone,
       href: `tel:${dict.contact.phone.replace(/\s/g, "")}`,
     },
@@ -56,20 +57,19 @@ export function ContactPageClient({ dict, locale }: Props) {
 
   return (
     <div className="pt-14 sm:pt-16">
-      <section className="section-padding bg-[#f7f6f3]">
+      <section className="section-padding bg-surface-secondary">
         <Container size="lg">
           <AnimatedSection className="mb-12 sm:mb-16">
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-[#1a5c55] mb-4">
-              <span className="w-5 h-px bg-[#1a5c55]" />
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-teal mb-4">
+              <span className="w-5 h-px bg-teal" />
               {dict.nav.contact}
             </span>
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1a1a18] leading-[1.08]"
-              style={{ fontFamily: "Georgia, serif" }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-text-primary leading-[1.08]"
             >
               {dict.contact.title}
             </h1>
-            <p className="mt-3 text-base text-[#6b6b65] max-w-lg">
+            <p className="mt-3 text-base text-text-secondary max-w-lg">
               {dict.contact.subtitle}
             </p>
           </AnimatedSection>
@@ -78,24 +78,19 @@ export function ContactPageClient({ dict, locale }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
             {contactInfo.map((info, index) => (
               <AnimatedSection key={index} delay={index * 0.08} animation="fadeUp">
-                <div className="bg-white border border-[#e8e6e1] rounded-[1.5rem] p-6 h-full transition-shadow duration-300 hover:shadow-[0_4px_20px_rgba(0,0,0,0.07)]">
-                  <div className="w-10 h-10 mb-4 rounded-xl bg-[#1a5c55]/10 flex items-center justify-center text-[#1a5c55]">
+                <div className="bg-white border border-border rounded-2xl p-6 h-full transition-shadow duration-300 hover:shadow-lg">
+                  <div className="w-10 h-10 mb-4 rounded-xl bg-teal/10 flex items-center justify-center text-teal">
                     {info.icon}
                   </div>
-                  <h3 className="text-xs font-semibold text-[#9b9b93] uppercase tracking-wider mb-1.5">
+                  <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
                     {info.label}
                   </h3>
                   {info.href ? (
-                    <a
-                      href={info.href}
-                      className="text-sm font-medium text-[#1a1a18] hover:text-[#1a5c55] transition-colors duration-200 break-all"
-                    >
+                    <a href={info.href} className="text-sm font-medium text-text-primary hover:text-teal transition-colors break-all">
                       {info.value}
                     </a>
                   ) : (
-                    <p className="text-sm font-medium text-[#1a1a18] leading-relaxed">
-                      {info.value}
-                    </p>
+                    <p className="text-sm font-medium text-text-primary leading-relaxed">{info.value}</p>
                   )}
                 </div>
               </AnimatedSection>
@@ -104,44 +99,30 @@ export function ContactPageClient({ dict, locale }: Props) {
 
           {/* Contact form */}
           <AnimatedSection animation="fadeUp">
-            <div className="max-w-xl mx-auto bg-white border border-[#e8e6e1] rounded-[2rem] p-7 sm:p-10">
+            <div className="max-w-xl mx-auto bg-white border border-border rounded-3xl p-7 sm:p-10">
               <h3
-                className="text-2xl sm:text-3xl font-bold text-[#1a1a18] tracking-tighter mb-6"
-                style={{ fontFamily: "Georgia, serif" }}
+                className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tighter mb-6"
               >
                 {dict.contact.sendMessage}
               </h3>
               <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input
-                    type="text"
-                    placeholder={dict.contact.name}
-                    className="w-full px-4 py-3 rounded-xl border border-[#e8e6e1] bg-[#f7f6f3] text-[#1a1a18] placeholder:text-[#9b9b93] focus:outline-none focus:ring-2 focus:ring-[#1a5c55]/25 focus:border-[#1a5c55] transition-all duration-200 text-sm"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full px-4 py-3 rounded-xl border border-[#e8e6e1] bg-[#f7f6f3] text-[#1a1a18] placeholder:text-[#9b9b93] focus:outline-none focus:ring-2 focus:ring-[#1a5c55]/25 focus:border-[#1a5c55] transition-all duration-200 text-sm"
-                  />
+                  <Input type="text" placeholder={dict.contact.name} className="rounded-xl h-12" />
+                  <Input type="email" placeholder="Email" className="rounded-xl h-12" />
                 </div>
                 <textarea
                   rows={4}
                   placeholder={dict.contact.message}
-                  className="w-full px-4 py-3 rounded-xl border border-[#e8e6e1] bg-[#f7f6f3] text-[#1a1a18] placeholder:text-[#9b9b93] focus:outline-none focus:ring-2 focus:ring-[#1a5c55]/25 focus:border-[#1a5c55] transition-all duration-200 resize-none text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-border bg-surface-secondary text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-teal/25 focus:border-teal transition-all resize-none text-sm"
                 />
-                <button
-                  type="submit"
-                  className="w-full btn-pill bg-[#1a1a18] text-white text-sm font-medium py-3.5 hover:bg-[#2d2d2a] transition-colors duration-200"
-                >
+                <Button type="submit" className="w-full rounded-full h-12 bg-teal text-white hover:bg-teal-dark">
                   {dict.contact.sendMessage}
-                </button>
+                </Button>
               </form>
             </div>
           </AnimatedSection>
         </Container>
       </section>
-
-      <ConsultationForm dict={dict} />
     </div>
   );
 }

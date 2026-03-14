@@ -1,9 +1,0 @@
-export { Hero } from "./Hero";
-export { ProductShowcase } from "./ProductShowcase";
-export { ProductCard } from "./ProductCard";
-export { Advantages } from "./Advantages";
-export { Testimonials } from "./Testimonials";
-export { Certificates } from "./Certificates";
-export { Diseases } from "./Diseases";
-export { ConsultationForm } from "./ConsultationForm";
-export { Scene3D } from "./Scene3D";

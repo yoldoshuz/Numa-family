@@ -27,7 +27,6 @@ export function SectionHeading({
           "text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-[#1a1a18]",
           align === "center" && "mx-auto"
         )}
-        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
       >
         {title}
       </h2>

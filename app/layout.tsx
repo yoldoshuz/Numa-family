@@ -5,8 +5,8 @@ import { Figtree } from "next/font/google";
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: "Numa Nutrition",
-  description: "100% natural and halal health products",
+  title: "Numa Family",
+  description: "Health ecosystem for the whole family",
   icons: { icon: "/favicon.ico" },
 };
 

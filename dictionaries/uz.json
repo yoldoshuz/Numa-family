@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "title": "Numa Family — Butun oila uchun sog'liq ekotizimi",
+    "description": "Numa Family — to'liq sog'liq ekotizimi. Ovqatlanish, bolalar sog'lig'i, onalik, biomarker testlari, saraton skriningi va butun oilangiz uchun shaxsiy sog'lomlashtirish rejalari.",
+    "keywords": "Numa Family, sog'liq ekotizimi, ovqatlanish, bolalar sog'lig'i, onalik, biomarkerlar, saraton skriningi, sog'lomlashtirish, tabiiy mahsulotlar, oilaviy sog'liq"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "blog": "Blog",
+    "contact": "Aloqa"
+  },
+  "hero": {
+    "title": "Sog'liq ekotizimi",
+    "subtitle": "butun oila uchun",
+    "description": "Shaxsiylashtirilgan sog'liq uchun to'liq platforma — ovqatlanish va sog'lomlashtirish mahsulotlaridan tortib ilg'or biomarker testlari va saraton skriningigacha."
+  },
+  "categories": {
+    "title": "Ekotizimimizni o'rganing",
+    "items": [
+      {
+        "title": "Vazn yo'qoting",
+        "subtitle": "o'zingizcha",
+        "badge": "69 000 so'mdan/oy",
+        "image": "/images/image 2.png"
+      },
+      {
+        "title": "Kuch oling",
+        "subtitle": "ishonchli",
+        "badge": "Yangi",
+        "image": "/images/image 4.png"
+      }
+    ]
+  },
+  "subCategories": {
+    "items": [
+      { "name": "Numa Nutrition", "icon": "leaf" },
+      { "name": "Numa Kids", "icon": "baby" },
+      { "name": "Onalar uchun", "icon": "heart" },
+      { "name": "Battery Restaurant", "icon": "utensils" }
+    ]
+  },
+  "promoBanner": {
+    "title": "Energiyangizni qaytaring",
+    "highlight": "Numa tabiiy kuchi bilan",
+    "description": "Klinik sinovdan o'tgan, 100% tabiiy formulalar — hayotiy kuchlarni tiklash va energiya darajasini oshirish uchun yaratilgan."
+  },
+  "productShowcase": {
+    "title": "100% ORGANIK SIROP",
+    "cta": "Boshlash",
+    "cta2": "Batafsil",
+    "sectionTitle": "DETOX HEPAR ENERGY",
+    "items": [
+      { "name": "Lotus\nQora sedana", "image": "/images/image 9.png" },
+      { "name": "Detox\nHepar Energy", "image": "/images/image 10.png" },
+      { "name": "Igneus\nImmunitet", "image": "/images/image 11.png" }
+    ],
+    "viewAll": "Hammasini ko'rish"
+  },
+  "healthJourney": {
+    "findBaseline": {
+      "title": "O'z",
+      "highlight": "boshlang'ich darajangizni bilin",
+      "description": "Asosiy sog'liq ko'rsatkichlarini tekshiring va joriy holatni kompleks biomarker testlari orqali tushunib oling."
+    },
+    "planBreakthrough": {
+      "title": "O'z",
+      "highlight": "yutuqingizni rejalashtiring",
+      "description": "Natijalaringiz asosida ekspert yordamida shaxsiy sog'lomlashtirish rejalarini oling."
+    },
+    "cta": "Rejani o'rganing"
+  },
+  "testing": {
+    "biomarkers": {
+      "title": "130+ biomarker testi",
+      "description": "Vitaminlar, gormonlar, metabolik markerlar, yallig'lanish ko'rsatkichlari va boshqalarni qamrab olgan keng qamrovli qon tahlili."
+    },
+    "cancer": {
+      "title": "50+ turdagi saraton skriningi",
+      "description": "Eng so'nggi diagnostika texnologiyalaridan foydalangan holda multi-saraton erta aniqlash skriningi."
+    },
+    "disclaimer": "Biomarker testlari hamkor laboratoriyalar orqali mavjud. Natijalar litsenziyalangan mutaxassislar tomonidan tekshiriladi.",
+    "biomarkersCta": "Markerlarni ko'ring",
+    "cancerCta": "Batafsil"
+  },
+  "bestCare": {
+    "title": "Eng yaxshi g'amxo'rlik",
+    "subtitle": "eng yaxshi shifokorlardan",
+    "description": "Asosiy tibbiy sohalarda o'n yillik tajribaga ega yetakchi mutaxassislar jamoamiz bilan bog'laning."
+  },
+  "emailSignup": {
+    "title": "Vazn yo'qotish uchun protein bo'yicha bepul qo'llanmani oling",
+    "description": "Ekspertlar tomonidan tasdiqlangan proteinli ovqatlanish bilan vaznni yo'qotishni kuchaytiring.",
+    "placeholder": "Email",
+    "cta": "Qo'llanmani olish",
+    "disclaimer": "Yuborish orqali siz Numa Family dan marketing xabarlarini olishga rozilik bildirasiz."
+  },
+  "footer": {
+    "tagline": "To'liq g'amxo'rlik.\nButunlay boshqacha.",
+    "description": "Numa Family — sog'liq va sog'lomlashtirish platformasi. Barcha mahsulotlar 100% tabiiy va xalqaro sifat standartlariga mos keladi.",
+    "learnMore": "Batafsil",
+    "links": {
+      "weightLoss": "Vazn yo'qotish",
+      "sexualHealth": "Jinsiy sog'liq",
+      "testosterone": "Testosteron",
+      "hairRegrowth": "Soch o'sishi",
+      "mentalHealth": "Ruhiy sog'liq",
+      "drugComparisons": "Dori taqqoslash",
+      "drugsAndMedications": "Dorilar",
+      "aboutTheCompany": "Kompaniya haqida"
+    },
+    "tools": {
+      "title": "Vositalar",
+      "bmiCalculator": "BMI Kalkulyator",
+      "tdeeCalculator": "TDEE Kalkulyator",
+      "calorieDeficitCalculator": "Kaloriya defisiti",
+      "proteinCalculator": "Protein kalkulyator",
+      "waterIntakeCalculator": "Suv normasi"
+    },
+    "treatments": {
+      "title": "Davolash",
+      "glp1Injections": "GLP-1 Inyeksiyalar",
+      "sildenafil": "Sildenafil",
+      "cialis": "Sialis",
+      "tadalafil": "Tadalafil",
+      "minoxidilSolution": "Minoksidil eritmasi",
+      "finasteridePills": "Finasterid",
+      "topicalFinasteride": "Mahalliy finasterid",
+      "sertralineForPe": "PE uchun sertralin",
+      "sertraline": "Sertralin",
+      "buspirone": "Buspiron"
+    },
+    "resources": {
+      "title": "Resurslar",
+      "editorial": "Tahririyat",
+      "research": "Tadqiqotlar",
+      "waterInfo": "Suv haqida",
+      "digestHealth": "Hazm",
+      "howItWorks": "Qanday ishlaydi",
+      "clinicalStudies": "Klinik tadqiqotlar",
+      "healthAndSafety": "Sog'liq va xavfsizlik",
+      "survivalStatistics": "Statistika",
+      "press": "Matbuot"
+    },
+    "support": {
+      "title": "Qo'llab-quvvatlash",
+      "professionals": "Mutaxassislarga",
+      "providers": "Yetkazib beruvchilarga",
+      "customerHelpCenter": "Yordam markazi",
+      "pressCenter": "Matbuot markazi"
+    },
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "legal": "Foydalanish shartlari | Maxfiylik siyosati | Teletibbiyot roziligi | Yetkazib beruvchi kodeksi | Tibbiy maxfiylik siyosati",
+    "copyright": "Numa Family Inc. Barcha huquqlar himoyalangan. Numa va NUMA — Numa, Inc. savdo belgilari.",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "about": {
+    "title": "Numa Family haqida",
+    "description": "Biz — oilalarni innovatsion sog'lomlashtirish yechimlari orqali tabiatga qaytaruvchi sog'liq ekotizimi. Vazifamiz — har kimga shaxsiylashtirilgan yondashuv va 100% tabiiy mahsulotlar bilan optimal sog'liqqa erishishga yordam berish.",
+    "mission": "Bizning vazifamiz",
+    "missionText": "Oilalarga tabiatning eng yaxshi ingredientlari orqali sog'lig'ini nazorat qilish imkonini beruvchi keng qamrovli sog'liq platformasi yaratish.",
+    "values": "Bizning qadriyatlarimiz",
+    "valuesItems": ["Tabiiylik", "Sifat", "Oila avvalo", "Innovatsiya"],
+    "story": "Bizning tarixim",
+    "storyText": "Numa Family oilalar uchun to'liq sog'liq ekotizimini yaratish maqsadida tashkil etilgan. Biz tabiat kuchiga ishonamiz va shaxsiylashtirilgan sog'liqni saqlashni hamma uchun qulay qilishga intilamiz."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Sog'liq, sog'lomlashtirish va oilaviy g'amxo'rlik haqida maqolalar",
+    "readMore": "Batafsil o'qish",
+    "posts": [
+      {
+        "title": "Nima uchun detoks organizmingiz uchun muhim",
+        "excerpt": "Organizmni to'g'ri tozalash sog'ligingizni qanday yaxshilashi mumkinligini bilib oling.",
+        "category": "Sog'liq",
+        "date": "2024-01-15"
+      },
+      {
+        "title": "Omega 3-6-9: To'liq qo'llanma",
+        "excerpt": "Yog' kislotalari va ularning yurak va miya sog'ligiga ta'siri haqida hamma narsa.",
+        "category": "Ovqatlanish",
+        "date": "2024-01-10"
+      },
+      {
+        "title": "Biomarker testlari: nimani bilish kerak",
+        "excerpt": "Yaxshiroq sog'liq natijalari uchun keng qamrovli biomarker testlari orqali tanangizni tushunish.",
+        "category": "Testlar",
+        "date": "2024-01-05"
+      },
+      {
+        "title": "Oilaviy ovqatlanishni rejalashtirish",
+        "excerpt": "Oilaning har bir a'zosi uchun muvozanatli ovqatlanish rejasini qanday yaratish kerak.",
+        "category": "Oila",
+        "date": "2023-12-28"
+      },
+      {
+        "title": "Bolalar sog'lig'i: immunitetni mustahkamlash",
+        "excerpt": "Bolalaringiz immunitetini yil davomida mustahkamlashning tabiiy usullari.",
+        "category": "Bolalar",
+        "date": "2023-12-20"
+      },
+      {
+        "title": "Tabiiy mahsulotlar vs sintetik qo'shimchalar",
+        "excerpt": "Tabiiy ingredientlarning sintetik analoglar oldidagi afzalliklari.",
+        "category": "Ovqatlanish",
+        "date": "2023-12-15"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Biz bilan bog'laning",
+    "subtitle": "Biz doimo sizga yordam berishga tayyormiz",
+    "phone": "+998 55 516-77-77",
+    "address": "31 Elbek ko'chasi, Toshkent 100047, O'zbekiston",
+    "email": "info@numafamily.uz",
+    "workingHours": "Du-Sha: 9:00 - 18:00",
+    "sendMessage": "Xabar yuborish",
+    "name": "Ismingiz",
+    "message": "Xabar"
+  }
+}

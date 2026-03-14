@@ -1,4 +1,4 @@
-export { Button } from "./Button";
+export { Button } from "./button";
 export { GlassCard } from "./GlassCard";
 export { Container } from "./Container";
 export { AnimatedSection } from "./AnimatedSection";

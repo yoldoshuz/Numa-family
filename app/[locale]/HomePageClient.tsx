@@ -1,20 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/Hero";
+import { PromoBanner } from "@/components/sections/PromoBanner";
 import { ProductShowcase } from "@/components/sections/ProductShowcase";
-import { Advantages } from "@/components/sections/Advantages";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Certificates } from "@/components/sections/Certificates";
-import { Diseases } from "@/components/sections/Diseases";
-import { ConsultationForm } from "@/components/sections/ConsultationForm";
+import { HealthJourney } from "@/components/sections/HealthJourney";
+import { TestingCards } from "@/components/sections/TestingCards";
+import { BestCare } from "@/components/sections/BestCare";
+import { EmailSignup } from "@/components/sections/EmailSignup";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-
-const Scene3D = dynamic(
-  () => import("@/components/sections/Scene3D").then((m) => m.Scene3D),
-  { ssr: false }
-);
 
 interface Props {
   dict: Dictionary;
@@ -24,16 +18,13 @@ interface Props {
 export function HomePageClient({ dict, locale }: Props) {
   return (
     <>
-      <div className="relative">
-        <Scene3D />
-        <Hero dict={dict} locale={locale} />
-      </div>
+      <Hero dict={dict} locale={locale} />
+      <PromoBanner dict={dict} />
       <ProductShowcase dict={dict} locale={locale} />
-      <Advantages dict={dict} />
-      <Diseases dict={dict} />
-      <Testimonials dict={dict} />
-      <Certificates dict={dict} />
-      <ConsultationForm dict={dict} />
+      <HealthJourney dict={dict} />
+      <TestingCards dict={dict} />
+      <BestCare dict={dict} />
+      <EmailSignup dict={dict} />
     </>
   );
 }
