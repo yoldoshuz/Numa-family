@@ -7,7 +7,7 @@
   "nav": {
     "home": "Главная",
     "about": "О компании",
-    "blog": "Блог",
+    "blog": "Отчет",
     "contact": "Контакты"
   },
   "hero": {
@@ -36,8 +36,9 @@
     "items": [
       { "name": "Numa Nutrition", "icon": "leaf" },
       { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Для мам", "icon": "heart" },
-      { "name": "Battery Restaurant", "icon": "utensils" }
+      { "name": "Nabiviy Tabobat", "icon": "herb" },
+      { "name": "Bettery Restaurant", "icon": "utensils" },
+      { "name": "Bettery Ration", "icon": "salad" }
     ]
   },
   "promoBanner": {
@@ -170,9 +171,9 @@
     "storyText": "Numa Family основана с целью создать полную экосистему здоровья для семей. Мы верим в силу природы и стремимся сделать персонализированное здравоохранение доступным для каждого."
   },
   "blog": {
-    "title": "Блог",
-    "subtitle": "Полезные статьи о здоровье, оздоровлении и семейной заботе",
-    "readMore": "Читать далее",
+    "title": "Отчеты",
+    "subtitle": "Аналитические отчеты о здоровье, оздоровлении и семейной заботе",
+    "readMore": "Подробнее",
     "posts": [
       {
         "title": "Почему детокс важен для организма",

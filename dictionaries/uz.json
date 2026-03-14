@@ -7,7 +7,7 @@
   "nav": {
     "home": "Bosh sahifa",
     "about": "Biz haqimizda",
-    "blog": "Blog",
+    "blog": "Hisobot",
     "contact": "Aloqa"
   },
   "hero": {
@@ -36,8 +36,9 @@
     "items": [
       { "name": "Numa Nutrition", "icon": "leaf" },
       { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Onalar uchun", "icon": "heart" },
-      { "name": "Battery Restaurant", "icon": "utensils" }
+      { "name": "Nabiviy Tabobat", "icon": "herb" },
+      { "name": "Bettery Restaurant", "icon": "utensils" },
+      { "name": "Bettery Ration", "icon": "salad" }
     ]
   },
   "promoBanner": {
@@ -170,9 +171,9 @@
     "storyText": "Numa Family oilalar uchun to'liq sog'liq ekotizimini yaratish maqsadida tashkil etilgan. Biz tabiat kuchiga ishonamiz va shaxsiylashtirilgan sog'liqni saqlashni hamma uchun qulay qilishga intilamiz."
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "Sog'liq, sog'lomlashtirish va oilaviy g'amxo'rlik haqida maqolalar",
-    "readMore": "Batafsil o'qish",
+    "title": "Hisobotlar",
+    "subtitle": "Sog'liq, sog'lomlashtirish va oilaviy g'amxo'rlik bo'yicha analitik hisobotlar",
+    "readMore": "Batafsil",
     "posts": [
       {
         "title": "Nima uchun detoks organizmingiz uchun muhim",

@@ -11,24 +11,25 @@ interface TestingCardsProps {
 
 export function TestingCards({ dict }: TestingCardsProps) {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-surface-secondary overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-28 bg-surface-secondary overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Biomarkers card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
+            className="group"
           >
-            <div className="rounded-[1.5rem] overflow-hidden bg-white h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.04)]">
-              <div className="p-6 sm:p-8">
-                <div className="relative h-44 sm:h-56 mb-6 rounded-2xl overflow-hidden bg-teal-50">
+            <div className="rounded-[1.75rem] overflow-hidden bg-white h-full shadow-sm hover:shadow-xl transition-all duration-500">
+              <div className="p-5 sm:p-7">
+                <div className="relative h-48 sm:h-60 mb-5 rounded-2xl overflow-hidden bg-teal-50">
                   <Image
                     src="/images/image 14.png"
                     alt="Biomarker testing"
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary leading-tight tracking-tight">
@@ -37,7 +38,7 @@ export function TestingCards({ dict }: TestingCardsProps) {
                 <p className="mt-3 text-text-secondary text-sm leading-relaxed">
                   {dict.testing.biomarkers.description}
                 </p>
-                <Button variant="outline" className="mt-6 rounded-full px-7 h-11 text-sm font-medium border-border-dark">
+                <Button variant="outline" className="mt-5 rounded-full px-7 h-11 text-sm font-medium border-border-dark hover:bg-teal hover:text-white hover:border-teal transition-all duration-300">
                   {dict.testing.biomarkersCta}
                 </Button>
               </div>
@@ -50,15 +51,16 @@ export function TestingCards({ dict }: TestingCardsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
+            className="group"
           >
-            <div className="rounded-[1.5rem] overflow-hidden bg-white h-full shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.04)]">
-              <div className="p-6 sm:p-8">
-                <div className="relative h-44 sm:h-56 mb-6 rounded-2xl overflow-hidden bg-teal-50">
+            <div className="rounded-[1.75rem] overflow-hidden bg-white h-full shadow-sm hover:shadow-xl transition-all duration-500">
+              <div className="p-5 sm:p-7">
+                <div className="relative h-48 sm:h-60 mb-5 rounded-2xl overflow-hidden bg-teal-50">
                   <Image
                     src="/images/image 15.png"
                     alt="Cancer screening"
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-text-primary leading-tight tracking-tight">
@@ -67,7 +69,7 @@ export function TestingCards({ dict }: TestingCardsProps) {
                 <p className="mt-3 text-text-secondary text-sm leading-relaxed">
                   {dict.testing.cancer.description}
                 </p>
-                <Button variant="outline" className="mt-6 rounded-full px-7 h-11 text-sm font-medium border-border-dark">
+                <Button variant="outline" className="mt-5 rounded-full px-7 h-11 text-sm font-medium border-border-dark hover:bg-teal hover:text-white hover:border-teal transition-all duration-300">
                   {dict.testing.cancerCta}
                 </Button>
               </div>
@@ -81,7 +83,7 @@ export function TestingCards({ dict }: TestingCardsProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-8 text-center text-xs text-text-tertiary max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 text-center text-xs text-text-tertiary max-w-2xl mx-auto leading-relaxed"
         >
           {dict.testing.disclaimer}
         </motion.p>

@@ -15,14 +15,27 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
 import { Separator } from "@/components/ui/separator";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
-import { Menu } from "lucide-react";
+import { Menu, Leaf, Baby, Stethoscope, UtensilsCrossed, Salad } from "lucide-react";
 
 interface HeaderProps {
   locale: Locale;
   dict: Dictionary;
 }
+
+const productFamilies = [
+  { name: "Numa Nutrition", icon: Leaf, color: "text-emerald-600", href: "/products" },
+  { name: "Numa Kids", icon: Baby, color: "text-sky-500", href: "/products" },
+  { name: "Naboviy Tabobat", icon: Stethoscope, color: "text-teal", href: "/products" },
+  { name: "Bettery Restaurant", icon: UtensilsCrossed, color: "text-amber-600", href: "/products" },
+  { name: "Bettery Ration", icon: Salad, color: "text-lime-600", href: "/products" },
+];
 
 export function Header({ locale, dict }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -50,10 +63,41 @@ export function Header({ locale, dict }: HeaderProps) {
       )}
     >
       <div className="container-wide flex items-center justify-between h-14 sm:h-16">
-        {/* Logo */}
-        <Link href={`/${locale}`} className="flex items-center gap-1.5 shrink-0">
-          <Image src="/logo.svg" alt="Numa Family" width={32} height={32} className="h-7 w-auto sm:h-8" />
-        </Link>
+        {/* Logo with hover card */}
+        <HoverCard openDelay={100} closeDelay={200}>
+          <HoverCardTrigger asChild>
+            <Link href={`/${locale}`} className="flex items-center gap-1.5 shrink-0">
+              <Image src="/logo.svg" alt="Numa Family" width={32} height={32} className="h-7 w-auto sm:h-8" />
+            </Link>
+          </HoverCardTrigger>
+          <HoverCardContent
+            align="start"
+            sideOffset={8}
+            className="w-72 p-2 rounded-2xl border border-border/50 bg-white shadow-2xl"
+          >
+            <div className="px-3 pt-2 pb-1.5">
+              <p className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+                Numa Family
+              </p>
+            </div>
+            <div className="flex flex-col gap-0.5">
+              {productFamilies.map((family) => (
+                <Link
+                  key={family.name}
+                  href={`/${locale}${family.href}`}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-teal-50 transition-colors group"
+                >
+                  <div className={cn("flex items-center justify-center w-8 h-8 rounded-lg bg-surface-secondary group-hover:bg-white transition-colors", family.color)}>
+                    <family.icon className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm font-medium text-text-primary group-hover:text-teal transition-colors">
+                    {family.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </HoverCardContent>
+        </HoverCard>
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-1">
@@ -102,6 +146,27 @@ export function Header({ locale, dict }: HeaderProps) {
                   </SheetClose>
                 ))}
               </nav>
+              <Separator className="my-3" />
+              <div className="px-5 pb-2">
+                <p className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-2">
+                  Numa Family
+                </p>
+              </div>
+              <div className="flex flex-col px-3 gap-0.5">
+                {productFamilies.map((family) => (
+                  <SheetClose key={family.name} asChild>
+                    <Link
+                      href={`/${locale}${family.href}`}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-teal-50 transition-colors"
+                    >
+                      <family.icon className={cn("w-4 h-4", family.color)} />
+                      <span className="text-sm font-medium text-text-primary">
+                        {family.name}
+                      </span>
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
               <div className="mt-auto p-5 border-t space-y-3">
                 <LanguageSwitcher currentLocale={locale} />
               </div>

@@ -7,7 +7,7 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
-    "blog": "Blog",
+    "blog": "Report",
     "contact": "Contact"
   },
   "hero": {
@@ -36,8 +36,9 @@
     "items": [
       { "name": "Numa Nutrition", "icon": "leaf" },
       { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Maternity Essentials", "icon": "heart" },
-      { "name": "Battery Restaurant", "icon": "utensils" }
+      { "name": "Nabiviy Tabobat", "icon": "herb" },
+      { "name": "Bettery Restaurant", "icon": "utensils" },
+      { "name": "Bettery Ration", "icon": "salad" }
     ]
   },
   "promoBanner": {
@@ -170,8 +171,8 @@
     "storyText": "Numa Family was founded with the vision of creating a complete health ecosystem for families. We believe in the power of nature and strive to make personalized healthcare accessible to everyone."
   },
   "blog": {
-    "title": "Blog",
-    "subtitle": "Insights on health, wellness and family care",
+    "title": "Reports",
+    "subtitle": "Analytical reports on health, wellness and family care",
     "readMore": "Read More",
     "posts": [
       {

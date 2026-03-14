@@ -14,7 +14,7 @@ interface ProductShowcaseProps {
 
 export function ProductShowcase({ dict, locale }: ProductShowcaseProps) {
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-surface-secondary overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-16 bg-surface-secondary overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
         {/* Hero product card */}
         <motion.div
@@ -22,28 +22,34 @@ export function ProductShowcase({ dict, locale }: ProductShowcaseProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-[2rem] overflow-hidden bg-teal-900 mb-6"
+          className="relative rounded-[2rem] overflow-hidden bg-teal-900 mb-5"
         >
-          <div className="flex flex-col md:flex-row items-center">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-teal-800/50 to-transparent" />
+          </div>
+
+          <div className="relative z-10 flex flex-col md:flex-row items-center">
             {/* Product image */}
-            <div className="relative w-full md:w-1/2 h-72 sm:h-80 md:h-[460px]">
+            <div className="relative w-full md:w-1/2 h-64 sm:h-80 md:h-[420px]">
               <Image
                 src="/images/image 6.png"
                 alt="Numa Organic Syrup"
                 fill
-                className="object-contain p-8 md:p-14"
+                className="object-contain p-8 md:p-12"
               />
             </div>
 
             {/* Content */}
             <div className="w-full md:w-1/2 p-8 sm:p-10 md:p-14">
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-3 mb-4">
                 <Image src="/logo.svg" alt="Numa" width={28} height={28} className="h-6 w-auto opacity-70 invert" />
-                <span className="text-white/50 text-xs font-medium tracking-[0.2em] uppercase">NUMA</span>
               </div>
-              <p className="text-white/60 text-sm font-medium tracking-[0.15em] uppercase">
+              <p className="text-white/50 text-xs font-medium tracking-[0.2em] uppercase mb-2">
                 {dict.productShowcase.title}
               </p>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
+                {dict.productShowcase.sectionTitle}
+              </h3>
               <div className="flex flex-wrap gap-3 mt-8">
                 <Button className="rounded-full bg-white text-teal-900 hover:bg-white/90 px-7 h-11 text-sm font-medium">
                   {dict.productShowcase.cta}
@@ -56,8 +62,8 @@ export function ProductShowcase({ dict, locale }: ProductShowcaseProps) {
           </div>
         </motion.div>
 
-        {/* Product grid - 3 columns like hims reference */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
+        {/* Product grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {dict.productShowcase.items.map((item: { name: string; image: string }, i: number) => (
             <motion.div
               key={i}
@@ -67,8 +73,8 @@ export function ProductShowcase({ dict, locale }: ProductShowcaseProps) {
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
               <Link href={`/${locale}/products`} className="block group">
-                <div className="rounded-2xl overflow-hidden bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_24px_rgba(0,0,0,0.1)] transition-shadow duration-300">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-teal-50/50 to-white">
+                <div className="rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                  <div className="relative aspect-4/5 overflow-hidden bg-linear-to-br from-teal-50/80 to-white">
                     <Image
                       src={item.image}
                       alt={item.name.replace("\n", " ")}
@@ -93,7 +99,7 @@ export function ProductShowcase({ dict, locale }: ProductShowcaseProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-8 text-center"
+          className="mt-6 text-center"
         >
           <Link
             href={`/${locale}/products`}

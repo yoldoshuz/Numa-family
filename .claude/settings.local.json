@@ -14,7 +14,10 @@
       "Bash(cp -r src/components .)",
       "Bash(cp -r src/lib .)",
       "Bash(cp -r src/data .)",
-      "Bash(cp -r src/dictionaries .)"
+      "Bash(cp -r src/dictionaries .)",
+      "Bash(find /d/numa-family/src -type f \\\\\\(-name *.tsx -o -name *.ts -o -name *.css \\\\\\))",
+      "Bash(taskkill //f //im node.exe)",
+      "Bash(rm -rf .next/dev/lock)"
     ]
   }
 }

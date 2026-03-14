@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { FileText, ArrowRight } from "lucide-react";
 
 interface Props {
   dict: Dictionary;
@@ -34,16 +35,18 @@ const defaultStyle = { bg: "#f7f6f3", text: "#6b6b65" };
 export function BlogPageClient({ dict }: Props) {
   return (
     <div className="pt-14 sm:pt-16">
-      <section className="section-padding bg-white">
+      <section className="py-16 md:py-24 lg:py-32 bg-white">
         <Container size="lg">
           <AnimatedSection className="mb-12 sm:mb-16">
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-teal mb-4">
-              <span className="w-5 h-px bg-teal" />
-              Blog
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-text-primary leading-[1.08]"
-            >
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
+                <FileText className="w-5 h-5 text-teal" />
+              </div>
+              <span className="text-sm font-semibold text-teal uppercase tracking-wider">
+                {dict.blog.title}
+              </span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-text-primary leading-[1.08]">
               {dict.blog.title}
             </h1>
             <p className="mt-3 text-base text-text-secondary max-w-lg">
@@ -56,9 +59,11 @@ export function BlogPageClient({ dict }: Props) {
               const catStyle = CATEGORY_COLORS[post.category] || defaultStyle;
               return (
                 <AnimatedSection key={index} delay={index * 0.08} animation="fadeUp">
-                  <Card className="overflow-hidden cursor-pointer h-full border hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group">
-                    <div className="relative h-44 sm:h-48 bg-surface-secondary flex items-center justify-center overflow-hidden">
-                      <div className="text-5xl opacity-25 group-hover:scale-110 transition-transform duration-500 select-none">📖</div>
+                  <Card className="overflow-hidden cursor-pointer h-full border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group rounded-2xl">
+                    <div className="relative h-44 sm:h-48 bg-gradient-to-br from-teal-50 to-surface-secondary flex items-center justify-center overflow-hidden">
+                      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/80 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                        <FileText className="w-7 h-7 text-teal/60" />
+                      </div>
                     </div>
                     <CardContent className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-3 mb-3">
@@ -73,11 +78,9 @@ export function BlogPageClient({ dict }: Props) {
                         {post.title}
                       </h3>
                       <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-                      <div className="flex items-center gap-1.5 text-sm font-medium text-teal mt-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-1.5 text-sm font-medium text-teal mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
                         {dict.blog.readMore}
-                        <svg className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                        <ArrowRight className="w-3.5 h-3.5" />
                       </div>
                     </CardContent>
                   </Card>

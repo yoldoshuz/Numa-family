@@ -40,7 +40,7 @@ export function BestCare({ dict }: BestCareProps) {
           {[16, 17, 18, 20].map((num) => (
             <div
               key={num}
-              className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-teal-50 group"
+              className="relative aspect-3/4 rounded-2xl overflow-hidden bg-teal-50 group"
             >
               <Image
                 src={`/images/image ${num}.png`}
