@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { ChevronRight } from "lucide-react";
 
 interface HeroProps {
   dict: Dictionary;
@@ -48,7 +49,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <Link
               key={i}
               href={`/${locale}/products`}
-              className="w-full flex flex-col md:flex-row h-48 justify-between flex-1 rounded-2xl overflow-hidden bg-teal-700 border border-white/20 transition-all duration-300 group"
+              className="w-full flex flex-col md:flex-row h-48 justify-between flex-1 rounded-2xl overflow-hidden bg-linear-to-tr from-teal-600 to-teal-700 border border-white/20 transition-all duration-300 group"
             >
               <div className="flex flex-col justify-between p-3 sm:p-4">
                 <div>
@@ -56,7 +57,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   <p className="text-sm sm:text-base font-bold mt-0.5">{item.subtitle}</p>
                 </div>
                 <div>
-                  <span className="inline-block mt-2 text-[10px] sm:text-xs bg-white/15 px-2 py-0.5 rounded-full">
+                  <span className="inline-block mt-2 text-xs sm:text-base font-bold bg-white/15 px-2 py-0.5 rounded-full">
                     {item.badge}
                   </span>
                 </div>
@@ -81,16 +82,17 @@ export function Hero({ dict, locale }: HeroProps) {
           transition={{ delay: 0.5, duration: 0.5 }}
           className="mt-1 flex flex-1 flex-wrap gap-1 overflow-x-auto text-teal-800 font-bold  hide-scrollbar pb-2"
         >
-          {dict.subCategories.items.map((item: { name: string; icon: string }, i: number) => (
+          {dict.subCategories.items.map((item: { name: string; description: string; icon: string }, i: number) => (
             <Link
               key={i}
               href={`/${locale}/products`}
-              className="shrink-0 h-24 flex flex-1 items-center gap-2 bg-teal-100/70 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-2 sm:px-5 sm:py-2.5 hover:bg-teal-100 transition-colors group"
+              className="shrink-0 h-24 flex flex-1 items-center justify-between gap-2 bg-teal-100/70 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-2 sm:px-5 sm:py-2.5 hover:bg-teal-100 transition-colors group"
             >
-              <span className="text-base whitespace-nowrap">{item.name}</span>
-              <svg className="w-3.5 h-3.5 text-white/50 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <div className="flex flex-col">
+                <span className="text-base whitespace-nowrap">{item.name}</span>
+                <span className="text-sm whitespace-nowrap font-medium">{item.description}</span>
+              </div>
+              <ChevronRight />
             </Link>
           ))}
         </motion.div>

@@ -27,18 +27,38 @@
       {
         "title": "Получите силу",
         "subtitle": "которой доверяете",
-        "badge": "Новинка",
+        "badge": "-22%",
         "image": "/images/image 4.png"
       }
     ]
   },
   "subCategories": {
     "items": [
-      { "name": "Numa Nutrition", "icon": "leaf" },
-      { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Nabiviy Tabobat", "icon": "herb" },
-      { "name": "Bettery Restaurant", "icon": "utensils" },
-      { "name": "Bettery Ration", "icon": "salad" }
+      {
+        "name": "Numa Nutrition",
+        "description": "Питание и витамины",
+        "icon": "leaf"
+      },
+      {
+        "name": "Numa Kids",
+        "description": "Здоровье детей",
+        "icon": "baby"
+      },
+      {
+        "name": "Nabaviy Tabobat",
+        "description": "Здоровое тело",
+        "icon": "herb"
+      },
+      {
+        "name": "Bettery Restaurant",
+        "description": "Ресторан здорового питания",
+        "icon": "utensils"
+      },
+      {
+        "name": "Bettery Ration",
+        "description": "Рацион здорового питания",
+        "icon": "salad"
+      }
     ]
   },
   "promoBanner": {
@@ -52,9 +72,18 @@
     "cta2": "Узнать больше",
     "sectionTitle": "DETOX HEPAR ENERGY",
     "items": [
-      { "name": "Лотос\nЧёрный тмин", "image": "/images/image 9.png" },
-      { "name": "Detox\nHepar Energy", "image": "/images/image 10.png" },
-      { "name": "Igneus\nИммунитет", "image": "/images/image 11.png" }
+      {
+        "name": "Лотос\nЧёрный тмин",
+        "image": "/images/image 9.png"
+      },
+      {
+        "name": "Detox\nHepar Energy",
+        "image": "/images/image 10.png"
+      },
+      {
+        "name": "Igneus\nИммунитет",
+        "image": "/images/image 11.png"
+      }
     ],
     "viewAll": "Смотреть все"
   },
@@ -166,7 +195,12 @@
     "mission": "Наша миссия",
     "missionText": "Создание комплексной платформы здоровья, которая помогает семьям взять контроль над своим здоровьем через лучшие природные ингредиенты.",
     "values": "Наши ценности",
-    "valuesItems": ["Натуральность", "Качество", "Семья прежде всего", "Инновации"],
+    "valuesItems": [
+      "Натуральность",
+      "Качество",
+      "Семья прежде всего",
+      "Инновации"
+    ],
     "story": "Наша история",
     "storyText": "Numa Family основана с целью создать полную экосистему здоровья для семей. Мы верим в силу природы и стремимся сделать персонализированное здравоохранение доступным для каждого."
   },

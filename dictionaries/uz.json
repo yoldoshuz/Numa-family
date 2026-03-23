@@ -27,18 +27,38 @@
       {
         "title": "Kuch oling",
         "subtitle": "ishonchli",
-        "badge": "Yangi",
+        "badge": "-22%",
         "image": "/images/image 4.png"
       }
     ]
   },
   "subCategories": {
     "items": [
-      { "name": "Numa Nutrition", "icon": "leaf" },
-      { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Nabiviy Tabobat", "icon": "herb" },
-      { "name": "Bettery Restaurant", "icon": "utensils" },
-      { "name": "Bettery Ration", "icon": "salad" }
+      {
+        "name": "Numa Nutrition",
+        "description": "Oziqlanish va vitaminlar",
+        "icon": "leaf"
+      },
+      {
+        "name": "Numa Kids",
+        "description": "Bolalar salomatligi",
+        "icon": "baby"
+      },
+      {
+        "name": "Nabaviy Tabobat",
+        "description": "Sog'lom tana",
+        "icon": "herb"
+      },
+      {
+        "name": "Bettery Restaurant",
+        "description": "Sog'lom ovqatlanish restorani",
+        "icon": "utensils"
+      },
+      {
+        "name": "Bettery Ration",
+        "description": "Sog'lom ovqatlanish rasioni",
+        "icon": "salad"
+      }
     ]
   },
   "promoBanner": {
@@ -52,9 +72,18 @@
     "cta2": "Batafsil",
     "sectionTitle": "DETOX HEPAR ENERGY",
     "items": [
-      { "name": "Lotus\nQora sedana", "image": "/images/image 9.png" },
-      { "name": "Detox\nHepar Energy", "image": "/images/image 10.png" },
-      { "name": "Igneus\nImmunitet", "image": "/images/image 11.png" }
+      {
+        "name": "Lotus\nQora sedana",
+        "image": "/images/image 9.png"
+      },
+      {
+        "name": "Detox\nHepar Energy",
+        "image": "/images/image 10.png"
+      },
+      {
+        "name": "Igneus\nImmunitet",
+        "image": "/images/image 11.png"
+      }
     ],
     "viewAll": "Hammasini ko'rish"
   },
@@ -166,7 +195,12 @@
     "mission": "Bizning vazifamiz",
     "missionText": "Oilalarga tabiatning eng yaxshi ingredientlari orqali sog'lig'ini nazorat qilish imkonini beruvchi keng qamrovli sog'liq platformasi yaratish.",
     "values": "Bizning qadriyatlarimiz",
-    "valuesItems": ["Tabiiylik", "Sifat", "Oila avvalo", "Innovatsiya"],
+    "valuesItems": [
+      "Tabiiylik",
+      "Sifat",
+      "Oila avvalo",
+      "Innovatsiya"
+    ],
     "story": "Bizning tarixim",
     "storyText": "Numa Family oilalar uchun to'liq sog'liq ekotizimini yaratish maqsadida tashkil etilgan. Biz tabiat kuchiga ishonamiz va shaxsiylashtirilgan sog'liqni saqlashni hamma uchun qulay qilishga intilamiz."
   },

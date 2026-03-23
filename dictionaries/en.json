@@ -21,24 +21,44 @@
       {
         "title": "Lose weight",
         "subtitle": "your way",
-        "badge": "from $69/mo",
+        "badge": "from 69 000 sum/month",
         "image": "/images/image 2.png"
       },
       {
         "title": "Get the strength",
         "subtitle": "you can trust",
-        "badge": "New",
+        "badge": "-22%",
         "image": "/images/image 4.png"
       }
     ]
   },
   "subCategories": {
     "items": [
-      { "name": "Numa Nutrition", "icon": "leaf" },
-      { "name": "Numa Kids", "icon": "baby" },
-      { "name": "Nabiviy Tabobat", "icon": "herb" },
-      { "name": "Bettery Restaurant", "icon": "utensils" },
-      { "name": "Bettery Ration", "icon": "salad" }
+      {
+        "name": "Numa Nutrition",
+        "description": "Nutrition and vitamins",
+        "icon": "leaf"
+      },
+      {
+        "name": "Numa Kids",
+        "description": "Children's health",
+        "icon": "baby"
+      },
+      {
+        "name": "Nabaviy Tabobat",
+        "description": "Healthy body",
+        "icon": "herb"
+      },
+      {
+        "name": "Bettery Restaurant",
+        "description": "Healthy food restaurant",
+        "icon": "utensils"
+      },
+      {
+        "name": "Bettery Ration",
+        "description": "Healthy diet plan",
+        "icon": "salad"
+      }
     ]
   },
   "promoBanner": {
@@ -52,9 +72,18 @@
     "cta2": "Learn more",
     "sectionTitle": "DETOX HEPAR ENERGY",
     "items": [
-      { "name": "Lotus\nBlack seed", "image": "/images/image 9.png" },
-      { "name": "Detox\nHepar Energy", "image": "/images/image 10.png" },
-      { "name": "Igneus\nImmunity", "image": "/images/image 11.png" }
+      {
+        "name": "Lotus\nBlack seed",
+        "image": "/images/image 9.png"
+      },
+      {
+        "name": "Detox\nHepar Energy",
+        "image": "/images/image 10.png"
+      },
+      {
+        "name": "Igneus\nImmunity",
+        "image": "/images/image 11.png"
+      }
     ],
     "viewAll": "View all"
   },
@@ -166,7 +195,12 @@
     "mission": "Our Mission",
     "missionText": "Creating a comprehensive health platform that empowers families to take control of their wellness through nature's finest ingredients.",
     "values": "Our Values",
-    "valuesItems": ["Natural", "Quality", "Family First", "Innovation"],
+    "valuesItems": [
+      "Natural",
+      "Quality",
+      "Family First",
+      "Innovation"
+    ],
     "story": "Our Story",
     "storyText": "Numa Family was founded with the vision of creating a complete health ecosystem for families. We believe in the power of nature and strive to make personalized healthcare accessible to everyone."
   },

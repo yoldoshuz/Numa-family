@@ -12,48 +12,45 @@ interface PromoBannerProps {
 export function PromoBanner({ dict }: PromoBannerProps) {
   return (
     <section className="py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
-      <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto max-w-350 px-2 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-[2rem] overflow-hidden bg-linear-to-br from-teal-900 via-teal-800 to-teal-700 min-h-[400px] md:min-h-[480px] lg:min-h-[520px]"
+          className="relative flex items-center rounded-3xl overflow-hidden bg-teal-800 min-h-125 md:min-h-150"
         >
-          {/* Background decorative elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-white/5 blur-[80px]" />
-            <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] rounded-full bg-teal-light/10 blur-[60px]" />
-          </div>
-
-          <div className="relative z-10 flex flex-col md:flex-row items-center h-full">
-            {/* Image side */}
-            <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-[520px] flex items-center justify-center">
+          {/* Background Image Container */}
+          <div className="absolute inset-0 z-0 flex justify-center items-center pointer-events-none">
+            <div className="relative w-[60%] sm:w-[50%] md:w-[45%] h-full opacity-50 md:opacity-100">
               <Image
-                src="/images/image 5.png"
+                src="/images/endomarine.png"
                 alt="Natural wellness"
                 fill
-                className="object-contain p-8 md:p-12 drop-shadow-2xl"
+                className="object-contain object-bottom-right"
+                priority
               />
             </div>
+          </div>
 
-            {/* Content side */}
-            <div className="w-full md:w-1/2 p-8 sm:p-10 md:p-14 lg:p-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight">
-                {dict.promoBanner.title}{" "}
-                <span className="text-teal-300">{dict.promoBanner.highlight}</span>
-              </h2>
-              <p className="mt-5 md:mt-6 text-white/70 text-base sm:text-lg max-w-md leading-relaxed">
-                {dict.promoBanner.description}
-              </p>
-              <div className="flex flex-wrap gap-3 mt-8">
-                <Button className="rounded-full bg-white text-teal-900 hover:bg-white/90 px-8 h-12 text-sm font-medium shadow-lg">
-                  {dict.productShowcase.cta}
-                </Button>
-                <Button variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 px-8 h-12 text-sm font-medium">
-                  {dict.productShowcase.cta2}
-                </Button>
-              </div>
+          {/* Overlay Gradient for better text readability */}
+          <div className="absolute inset-0 bg-linear-to-r from-teal-950 via-teal-900/60 to-transparent z-1" />
+          {/* Content side */}
+          <div className="relative w-full md:w-2/3 p-8 sm:p-10 md:p-14 lg:p-16 z-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-tight">
+              {dict.promoBanner.title}{" "}
+              <span className="text-teal-300">{dict.promoBanner.highlight}</span>
+            </h2>
+            <p className="mt-5 md:mt-6 text-white/80 text-base sm:text-lg max-w-md leading-relaxed">
+              {dict.promoBanner.description}
+            </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              <Button className="rounded-full bg-white text-teal-900 hover:bg-white/90 px-8 h-12 text-sm font-medium shadow-lg">
+                {dict.productShowcase.cta}
+              </Button>
+              <Button variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 px-8 h-12 text-sm font-medium">
+                {dict.productShowcase.cta2}
+              </Button>
             </div>
           </div>
         </motion.div>
