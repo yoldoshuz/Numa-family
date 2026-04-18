@@ -1,261 +1,215 @@
 {
   "meta": {
-    "title": "Numa Family — Health Ecosystem for the Whole Family",
-    "description": "Numa Family — a complete health ecosystem. Nutrition, kids health, maternity care, biomarker testing, cancer screening, and personalized wellness plans for your entire family.",
-    "keywords": "Numa Family, health ecosystem, nutrition, kids health, maternity, biomarkers, cancer screening, wellness, natural products, family health"
+    "title": "Numa Family — Health ecosystem for the whole family",
+    "description": "Numa Family is a complete health ecosystem. Nutrition, kids' health, motherhood, biomarker testing, cancer screening and personalized wellness plans for the whole family.",
+    "keywords": "Numa Family, health ecosystem, nutrition, kids health, biomarkers, cancer screening, family health"
   },
   "nav": {
     "home": "Home",
-    "about": "About Us",
-    "blog": "Report",
-    "contact": "Contact"
+    "about": "About",
+    "blog": "Articles",
+    "contact": "Contact",
+    "consultation": "Consultation"
   },
   "hero": {
     "title": "Health ecosystem",
     "subtitle": "for the whole family",
-    "description": "A complete platform for personalized health — from nutrition and wellness products to advanced biomarker testing and cancer screening."
-  },
-  "categories": {
-    "title": "Explore Our Ecosystem",
-    "items": [
-      {
-        "title": "Lose weight",
-        "subtitle": "your way",
-        "badge": "from 69 000 sum/month",
-        "image": "/images/image 2.png"
-      },
-      {
-        "title": "Get the strength",
-        "subtitle": "you can trust",
-        "badge": "-22%",
-        "image": "/images/image 4.png"
-      }
-    ]
-  },
-  "subCategories": {
-    "items": [
+    "top": [
       {
         "name": "Numa Nutrition",
-        "description": "Nutrition and vitamins",
-        "icon": "leaf"
+        "tagline": "Nutrition & vitamins",
+        "image": "/images/image 19.png"
       },
       {
         "name": "Numa Kids",
-        "description": "Children's health",
-        "icon": "baby"
-      },
+        "tagline": "Kids' health",
+        "image": "/images/image 27.png"
+      }
+    ],
+    "bottom": [
       {
         "name": "Nabaviy Tabobat",
-        "description": "Healthy body",
-        "icon": "herb"
+        "tagline": "Healthy body",
+        "image": "/images/image 8.png"
       },
       {
         "name": "Bettery Restaurant",
-        "description": "Healthy food restaurant",
-        "icon": "utensils"
+        "tagline": "Healthy food restaurant",
+        "image": "/images/image 8.png"
       },
       {
         "name": "Bettery Ration",
-        "description": "Healthy diet plan",
-        "icon": "salad"
+        "tagline": "Healthy meal plans",
+        "image": "/images/image 8.png"
       }
     ]
   },
-  "promoBanner": {
-    "title": "Get your edge back with",
-    "highlight": "natural power by Numa",
-    "description": "Clinically tested, 100% natural formulas designed to restore your vitality and boost energy levels."
-  },
-  "productShowcase": {
-    "title": "100% ORGANIC SYRUP",
-    "cta": "Get started",
-    "cta2": "Learn more",
-    "sectionTitle": "DETOX HEPAR ENERGY",
-    "items": [
-      {
-        "name": "Lotus\nBlack seed",
-        "image": "/images/image 9.png"
-      },
-      {
-        "name": "Detox\nHepar Energy",
-        "image": "/images/image 10.png"
-      },
-      {
-        "name": "Igneus\nImmunity",
-        "image": "/images/image 11.png"
-      }
+  "naturalSupport": {
+    "eyebrow": "Natural health support",
+    "heading": "Your solution for a",
+    "headingAccent": "healthy lifestyle",
+    "discount": "Upgrade your health with a 22% discount",
+    "startedCta": "Get started",
+    "title": "Natural syrups",
+    "highlight": "for wellness",
+    "description": "Clinically proven, 100% natural formulas crafted to restore vitality and boost energy.",
+    "cta": "Buy now",
+    "ctaSecondary": "Learn more",
+    "ourProducts": "Our products",
+    "ourProductsDescription": "Natural, expert-crafted formulas. Pick what fits you best.",
+    "allProducts": "All products",
+    "priceFrom": "from {price} UZS",
+    "badges": { "new": "New", "best": "Best choice", "popular": "Popular" },
+    "products": [
+      { "name": "Lotus", "tagline": "Black seed", "description": "Immune and vitality support", "price": "150,000", "badge": "new", "model": "/3d/nutrition/Bonny.glb" },
+      { "name": "Detox", "tagline": "Hepar Energy", "description": "Liver cleanse and detox", "price": "185,000", "badge": "best", "model": "/3d/nutrition/1.glb" },
+      { "name": "Igneus", "tagline": "Immunity", "description": "Energy and resilience", "price": "165,000", "badge": "popular", "model": "/3d/nutrition/2.glb" },
+      { "name": "Insulin", "tagline": "Balance", "description": "Blood sugar and metabolism", "price": "210,000", "badge": "new", "model": "/3d/Insulin/insulin balance blend.glb" },
+      { "name": "Insulin+", "tagline": "Formula", "description": "Enhanced balance formula", "price": "240,000", "badge": "best", "model": "/3d/Insulin/insulin balance blend 2.glb" },
+      { "name": "Tabobat", "tagline": "Classic", "description": "Traditional herbal elixir", "price": "130,000", "badge": "popular", "model": "/3d/Tabobat/tabobat sam 1.glb" },
+      { "name": "Tabobat+", "tagline": "Premium", "description": "Premium herbal formula", "price": "175,000", "badge": "best", "model": "/3d/Tabobat/tabobat sam 2.glb" },
+      { "name": "Tabobat Q", "tagline": "Herbal", "description": "Plant extracts", "price": "155,000", "badge": "new", "model": "/3d/Tabobat/tabobat sam 1q.glb" }
     ],
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "marquee": [
+      "Test 130+ biomarkers",
+      "Screen 50+ cancer types",
+      "Personal health plan",
+      "100% natural formulas",
+      "Clinically proven",
+      "Expert support",
+      "Best care for your family"
+    ]
   },
-  "healthJourney": {
-    "findBaseline": {
-      "title": "Find your",
-      "highlight": "baseline",
-      "description": "Check key health metrics and understand your current state with comprehensive biomarker testing."
-    },
-    "planBreakthrough": {
-      "title": "Plan your",
-      "highlight": "breakthrough",
-      "description": "Receive personalized wellness plans based on your results with expert guidance."
-    },
-    "cta": "Explore the plan"
-  },
-  "testing": {
+  "healthPlan": {
+    "title": "Create your",
+    "highlight": "health plan",
+    "description": "Find your baseline and get a personalized wellness plan.",
     "biomarkers": {
-      "title": "Test 130+ biomarkers",
-      "description": "Comprehensive blood panel covering vitamins, hormones, metabolic markers, inflammation indicators and more."
+      "title": "Test 130+\nbiomarkers",
+      "description": "Comprehensive blood panel: vitamins, hormones, metabolic markers, inflammation indicators.",
+      "cta": "See markers"
     },
     "cancer": {
-      "title": "Screen for 50+ types of cancer",
-      "description": "Multi-cancer early detection screening using the latest diagnostic technologies."
-    },
-    "disclaimer": "Biomarker testing available through partner labs. Results reviewed by licensed healthcare providers.",
-    "biomarkersCta": "View the markers",
-    "cancerCta": "Learn more"
+      "title": "Screen for 50+\ntypes of cancer",
+      "description": "Multi-cancer early detection using the latest diagnostic technology.",
+      "cta": "Learn more"
+    }
+  },
+  "omega": {
+    "eyebrow": "Omega 3-6-9",
+    "title": "Science meets",
+    "highlight": "nature",
+    "description": "Unlock the true power of Omega 3-6-9 — for your heart, mind and skin.",
+    "cta": "Get started",
+    "items": [
+      { "title": "Regrow your hair\nin 3-6 months", "image": "/images/image 16.png" },
+      { "title": "Stop hair loss\nand strengthen follicles", "image": "/images/image 17.png" },
+      { "title": "Clear mind &\nstrong heart", "image": "/images/image 18.png" },
+      { "title": "Cognitive\nsupport every day", "image": "/images/image 20.png" },
+      { "title": "Healthy skin\nand joints", "image": "/images/image 21.png" },
+      { "title": "Balance hormones\nand mood", "image": "/images/image 22.png" }
+    ]
   },
   "bestCare": {
-    "title": "The best care",
-    "subtitle": "by the best in medicine",
-    "description": "Connect with our team of leading specialists with decades of comprehensive practice across key specialties."
+    "title": "The best care for your health",
+    "subtitle": "from the best specialists",
+    "description": "Get in touch with our team of leading specialists with decades of practice."
+  },
+  "articles": {
+    "title": "Latest articles",
+    "subtitle": "Expert reads on health, nutrition and family care",
+    "readMore": "Read more",
+    "readTime": "min read",
+    "empty": "Articles are coming soon",
+    "error": "Failed to load articles",
+    "viewAll": "View all articles"
   },
   "emailSignup": {
     "title": "Unlock the free Guide to Protein for Weight Loss",
-    "description": "Power up your weight loss with protein-rich nutrition backed by experts.",
+    "description": "Boost your weight loss with expert-backed protein nutrition.",
     "placeholder": "Email",
     "cta": "Get the guide",
-    "disclaimer": "By submitting, you agree to receive marketing communications from Numa Family."
+    "disclaimer": "By submitting the form, you agree to receive marketing emails from Numa Family."
   },
   "footer": {
-    "tagline": "Total care.\nTotally different.",
+    "tagline": "Full care.\nCompletely different.",
     "description": "Numa Family is a health and wellness platform. All products are 100% natural and meet international quality standards.",
-    "learnMore": "Learn More",
+    "learnMore": "Learn more",
     "links": {
-      "weightLoss": "Weight Loss",
-      "sexualHealth": "Sexual Health",
+      "weightLoss": "Weight loss",
+      "sexualHealth": "Sexual health",
       "testosterone": "Testosterone",
-      "hairRegrowth": "Hair Regrowth",
-      "mentalHealth": "Mental Health",
-      "drugComparisons": "Drug Comparisons",
-      "drugsAndMedications": "Drugs & Medications",
-      "aboutTheCompany": "About the Company"
+      "hairRegrowth": "Hair regrowth",
+      "mentalHealth": "Mental health",
+      "drugComparisons": "Drug comparisons",
+      "drugsAndMedications": "Drugs & medications",
+      "aboutTheCompany": "About the company"
     },
     "tools": {
       "title": "Tools",
-      "bmiCalculator": "BMI Calculator",
-      "tdeeCalculator": "TDEE Calculator",
-      "calorieDeficitCalculator": "Calorie Deficit Calculator",
-      "proteinCalculator": "Protein Calculator",
-      "waterIntakeCalculator": "Water Intake Calculator"
+      "bmiCalculator": "BMI calculator",
+      "tdeeCalculator": "TDEE calculator",
+      "calorieDeficitCalculator": "Calorie deficit",
+      "proteinCalculator": "Protein calculator",
+      "waterIntakeCalculator": "Water intake"
     },
     "treatments": {
-      "title": "Treatments",
-      "glp1Injections": "GLP-1 Injections",
+      "title": "Products",
+      "glp1Injections": "GLP-1 injections",
       "sildenafil": "Sildenafil",
       "cialis": "Cialis",
       "tadalafil": "Tadalafil",
-      "minoxidilSolution": "Minoxidil Solution",
-      "finasteridePills": "Finasteride Pills",
-      "topicalFinasteride": "Topical Finasteride",
-      "sertralineForPe": "Sertraline for PE",
-      "sertraline": "Sertraline",
-      "buspirone": "Buspirone"
+      "minoxidilSolution": "Minoxidil solution",
+      "finasteridePills": "Finasteride"
     },
     "resources": {
       "title": "Resources",
       "editorial": "Editorial",
       "research": "Research",
-      "waterInfo": "Water Info",
-      "digestHealth": "Digest Health",
-      "howItWorks": "How It Works",
-      "clinicalStudies": "Clinical Studies",
-      "healthAndSafety": "Health & Safety",
-      "survivalStatistics": "Survival Statistics",
+      "howItWorks": "How it works",
+      "clinicalStudies": "Clinical studies",
       "press": "Press"
     },
     "support": {
       "title": "Support",
-      "professionals": "Professionals",
-      "providers": "Providers",
-      "customerHelpCenter": "Customer Help Center",
-      "pressCenter": "Press Center"
+      "professionals": "For professionals",
+      "providers": "For providers",
+      "customerHelpCenter": "Help center",
+      "pressCenter": "Press center"
     },
-    "social": {
-      "facebook": "Facebook",
-      "twitter": "Twitter",
-      "instagram": "Instagram",
-      "youtube": "YouTube"
-    },
-    "legal": "Terms & Conditions | Privacy Policy | Telehealth Consent | Supplier Code of Conduct | Health Related Privacy Policy",
+    "legal": "Terms of use | Privacy policy | Telemedicine consent",
     "copyright": "Numa Family Inc. All rights reserved. Numa and NUMA are trademarks of Numa, Inc.",
     "rights": "All rights reserved."
   },
   "about": {
     "title": "About Numa Family",
-    "description": "We are a health ecosystem that brings families back to nature through innovative wellness solutions. Our mission is to help everyone achieve optimal health with personalized care and 100% natural products.",
-    "mission": "Our Mission",
-    "missionText": "Creating a comprehensive health platform that empowers families to take control of their wellness through nature's finest ingredients.",
-    "values": "Our Values",
-    "valuesItems": [
-      "Natural",
-      "Quality",
-      "Family First",
-      "Innovation"
-    ],
-    "story": "Our Story",
-    "storyText": "Numa Family was founded with the vision of creating a complete health ecosystem for families. We believe in the power of nature and strive to make personalized healthcare accessible to everyone."
+    "description": "We are a health ecosystem returning families to nature through innovative wellness solutions.",
+    "mission": "Our mission",
+    "missionText": "Building a complete health platform that helps families take control of their health.",
+    "values": "Our values",
+    "valuesItems": ["Natural", "Quality", "Family first", "Innovation"],
+    "story": "Our story",
+    "storyText": "Numa Family was founded to create a complete health ecosystem for families."
   },
   "blog": {
-    "title": "Reports",
-    "subtitle": "Analytical reports on health, wellness and family care",
-    "readMore": "Read More",
-    "posts": [
-      {
-        "title": "Why Detox Is Important for Your Body",
-        "excerpt": "Learn how proper body cleansing can improve your well-being and boost energy.",
-        "category": "Health",
-        "date": "2024-01-15"
-      },
-      {
-        "title": "Omega 3-6-9: Complete Guide",
-        "excerpt": "Everything you need to know about fatty acids and their impact on heart and brain health.",
-        "category": "Nutrition",
-        "date": "2024-01-10"
-      },
-      {
-        "title": "Biomarker Testing: What You Need to Know",
-        "excerpt": "Understanding your body through comprehensive biomarker testing for better health outcomes.",
-        "category": "Testing",
-        "date": "2024-01-05"
-      },
-      {
-        "title": "Family Nutrition Planning",
-        "excerpt": "How to create a balanced nutrition plan that works for every member of your family.",
-        "category": "Family",
-        "date": "2023-12-28"
-      },
-      {
-        "title": "Kids Health: Building Strong Immunity",
-        "excerpt": "Natural ways to boost your children's immune system for year-round protection.",
-        "category": "Kids",
-        "date": "2023-12-20"
-      },
-      {
-        "title": "Natural Products vs Synthetic Supplements",
-        "excerpt": "Advantages of natural ingredients over synthetic alternatives.",
-        "category": "Nutrition",
-        "date": "2023-12-15"
-      }
-    ]
+    "title": "Articles",
+    "subtitle": "Expert reads on health, wellness and family care",
+    "readMore": "Read more",
+    "readTime": "min read",
+    "empty": "Articles are coming soon",
+    "error": "Failed to load articles",
+    "loading": "Loading..."
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "We're always ready to help you",
+    "title": "Get in touch",
+    "subtitle": "We are always ready to help",
     "phone": "+998 55 516-77-77",
-    "address": "31 Elbek Street, Tashkent 100047, Uzbekistan",
+    "address": "31 Elbek str., Tashkent 100047, Uzbekistan",
     "email": "info@numafamily.uz",
-    "workingHours": "Mon-Sat: 9:00 AM - 6:00 PM",
-    "sendMessage": "Send Message",
-    "name": "Your Name",
+    "workingHours": "Mon-Sat: 9:00 - 18:00",
+    "sendMessage": "Send message",
+    "name": "Your name",
     "message": "Message"
   }
 }

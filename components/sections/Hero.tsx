@@ -3,9 +3,9 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-import { ChevronRight } from "lucide-react";
 
 interface HeroProps {
   dict: Dictionary;
@@ -14,85 +14,92 @@ interface HeroProps {
 
 export function Hero({ dict, locale }: HeroProps) {
   return (
-    <section className="relative flex flex-col overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-white/5 blur-[120px]" />
-        <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] rounded-full bg-black/10 blur-[100px]" />
-      </div>
-
-      <div className="container-wide relative z-10 flex flex-col pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20">
-        {/* Hero Title */}
-        <motion.div
+    <section className="relative overflow-hidden bg-white">
+      <div className="container-wide relative z-10 pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="max-w-3xl"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] tracking-tight max-w-4xl"
         >
-          <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.05]"
-          >
-            <span className="text-teal-700">{dict.hero.title}</span>
-            <br />
-            {dict.hero.subtitle}
-          </h1>
-        </motion.div>
+          <span className="text-teal-700">{dict.hero.title}</span>
+          <br />
+          <span className="text-text-primary">{dict.hero.subtitle}</span>
+        </motion.h1>
 
-        {/* Category Cards */}
+        {/* Top row - 2 cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-8 sm:mt-12 flex items-center justify-start flex-1 flex-wrap text-white gap-1 overflow-x-auto hide-scrollbar pb-1"
+          transition={{ delay: 0.25, duration: 0.6 }}
+          className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-4"
         >
-          {dict.categories.items.map((item: { title: string; subtitle: string; badge: string; image: string }, i: number) => (
+          {dict.hero.top.map((item, i: number) => (
             <Link
               key={i}
               href={`/${locale}/products`}
-              className="w-full flex flex-col md:flex-row h-48 justify-between flex-1 rounded-2xl overflow-hidden bg-linear-to-tr from-teal-600 to-teal-700 border border-white/20 transition-all duration-300 group"
+              className="relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-44 sm:h-48 md:h-56 group transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="flex flex-col justify-between p-3 sm:p-4">
+              <div className="flex flex-col justify-between p-4 sm:p-5 z-10 max-w-[55%]">
                 <div>
-                  <p className="text-xs font-medium">{item.title}</p>
-                  <p className="text-sm sm:text-base font-bold mt-0.5">{item.subtitle}</p>
+                  <p className="text-xs sm:text-sm font-medium text-white/80">
+                    {item.name}
+                  </p>
+                  <p className="text-sm sm:text-lg md:text-xl font-semibold mt-1 leading-tight">
+                    {item.tagline}
+                  </p>
                 </div>
-                <div>
-                  <span className="inline-block mt-2 text-xs sm:text-base font-bold bg-white/15 px-2 py-0.5 rounded-full">
-                    {item.badge}
-                  </span>
-                </div>
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/70" />
               </div>
-              <div className="flex items-start md:items-end justify-end h-full px-8 overflow-hidden">
+              <div className="relative w-[45%] md:w-[42%] h-full overflow-hidden">
                 <Image
-                  src={`${i === 1 ? "/images/image 10.png" : "/images/endomarine.png"}`}
-                  alt="endomarine"
-                  width={48}
-                  height={48}
-                  className="object-cover"
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width:640px) 45vw, 200px"
+                  className="object-contain object-right-bottom p-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110"
+                  priority={i === 0}
                 />
               </div>
             </Link>
           ))}
         </motion.div>
 
-        {/* Sub-category pills */}
+        {/* Bottom row - 3 cards */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-          className="mt-1 flex flex-1 flex-wrap gap-1 overflow-x-auto text-teal-800 font-bold  hide-scrollbar pb-2"
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="mt-2 sm:mt-4 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4"
         >
-          {dict.subCategories.items.map((item: { name: string; description: string; icon: string }, i: number) => (
+          {dict.hero.bottom.map((item, i: number) => (
             <Link
               key={i}
               href={`/${locale}/products`}
-              className="shrink-0 h-24 flex flex-1 items-center justify-between gap-2 bg-teal-100/70 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-2 sm:px-5 sm:py-2.5 hover:bg-teal-100 transition-colors group"
+              className={`relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-36 sm:h-40 md:h-44 group transition-transform duration-300 hover:-translate-y-1 ${
+                i === 2 ? "col-span-2 lg:col-span-1" : ""
+              }`}
             >
-              <div className="flex flex-col">
-                <span className="text-base whitespace-nowrap">{item.name}</span>
-                <span className="text-sm whitespace-nowrap font-medium">{item.description}</span>
+              <div className="flex flex-col justify-between p-4 sm:p-5 z-10 max-w-[55%]">
+                <div>
+                  <p className="text-xs sm:text-sm font-medium text-white/80">
+                    {item.name}
+                  </p>
+                  <p className="text-sm sm:text-base md:text-lg font-semibold mt-1 leading-tight">
+                    {item.tagline}
+                  </p>
+                </div>
+                <ChevronRight className="w-4 h-4 text-white/70" />
               </div>
-              <ChevronRight />
+              <div className="relative w-[42%] md:w-[40%] h-full overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width:640px) 40vw, 160px"
+                  className="object-contain object-right-bottom p-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
             </Link>
           ))}
         </motion.div>

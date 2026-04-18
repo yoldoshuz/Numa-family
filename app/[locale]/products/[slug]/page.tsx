@@ -46,7 +46,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {dict.productShowcase.viewAll}
+            {dict.naturalSupport.viewAll}
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -65,11 +65,11 @@ export default async function ProductDetailPage({ params }: Props) {
               <div className="flex gap-3 mt-8">
                 <Link href={`/${locale}/contact`}>
                   <button className="btn-pill bg-teal text-white text-sm font-medium py-3.5 px-8 hover:bg-teal-dark transition-colors">
-                    {dict.productShowcase.cta}
+                    {dict.naturalSupport.cta}
                   </button>
                 </Link>
                 <button className="btn-pill border border-teal text-teal text-sm font-medium py-3.5 px-8 hover:bg-teal hover:text-white transition-all">
-                  {dict.productShowcase.cta2}
+                  {dict.naturalSupport.ctaSecondary}
                 </button>
               </div>
             </div>

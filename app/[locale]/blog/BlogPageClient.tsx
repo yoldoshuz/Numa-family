@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Card, CardContent } from "@/components/ui/card";
+import { useArticles } from "@/hooks/useArticles";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { FileText, ArrowRight } from "lucide-react";
@@ -12,82 +14,119 @@ interface Props {
   locale: Locale;
 }
 
-const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
-  Health: { bg: "#dcfce7", text: "#166534" },
-  Nutrition: { bg: "#fef9c3", text: "#854d0e" },
-  Testing: { bg: "#dbeafe", text: "#1e40af" },
-  Family: { bg: "#ede9fe", text: "#5b21b6" },
-  Kids: { bg: "#fce7f3", text: "#9d174d" },
-  "Здоровье": { bg: "#dcfce7", text: "#166534" },
-  "Питание": { bg: "#fef9c3", text: "#854d0e" },
-  "Тестирование": { bg: "#dbeafe", text: "#1e40af" },
-  "Семья": { bg: "#ede9fe", text: "#5b21b6" },
-  "Дети": { bg: "#fce7f3", text: "#9d174d" },
-  "Sog'liq": { bg: "#dcfce7", text: "#166534" },
-  "Ovqatlanish": { bg: "#fef9c3", text: "#854d0e" },
-  "Testlar": { bg: "#dbeafe", text: "#1e40af" },
-  "Oila": { bg: "#ede9fe", text: "#5b21b6" },
-  "Bolalar": { bg: "#fce7f3", text: "#9d174d" },
-};
+function pickLang<T extends Record<string, string | undefined | null>>(
+  field: T | null | undefined,
+  locale: string
+): string {
+  if (!field) return "";
+  return (field[locale] ?? field.en ?? field.ru ?? "") as string;
+}
 
-const defaultStyle = { bg: "#f7f6f3", text: "#6b6b65" };
+export function BlogPageClient({ dict, locale }: Props) {
+  const { data, isLoading, isError } = useArticles({ store: "family", limit: 24 });
+  const articles = data?.articles ?? [];
 
-export function BlogPageClient({ dict }: Props) {
   return (
     <div className="pt-14 sm:pt-16">
-      <section className="py-16 md:py-24 lg:py-32 bg-white">
+      <section className="py-14 md:py-20 lg:py-28 bg-white">
         <Container size="lg">
-          <AnimatedSection className="mb-12 sm:mb-16">
-            <div className="flex items-center gap-3 mb-5">
+          <AnimatedSection className="mb-10 sm:mb-14">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
-                <FileText className="w-5 h-5 text-teal" />
+                <FileText className="w-5 h-5 text-teal-700" />
               </div>
-              <span className="text-sm font-semibold text-teal uppercase tracking-wider">
+              <span className="text-sm font-semibold text-teal-700 uppercase tracking-wider">
                 {dict.blog.title}
               </span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-text-primary leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-text-primary leading-[1.05]">
               {dict.blog.title}
             </h1>
-            <p className="mt-3 text-base text-text-secondary max-w-lg">
+            <p className="mt-4 text-base sm:text-lg text-text-secondary max-w-xl leading-relaxed">
               {dict.blog.subtitle}
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {dict.blog.posts.map((post: { title: string; excerpt: string; category: string; date: string }, index: number) => {
-              const catStyle = CATEGORY_COLORS[post.category] || defaultStyle;
-              return (
-                <AnimatedSection key={index} delay={index * 0.08} animation="fadeUp">
-                  <Card className="overflow-hidden cursor-pointer h-full border-0 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group rounded-2xl">
-                    <div className="relative h-44 sm:h-48 bg-gradient-to-br from-teal-50 to-surface-secondary flex items-center justify-center overflow-hidden">
-                      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/80 shadow-sm group-hover:scale-110 transition-transform duration-500">
-                        <FileText className="w-7 h-7 text-teal/60" />
-                      </div>
+          {isLoading && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {Array.from({ length: 6 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="rounded-3xl bg-teal-50/40 border border-teal-100/60 h-80 animate-pulse"
+                />
+              ))}
+            </div>
+          )}
+
+          {isError && (
+            <div className="rounded-3xl border border-rose-100 bg-rose-50/60 p-8 text-center text-rose-700">
+              {dict.blog.error}
+            </div>
+          )}
+
+          {!isLoading && !isError && articles.length === 0 && (
+            <div className="rounded-3xl border border-teal-100 bg-teal-50/60 p-10 text-center text-teal-800">
+              {dict.blog.empty}
+            </div>
+          )}
+
+          {!isLoading && !isError && articles.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {articles.map((post, index) => (
+                <AnimatedSection key={post.id} delay={index * 0.05} animation="fadeUp">
+                  <Link
+                    href={`/${locale}/blog/${post.slug}`}
+                    className="block h-full rounded-3xl overflow-hidden bg-white border border-border hover:border-teal-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+                  >
+                    <div className="relative h-44 sm:h-52 bg-linear-to-br from-teal-50 to-surface-secondary overflow-hidden">
+                      {post.coverImageUrl ? (
+                        <Image
+                          src={post.coverImageUrl}
+                          alt={pickLang(post.title, locale)}
+                          fill
+                          sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/80 shadow-sm">
+                            <FileText className="w-7 h-7 text-teal-700/60" />
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    <CardContent className="p-5 sm:p-6 flex flex-col flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ backgroundColor: catStyle.bg, color: catStyle.text }}>
-                          {post.category}
-                        </span>
-                        <span className="text-xs text-text-tertiary">
-                          {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                        </span>
+                    <div className="p-5 sm:p-6 flex flex-col">
+                      <div className="flex items-center gap-3 mb-3 text-xs text-text-tertiary">
+                        {post.publishedAt && (
+                          <span>
+                            {new Date(post.publishedAt).toLocaleDateString(
+                              locale === "ru" ? "ru-RU" : locale === "uz" ? "uz-UZ" : "en-US",
+                              { month: "short", day: "numeric", year: "numeric" }
+                            )}
+                          </span>
+                        )}
+                        {post.readTimeMinutes && (
+                          <span>· {post.readTimeMinutes} {dict.blog.readTime}</span>
+                        )}
                       </div>
-                      <h3 className="text-base font-bold text-text-primary mb-2 leading-snug tracking-tight group-hover:text-teal transition-colors flex-1">
-                        {post.title}
+                      <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2 leading-snug tracking-tight group-hover:text-teal-700 transition-colors">
+                        {pickLang(post.title, locale)}
                       </h3>
-                      <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-                      <div className="flex items-center gap-1.5 text-sm font-medium text-teal mt-auto opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1">
+                      {post.excerpt && (
+                        <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">
+                          {pickLang(post.excerpt, locale)}
+                        </p>
+                      )}
+                      <div className="flex items-center gap-1.5 text-sm font-medium text-teal-700 mt-auto transition-all duration-300 group-hover:translate-x-1">
                         {dict.blog.readMore}
                         <ArrowRight className="w-3.5 h-3.5" />
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </Link>
                 </AnimatedSection>
-              );
-            })}
-          </div>
+              ))}
+            </div>
+          )}
         </Container>
       </section>
     </div>

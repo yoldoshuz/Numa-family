@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Figtree } from "next/font/google";
-
-const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
+import { QueryProvider } from "@/components/providers/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Numa Family",
@@ -15,5 +13,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <QueryProvider>{children}</QueryProvider>;
 }

@@ -61,7 +61,7 @@ export function Footer({ locale, dict }: FooterProps) {
                   .map(([key, label]) => (
                     <li key={key}>
                       <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label}
+                        {label as string}
                       </Link>
                     </li>
                   ))}
@@ -79,7 +79,7 @@ export function Footer({ locale, dict }: FooterProps) {
                   .map(([key, label]) => (
                     <li key={key}>
                       <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label}
+                        {label as string}
                       </Link>
                     </li>
                   ))}
@@ -97,7 +97,7 @@ export function Footer({ locale, dict }: FooterProps) {
                   .map(([key, label]) => (
                     <li key={key}>
                       <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label}
+                        {label as string}
                       </Link>
                     </li>
                   ))}

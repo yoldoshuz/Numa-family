@@ -30,11 +30,11 @@ interface HeaderProps {
 }
 
 const productFamilies = [
-  { name: "Numa Nutrition", icon: Leaf, color: "text-emerald-600", href: "/products" },
-  { name: "Numa Kids", icon: Baby, color: "text-sky-500", href: "/products" },
-  { name: "Naboviy Tabobat", icon: Stethoscope, color: "text-teal", href: "/products" },
-  { name: "Bettery Restaurant", icon: UtensilsCrossed, color: "text-amber-600", href: "/products" },
-  { name: "Bettery Ration", icon: Salad, color: "text-lime-600", href: "/products" },
+  { name: "Numa Nutrition", icon: Leaf, href: "/products" },
+  { name: "Numa Kids", icon: Baby, href: "/products" },
+  { name: "Naboviy Tabobat", icon: Stethoscope, href: "/products" },
+  { name: "Bettery Restaurant", icon: UtensilsCrossed, href: "/products" },
+  { name: "Bettery Ration", icon: Salad, href: "/products" },
 ];
 
 export function Header({ locale, dict }: HeaderProps) {
@@ -58,25 +58,33 @@ export function Header({ locale, dict }: HeaderProps) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+          ? "bg-white/95 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.06)]"
           : "bg-white/90 backdrop-blur-md"
       )}
     >
       <div className="container-wide flex items-center justify-between h-14 sm:h-16">
-        {/* Logo with hover card */}
         <HoverCard openDelay={100} closeDelay={200}>
           <HoverCardTrigger asChild>
-            <Link href={`/${locale}`} className="flex items-center gap-1.5 shrink-0">
-              <Image src="/logo.svg" alt="Numa Family" width={32} height={32} className="h-7 w-auto sm:h-8" />
+            <Link
+              href={`/${locale}`}
+              className="flex items-center gap-1.5 shrink-0"
+            >
+              <Image
+                src="/logo.svg"
+                alt="Numa Family"
+                width={32}
+                height={32}
+                className="h-7 w-auto sm:h-8"
+              />
             </Link>
           </HoverCardTrigger>
           <HoverCardContent
             align="start"
-            sideOffset={8}
-            className="w-72 p-2 rounded-2xl border border-border/50 bg-white shadow-2xl"
+            sideOffset={10}
+            className="w-72 p-2 rounded-2xl border border-teal-700/30 bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 shadow-2xl shadow-teal-900/30 text-white"
           >
             <div className="px-3 pt-2 pb-1.5">
-              <p className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+              <p className="text-[11px] font-semibold text-teal-100/80 uppercase tracking-widest">
                 Numa Family
               </p>
             </div>
@@ -85,12 +93,12 @@ export function Header({ locale, dict }: HeaderProps) {
                 <Link
                   key={family.name}
                   href={`/${locale}${family.href}`}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-teal-50 transition-colors group"
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/15 transition-colors group"
                 >
-                  <div className={cn("flex items-center justify-center w-8 h-8 rounded-lg bg-surface-secondary group-hover:bg-white transition-colors", family.color)}>
-                    <family.icon className="w-4 h-4" />
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors">
+                    <family.icon className="w-4 h-4 text-teal-50" />
                   </div>
-                  <span className="text-sm font-medium text-text-primary group-hover:text-teal transition-colors">
+                  <span className="text-sm font-medium text-white">
                     {family.name}
                   </span>
                 </Link>
@@ -114,22 +122,50 @@ export function Header({ locale, dict }: HeaderProps) {
 
         {/* Right side */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden lg:flex">
+          <div className="hidden lg:flex items-center gap-3">
             <LanguageSwitcher currentLocale={locale} />
+            <Button
+              asChild
+              className="rounded-full bg-teal-700 text-white hover:bg-teal-800 px-5 h-10 text-sm font-semibold shadow-lg shadow-teal-700/25"
+            >
+              <Link href={`/${locale}/contact`}>{dict.nav.consultation}</Link>
+            </Button>
           </div>
+
+          {/* Mobile consultation */}
+          <Button
+            asChild
+            className="lg:hidden rounded-full bg-teal-700 text-white hover:bg-teal-800 px-4 h-9 text-xs font-semibold"
+          >
+            <Link href={`/${locale}/contact`}>{dict.nav.consultation}</Link>
+          </Button>
 
           {/* Mobile menu */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Menu">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden"
+                aria-label="Menu"
+              >
                 <Menu className="size-6" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-72 p-0">
               <SheetHeader className="p-5 pb-0">
                 <SheetTitle className="text-left">
-                  <Link href={`/${locale}`} className="flex items-center gap-1.5 shrink-0">
-                    <Image src="/logo.svg" alt="Numa Family" width={32} height={32} className="h-7 w-auto sm:h-8" />
+                  <Link
+                    href={`/${locale}`}
+                    className="flex items-center gap-1.5 shrink-0"
+                  >
+                    <Image
+                      src="/logo.svg"
+                      alt="Numa Family"
+                      width={32}
+                      height={32}
+                      className="h-7 w-auto sm:h-8"
+                    />
                   </Link>
                 </SheetTitle>
               </SheetHeader>
@@ -159,7 +195,7 @@ export function Header({ locale, dict }: HeaderProps) {
                       href={`/${locale}${family.href}`}
                       className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-teal-50 transition-colors"
                     >
-                      <family.icon className={cn("w-4 h-4", family.color)} />
+                      <family.icon className="w-4 h-4 text-teal-700" />
                       <span className="text-sm font-medium text-text-primary">
                         {family.name}
                       </span>
@@ -169,6 +205,16 @@ export function Header({ locale, dict }: HeaderProps) {
               </div>
               <div className="mt-auto p-5 border-t space-y-3">
                 <LanguageSwitcher currentLocale={locale} />
+                <SheetClose asChild>
+                  <Button
+                    asChild
+                    className="w-full rounded-full bg-teal-700 text-white hover:bg-teal-800 h-11 text-sm font-semibold"
+                  >
+                    <Link href={`/${locale}/contact`}>
+                      {dict.nav.consultation}
+                    </Link>
+                  </Button>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>

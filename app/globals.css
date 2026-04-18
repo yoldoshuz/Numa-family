@@ -71,7 +71,22 @@
 
 @layer utilities {
   .container-wide {
-    @apply w-full max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-12;
+    @apply w-full max-w-[1400px] mx-auto px-2 sm:px-6 lg:px-10;
+  }
+
+  .drag-scroll {
+    @apply flex overflow-x-auto overscroll-x-contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+  }
+  .drag-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  .drag-scroll.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
   }
 
   .section-padding {
