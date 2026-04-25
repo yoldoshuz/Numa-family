@@ -23,8 +23,8 @@ function pickLang<T extends Record<string, string | undefined | null>>(
 }
 
 export function BlogPageClient({ dict, locale }: Props) {
-  const { data, isLoading, isError } = useArticles({ store: "family", limit: 24 });
-  const articles = data?.articles ?? [];
+  const { data, isLoading, isError } = useArticles("family", { limit: 24 });
+  const articles = data ?? [];
 
   return (
     <div className="pt-14 sm:pt-16">

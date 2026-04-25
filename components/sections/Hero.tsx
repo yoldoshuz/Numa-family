@@ -15,7 +15,7 @@ interface HeroProps {
 export function Hero({ dict, locale }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div className="container-wide relative z-10 pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
+      <div className="container-wide relative z-10    pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

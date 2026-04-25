@@ -1,22 +1,14 @@
 import axios from "axios";
 import { apiClient } from "./client";
 import type {
-  Article,
-  ArticleDetail,
-  ListArticlesParams,
-  PaginatedArticles,
+  BlogPost,
+  BlogPostDetail,
+  ListBlogParams,
+  StoreSlug,
   SuccessResponse,
 } from "./types";
 
 const unwrap = <T>(payload: SuccessResponse<T>): T => payload.data;
-
-const emptyList: PaginatedArticles = {
-  articles: [],
-  total: 0,
-  page: 1,
-  limit: 0,
-  pages: 0,
-};
 
 const isRecoverable = (err: unknown) =>
   axios.isAxiosError(err) &&
@@ -24,24 +16,15 @@ const isRecoverable = (err: unknown) =>
     err.code === "ERR_NETWORK" ||
     err.code === "ECONNABORTED");
 
-export const articlesApi = {
-  list: async (params: ListArticlesParams = {}): Promise<PaginatedArticles> => {
+export const blogApi = {
+  list: async (
+    store: StoreSlug = "family",
+    params: ListBlogParams = {}
+  ): Promise<BlogPost[]> => {
     try {
-      const { data } = await apiClient.get<SuccessResponse<PaginatedArticles>>(
-        "/blog/posts",
+      const { data } = await apiClient.get<SuccessResponse<BlogPost[]>>(
+        `/blog/${store}`,
         { params }
-      );
-      return unwrap(data);
-    } catch (err) {
-      if (isRecoverable(err)) return emptyList;
-      throw err;
-    }
-  },
-
-  featured: async (store: string = "family"): Promise<Article[]> => {
-    try {
-      const { data } = await apiClient.get<SuccessResponse<Article[]>>(
-        `/blog/featured/${store}`
       );
       return unwrap(data);
     } catch (err) {
@@ -50,10 +33,13 @@ export const articlesApi = {
     }
   },
 
-  bySlug: async (slug: string): Promise<ArticleDetail | null> => {
+  bySlug: async (
+    slug: string,
+    store: StoreSlug = "family"
+  ): Promise<BlogPostDetail | null> => {
     try {
-      const { data } = await apiClient.get<SuccessResponse<ArticleDetail>>(
-        `/blog/posts/${slug}`
+      const { data } = await apiClient.get<SuccessResponse<BlogPostDetail>>(
+        `/blog/${store}/${slug}`
       );
       return unwrap(data);
     } catch (err) {
@@ -62,3 +48,5 @@ export const articlesApi = {
     }
   },
 };
+
+export const articlesApi = blogApi;
