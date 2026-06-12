@@ -6,9 +6,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DragScroll } from "@/components/ui/DragScroll";
+import { ProductCard } from "@/components/sections/ProductCard";
+import { useProducts } from "@/hooks/useProducts";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
+// Single, lazily-loaded 3D bottle for the hero only. (Per-card 3D was removed —
+// one <Canvas> per product card spawned a WebGL context each and froze the page.)
 const BottleScene = dynamic(
   () => import("@/components/3d/BottleModel").then((m) => m.BottleScene),
   {
@@ -26,19 +30,11 @@ interface Props {
   locale: Locale;
 }
 
-const badgeColors: Record<string, string> = {
-  new: "bg-emerald-400/90 text-emerald-950",
-  best: "bg-amber-300/95 text-amber-950",
-  popular: "bg-sky-300/95 text-sky-950",
-};
-
-function formatPrice(template: string, price: string): string {
-  return template.replace("{price}", price);
-}
+const HERO_BOTTLE = "/3d/nutrition/Bonny.glb";
 
 export function NaturalSupport({ dict, locale }: Props) {
-  const heroBottle =
-    dict.naturalSupport.products[0]?.model ?? "/3d/nutrition/Bonny.glb";
+  const { data: products, isLoading } = useProducts();
+  const items = (products ?? []).slice(0, 10);
 
   return (
     <section className="py-4 md:py-6 bg-white overflow-hidden">
@@ -66,10 +62,10 @@ export function NaturalSupport({ dict, locale }: Props) {
               </span>
             </h2>
 
-            {/* Centered slowly rotating 3D bottle, full height */}
+            {/* Single slowly-rotating 3D bottle (the only WebGL canvas on the page) */}
             <div className="relative w-full max-w-lg h-80 sm:h-96 md:h-[28rem] my-10 sm:my-14">
               <BottleScene
-                src={heroBottle}
+                src={HERO_BOTTLE}
                 className="absolute inset-0"
                 rotate
               />
@@ -114,48 +110,33 @@ export function NaturalSupport({ dict, locale }: Props) {
             </Button>
           </div>
 
-          {/* ── Horizontal drag-scroll product cards ──────── */}
+          {/* ── Horizontal drag-scroll product cards (backend-driven) ─ */}
           <div className="relative z-10 mt-6 pb-14 md:pb-20">
             <DragScroll className="gap-3 sm:gap-4 px-2 sm:px-10 overflow-y-hidden">
-              {dict.naturalSupport.products.map((p, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ delay: i * 0.05, duration: 0.35 }}
-                  className="shrink-0 w-[250px] sm:w-[280px] md:w-[300px] snap-start rounded-3xl overflow-hidden bg-white/10 backdrop-blur-md border border-white/15 flex flex-col relative"
-                >
-                  {/* Top-left badge */}
-                  <span
-                    className={`absolute top-3 left-3 z-20 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider ${
-                      badgeColors[p.badge] ?? badgeColors.new
-                    }`}
-                  >
-                    {dict.naturalSupport.badges[
-                      p.badge as keyof typeof dict.naturalSupport.badges
-                    ] ?? p.badge}
-                  </span>
-
-                  <div className="relative h-56 sm:h-60 md:h-64 z-10">
-                    <BottleScene src={p.model} className="absolute inset-0" />
-                  </div>
-                  <div className="p-4 sm:p-5 flex flex-col gap-1 z-10 bg-linear-to-t from-teal-950/60 to-transparent">
-                    <p className="text-lg sm:text-xl font-semibold text-white leading-tight">
-                      {p.name}{" "}
-                      <span className="text-white/70 text-sm font-normal">
-                        · {p.tagline}
-                      </span>
-                    </p>
-                    <p className="text-xs sm:text-sm text-white/70 leading-snug">
-                      {p.description}
-                    </p>
-                    <p className="mt-2 text-base sm:text-lg font-semibold text-teal-50">
-                      {formatPrice(dict.naturalSupport.priceFrom, p.price)}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              {isLoading && items.length === 0
+                ? Array.from({ length: 4 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="shrink-0 w-[250px] sm:w-[280px] md:w-[300px] snap-start h-80 rounded-3xl bg-white/10 border border-white/15 animate-pulse"
+                    />
+                  ))
+                : items.map((product, i) => (
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-30px" }}
+                      transition={{ delay: i * 0.05, duration: 0.35 }}
+                      className="shrink-0 w-[250px] sm:w-[280px] md:w-[300px] snap-start"
+                    >
+                      <ProductCard
+                        product={product}
+                        locale={locale}
+                        variant="dark"
+                        className="h-full"
+                      />
+                    </motion.div>
+                  ))}
             </DragScroll>
           </div>
         </motion.div>

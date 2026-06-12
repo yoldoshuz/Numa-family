@@ -4,12 +4,45 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { brandSiteUrl } from "@/lib/config/sites";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import type { ReactNode } from "react";
 
 interface HeroProps {
   dict: Dictionary;
   locale: Locale;
+}
+
+/** Brand block link: external `<a>` (new tab) when a site URL exists, else an internal `<Link>`. */
+function BrandLink({
+  href,
+  external,
+  className,
+  children,
+}: {
+  href: string;
+  external: boolean;
+  className: string;
+  children: ReactNode;
+}) {
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
 }
 
 export function Hero({ dict, locale }: HeroProps) {
@@ -35,9 +68,10 @@ export function Hero({ dict, locale }: HeroProps) {
           className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-4"
         >
           {dict.hero.top.map((item, i: number) => (
-            <Link
+            <BrandLink
               key={i}
-              href={`/${locale}/products`}
+              href={brandSiteUrl(item.name) ?? `/${locale}/products`}
+              external={Boolean(brandSiteUrl(item.name))}
               className="relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-44 sm:h-48 md:h-56 group transition-transform duration-300 hover:-translate-y-1"
             >
               <div className="flex flex-col justify-between p-4 sm:p-5 z-10 max-w-[55%]">
@@ -61,7 +95,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   priority={i === 0}
                 />
               </div>
-            </Link>
+            </BrandLink>
           ))}
         </motion.div>
 
@@ -73,9 +107,10 @@ export function Hero({ dict, locale }: HeroProps) {
           className="mt-2 sm:mt-4 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4"
         >
           {dict.hero.bottom.map((item, i: number) => (
-            <Link
+            <BrandLink
               key={i}
-              href={`/${locale}/products`}
+              href={brandSiteUrl(item.name) ?? `/${locale}/products`}
+              external={Boolean(brandSiteUrl(item.name))}
               className={`relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-36 sm:h-40 md:h-44 group transition-transform duration-300 hover:-translate-y-1 ${
                 i === 2 ? "col-span-2 lg:col-span-1" : ""
               }`}
@@ -100,7 +135,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   className="object-contain object-right-bottom p-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-            </Link>
+            </BrandLink>
           ))}
         </motion.div>
       </div>

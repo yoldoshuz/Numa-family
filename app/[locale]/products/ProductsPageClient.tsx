@@ -1,15 +1,11 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ProductCard } from "@/components/sections/ProductCard";
+import { useProducts } from "@/hooks/useProducts";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-
-const BottleScene = dynamic(
-  () => import("@/components/3d/BottleModel").then((m) => m.BottleScene),
-  { ssr: false, loading: () => null }
-);
 
 interface Props {
   dict: Dictionary;
@@ -17,33 +13,47 @@ interface Props {
 }
 
 export function ProductsPageClient({ dict, locale }: Props) {
+  const { data, isLoading, isError } = useProducts();
+  const products = data ?? [];
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            className="h-80 rounded-3xl bg-teal-50/50 border border-teal-100/60 animate-pulse"
+          />
+        ))}
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="rounded-3xl border border-rose-100 bg-rose-50/60 p-8 text-center text-rose-700">
+        {dict.blog.error}
+      </div>
+    );
+  }
+
+  if (products.length === 0) {
+    return (
+      <div className="rounded-3xl border border-teal-100 bg-teal-50/60 p-10 text-center text-teal-800">
+        {dict.blog.empty}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-      {dict.naturalSupport.products.map((item, i: number) => (
-        <div
-          key={i}
-          className="rounded-3xl overflow-hidden bg-linear-to-br from-teal-50 via-white to-teal-50 border border-teal-100/60 flex flex-col"
-        >
-          <div className="relative h-56 sm:h-60 bg-linear-to-b from-white/5 to-transparent">
-            <BottleScene src={item.model} className="absolute inset-0" />
-          </div>
-          <div className="p-5 flex flex-col gap-3">
-            <div>
-              <p className="text-lg font-semibold text-teal-900 leading-tight">
-                {item.name}
-              </p>
-              <p className="mt-0.5 text-sm text-teal-700/80">{item.tagline}</p>
-            </div>
-            <Button
-              asChild
-              className="rounded-full bg-teal-700 text-white hover:bg-teal-800 h-10 text-sm font-semibold"
-            >
-              <Link href={`/${locale}/contact`}>
-                {dict.naturalSupport.cta}
-              </Link>
-            </Button>
-          </div>
-        </div>
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          locale={locale}
+          variant="light"
+        />
       ))}
     </div>
   );

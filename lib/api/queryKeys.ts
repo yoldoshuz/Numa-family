@@ -1,6 +1,20 @@
-import type { ListBlogParams, StoreSlug } from "./types";
+import type {
+  ListBlogParams,
+  ListProductsParams,
+  MarketplaceStoreSlug,
+  StoreSlug,
+} from "./types";
 
 export const queryKeys = {
+  products: {
+    all: ["products"] as const,
+    list: (stores: MarketplaceStoreSlug[], params: ListProductsParams = {}) =>
+      [...queryKeys.products.all, "list", stores, params] as const,
+    featured: (stores: MarketplaceStoreSlug[]) =>
+      [...queryKeys.products.all, "featured", stores] as const,
+    detail: (slug: string) =>
+      [...queryKeys.products.all, "detail", slug] as const,
+  },
   blog: {
     all: ["blog"] as const,
     list: (store: StoreSlug = "family", params: ListBlogParams = {}) =>

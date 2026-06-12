@@ -22,7 +22,23 @@
       "Bash(ls D:/numa-family/app/[locale]/blog D:/numa-family/app/[locale]/about D:/numa-family/app/[locale]/contact D:/numa-family/app/[locale]/products)",
       "Bash(ls D:/numa-family/app/[locale]/products/[slug])",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/ru)",
-      "Bash(npx shadcn@latest add scroll-area --yes)"
+      "Bash(npx shadcn@latest add scroll-area --yes)",
+      "Bash(sed -n '1,60p' components/sections/OmegaBento.tsx)",
+      "Bash(sed -n '1,40p' components/sections/BiomarkersSection.tsx)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/ru)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/ru/products)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/ru/blog)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/ru/products/some-slug)",
+      "Bash(curl -s \"https://numa.yoldosh.uz/api/v1/products/store/nutrition?limit=2\")",
+      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\).on\\('end',\\(\\)=>{try{const j=JSON.parse\\(s\\);const p=j.data?.products?.[0];console.log\\('total:',j.data?.total\\);console.log\\('keys:',p?Object.keys\\(p\\):null\\);console.log\\('sample:',JSON.stringify\\({slug:p?.slug,name:p?.name,price:p?.price,media:p?.media?.slice\\(0,1\\)},null,1\\)\\);}catch\\(e\\){console.log\\('parse-fail:',s.slice\\(0,300\\)\\)}}\\)\")",
+      "Bash(node -e \"const d=require\\('./dictionaries/ru.json'\\).hero; console.log\\('TOP:',JSON.stringify\\(d.top,null,1\\)\\); console.log\\('BOTTOM:',JSON.stringify\\(d.bottom,null,1\\)\\); console.log\\('other hero keys:',Object.keys\\(d\\)\\)\")",
+      "Bash(curl -s -I -m 15 https://numa-nutrition-83c9.vercel.app/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -m 15 https://numa-nutrition-83c9.vercel.app/ru/products/whey-protein-chocolate)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -m 15 https://numa-nutrition-83c9.vercel.app/products)",
+      "Bash(curl -s -I -m 15 https://numa-kids.vercel.app/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" -m 15 https://numa-kids.vercel.app/ru/products)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"TSC_EXIT=$?\")"
     ]
   }
 }

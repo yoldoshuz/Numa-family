@@ -35,10 +35,72 @@ export interface BlogProductCard {
   product: {
     id: string;
     name: MultilingualText;
-    price: number;
-    discountPrice: number | null;
+    price: number | string;
+    discountPrice: number | string | null;
     store: string;
+    slug?: string;
+    brand?: string | null;
+    imageUrl?: string | null;
+    media?: ProductMedia[];
   };
+}
+
+// ---------- Product (marketplace catalog, read-only for family) ----------
+
+export type ProductStatus = "active" | "draft" | "archived";
+
+export interface ProductMedia {
+  id: string;
+  url: string;
+  type: "image" | "video";
+  isMain: boolean;
+  sortOrder: number;
+}
+
+export interface ProductCategoryRef {
+  id: string;
+  name?: MultilingualText;
+  slug?: string;
+}
+
+export interface Product {
+  id: string;
+  name: MultilingualText;
+  description?: MultilingualText | null;
+  slug: string;
+  sku?: string;
+  price: number | string;
+  discountPrice?: number | string | null;
+  stock?: number;
+  unit?: string;
+  store: MarketplaceStoreSlug;
+  categoryId?: string;
+  category?: ProductCategoryRef | null;
+  status?: ProductStatus;
+  isFeatured?: boolean;
+  brand?: string | null;
+  attributes?: Record<string, string | number | boolean> | null;
+  media?: ProductMedia[];
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface ProductListResponse {
+  products: Product[];
+  total: number;
+  page: number;
+  limit: number;
+  pages: number;
+}
+
+export interface ListProductsParams {
+  categoryId?: string;
+  featured?: boolean;
+  search?: string;
+  page?: number;
+  limit?: number;
+  sortBy?: "createdAt" | "price" | "name";
+  sortDir?: "asc" | "desc";
 }
 
 export interface BlogPostDetail extends BlogPost {

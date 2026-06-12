@@ -5,10 +5,13 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { useArticle } from "@/hooks/useArticles";
+import { resolveMediaUrl } from "@/lib/api/products";
+import { storeSiteUrl } from "@/lib/config/sites";
+import { formatPrice } from "@/lib/utils/format";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-import type { MultilingualText } from "@/lib/api/types";
-import { ArrowLeft, Clock, Calendar } from "lucide-react";
+import type { BlogProductCard, MultilingualText } from "@/lib/api/types";
+import { ArrowLeft, Clock, Calendar, Leaf } from "lucide-react";
 
 interface Props {
   dict: Dictionary;
@@ -20,6 +23,12 @@ function pickLang(field: MultilingualText | null | undefined, locale: string): s
   if (!field) return "";
   const map = field as Record<string, string>;
   return map[locale] ?? map.en ?? map.ru ?? "";
+}
+
+function blogProductImage(card: BlogProductCard): string | null {
+  const p = card.product;
+  const fromMedia = p.media?.find((m) => m.type === "image")?.url;
+  return resolveMediaUrl(p.imageUrl ?? fromMedia ?? null);
 }
 
 export function BlogPostClient({ dict, locale, slug }: Props) {
@@ -137,40 +146,95 @@ export function BlogPostClient({ dict, locale, slug }: Props) {
                     {dict.naturalSupport?.ourProducts ?? "Products"}
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {post.products.map((card) => (
-                      <div
-                        key={card.productId}
-                        className="rounded-2xl border border-border bg-white p-4 sm:p-5"
-                      >
-                        <p className="text-xs uppercase tracking-wider text-teal-700 font-semibold mb-1.5">
-                          {card.product.store}
-                        </p>
-                        <h3 className="text-base font-semibold text-text-primary leading-snug">
-                          {pickLang(card.product.name, locale)}
-                        </h3>
-                        {card.note && (
-                          <p className="mt-2 text-sm text-text-secondary">
-                            {card.note}
-                          </p>
-                        )}
-                        <div className="mt-3 flex items-baseline gap-2">
-                          {card.product.discountPrice ? (
-                            <>
-                              <span className="text-base font-semibold text-text-primary">
-                                {card.product.discountPrice.toLocaleString()}
-                              </span>
-                              <span className="text-xs text-text-tertiary line-through">
-                                {card.product.price.toLocaleString()}
-                              </span>
-                            </>
-                          ) : (
-                            <span className="text-base font-semibold text-text-primary">
-                              {card.product.price.toLocaleString()}
-                            </span>
-                          )}
+                    {post.products.map((card) => {
+                      const img = blogProductImage(card);
+                      const name = pickLang(card.product.name, locale);
+                      const inner = (
+                        <>
+                          <div className="relative h-40 flex items-center justify-center overflow-hidden bg-linear-to-br from-teal-50 to-white">
+                            {img ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={img}
+                                alt={name}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                              />
+                            ) : (
+                              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-100/70 text-teal-700">
+                                <Leaf className="h-6 w-6" />
+                              </div>
+                            )}
+                          </div>
+                          <div className="p-4 sm:p-5">
+                            <p className="text-xs uppercase tracking-wider text-teal-700 font-semibold mb-1.5">
+                              {card.product.brand ?? card.product.store}
+                            </p>
+                            <h3 className="text-base font-semibold text-text-primary leading-snug">
+                              {name}
+                            </h3>
+                            {card.note && (
+                              <p className="mt-2 text-sm text-text-secondary">
+                                {card.note}
+                              </p>
+                            )}
+                            <div className="mt-3 flex items-baseline gap-2">
+                              {card.product.discountPrice ? (
+                                <>
+                                  <span className="text-base font-semibold text-teal-800">
+                                    {formatPrice(card.product.discountPrice, locale)}
+                                  </span>
+                                  <span className="text-xs text-text-tertiary line-through">
+                                    {formatPrice(card.product.price, locale)}
+                                  </span>
+                                </>
+                              ) : (
+                                <span className="text-base font-semibold text-teal-800">
+                                  {formatPrice(card.product.price, locale)}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </>
+                      );
+
+                      const cardClass =
+                        "group flex flex-col overflow-hidden rounded-2xl border border-border bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300";
+                      const site = storeSiteUrl(card.store);
+
+                      // Redirect to the marketplace that sells this product.
+                      if (site) {
+                        return (
+                          <a
+                            key={card.productId}
+                            href={site}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={cardClass}
+                          >
+                            {inner}
+                          </a>
+                        );
+                      }
+
+                      return card.product.slug ? (
+                        <Link
+                          key={card.productId}
+                          href={`/${locale}/products/${card.product.slug}`}
+                          className={cardClass}
+                        >
+                          {inner}
+                        </Link>
+                      ) : (
+                        <div
+                          key={card.productId}
+                          className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white"
+                        >
+                          {inner}
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </AnimatedSection>
               )}
