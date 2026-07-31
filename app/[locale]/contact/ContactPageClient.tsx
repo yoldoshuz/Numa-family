@@ -1,9 +1,8 @@
 "use client";
 
-import { Container } from "@/components/ui/Container";
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { InstagramIcon } from "@/components/ui/icons";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -12,117 +11,164 @@ interface Props {
   locale: Locale;
 }
 
-export function ContactPageClient({ dict, locale }: Props) {
-  const contactInfo = [
+// TODO: swap for the exact office coordinates once the address is confirmed.
+const MAP_EMBED = "https://www.google.com/maps?q=Tashkent%2C%20Uzbekistan&z=14&output=embed";
+
+export function ContactPageClient({ dict }: Props) {
+  const t = dict.contact;
+  const telHref = `tel:${t.phone.replace(/[^+\d]/g, "")}`;
+
+  const rows = [
+    { key: "phone", value: t.phone, href: telHref, icon: <PhoneGlyph /> },
     {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-      ),
-      label: locale === "ru" ? "Телефон" : locale === "uz" ? "Telefon" : "Phone",
-      value: dict.contact.phone,
-      href: `tel:${dict.contact.phone.replace(/\s/g, "")}`,
+      key: "instagram",
+      value: t.instagram,
+      href: `https://instagram.com/${t.instagram.replace("@", "")}`,
+      external: true,
+      icon: <InstagramIcon className="h-5 w-5" />,
     },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      label: "Email",
-      value: dict.contact.email,
-      href: `mailto:${dict.contact.email}`,
-    },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      label: locale === "ru" ? "Адрес" : locale === "uz" ? "Manzil" : "Address",
-      value: dict.contact.address,
-    },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      label: locale === "ru" ? "Время работы" : locale === "uz" ? "Ish vaqti" : "Working Hours",
-      value: dict.contact.workingHours,
-    },
+    { key: "hours", value: t.hours, icon: <ClockGlyph /> },
+    { key: "address", value: t.address, icon: <PinGlyph /> },
+    { key: "email", value: t.email, href: `mailto:${t.email}`, icon: <MailGlyph /> },
   ];
 
   return (
-    <div className="pt-14 sm:pt-16">
-      <section className="section-padding bg-surface-secondary">
-        <Container size="lg">
-          <AnimatedSection className="mb-12 sm:mb-16">
-            <span className="inline-flex items-center gap-2 text-sm font-medium text-teal mb-4">
-              <span className="w-5 h-px bg-teal" />
-              {dict.nav.contact}
-            </span>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-text-primary leading-[1.08]"
-            >
-              {dict.contact.title}
+    <>
+      <section className="relative overflow-hidden bg-white">
+        <Image
+          src="/decor/network-dense.svg"
+          alt=""
+          width={620}
+          height={540}
+          aria-hidden
+          priority
+          className="pointer-events-none absolute -top-6 -right-10 w-72 opacity-70 sm:w-96 lg:right-0 lg:w-[34rem] lg:opacity-100"
+        />
+
+        <div className="shell relative">
+          <AnimatedSection className="max-w-xl py-16 sm:py-20 lg:py-28">
+            <h1 className="text-[1.9rem] leading-[1.2] font-extrabold text-ink sm:text-[2.4rem] lg:text-[2.9rem]">
+              {t.heroTitle} <span className="text-sea">{t.heroAccent}</span>
             </h1>
-            <p className="mt-3 text-base text-text-secondary max-w-lg">
-              {dict.contact.subtitle}
+            <p className="mt-5 max-w-md text-[0.9rem] leading-[1.75] text-body sm:text-[0.95rem]">
+              {t.heroDescription}
             </p>
-          </AnimatedSection>
-
-          {/* Contact info cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-            {contactInfo.map((info, index) => (
-              <AnimatedSection key={index} delay={index * 0.08} animation="fadeUp">
-                <div className="bg-white border border-border rounded-2xl p-6 h-full transition-shadow duration-300 hover:shadow-lg">
-                  <div className="w-10 h-10 mb-4 rounded-xl bg-teal/10 flex items-center justify-center text-teal">
-                    {info.icon}
-                  </div>
-                  <h3 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mb-1.5">
-                    {info.label}
-                  </h3>
-                  {info.href ? (
-                    <a href={info.href} className="text-sm font-medium text-text-primary hover:text-teal transition-colors break-all">
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p className="text-sm font-medium text-text-primary leading-relaxed">{info.value}</p>
-                  )}
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Contact form */}
-          <AnimatedSection animation="fadeUp">
-            <div className="max-w-xl mx-auto bg-white border border-border rounded-3xl p-7 sm:p-10">
-              <h3
-                className="text-2xl sm:text-3xl font-bold text-text-primary tracking-tighter mb-6"
+            <div className="mt-8 flex flex-wrap items-center gap-6">
+              <a
+                href={telHref}
+                className="inline-flex h-13 items-center rounded-lg bg-sea px-7 text-[0.9rem] font-semibold text-white transition-colors hover:bg-sea-dark"
               >
-                {dict.contact.sendMessage}
-              </h3>
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <Input type="text" placeholder={dict.contact.name} className="rounded-xl h-12" />
-                  <Input type="email" placeholder="Email" className="rounded-xl h-12" />
-                </div>
-                <textarea
-                  rows={4}
-                  placeholder={dict.contact.message}
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-surface-secondary text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-teal/25 focus:border-teal transition-all resize-none text-sm"
-                />
-                <Button type="submit" className="w-full rounded-full h-12 bg-teal text-white hover:bg-teal-dark">
-                  {dict.contact.sendMessage}
-                </Button>
-              </form>
+                {t.callNow}
+              </a>
+              <a
+                href="https://t.me/numa_family"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-[0.9rem] font-medium text-brand-soft transition-colors hover:text-brand"
+              >
+                {t.viaTelegram}
+              </a>
             </div>
           </AnimatedSection>
-        </Container>
+        </div>
       </section>
-    </div>
+
+      <section className="bg-white pb-14 sm:pb-16 lg:pb-20">
+        <div className="shell">
+          <AnimatedSection>
+            <h2 className="text-[1.35rem] font-extrabold text-ink sm:text-[1.6rem] lg:text-[1.75rem]">
+              {t.infoTitle}
+            </h2>
+          </AnimatedSection>
+
+          <div className="mt-7 grid gap-6 lg:mt-9 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)]">
+            <AnimatedSection animation="slideLeft">
+              <div className="h-full rounded-card-lg border border-hairline bg-white px-6 py-8 shadow-(--shadow-card) sm:px-8 sm:py-10">
+                <h3 className="text-lg font-extrabold text-sea sm:text-xl">{t.cardTitle}</h3>
+                <ul className="mt-7 space-y-5">
+                  {rows.map((row) => {
+                    const content = (
+                      <>
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-node/60 text-brand-node">
+                          {row.icon}
+                        </span>
+                        <span className="text-[0.85rem] text-brand-soft sm:text-[0.9rem]">
+                          {row.value}
+                        </span>
+                      </>
+                    );
+                    return (
+                      <li key={row.key}>
+                        {row.href ? (
+                          <a
+                            href={row.href}
+                            {...(row.external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
+                            className="flex items-center gap-4 transition-colors hover:text-brand"
+                          >
+                            {content}
+                          </a>
+                        ) : (
+                          <span className="flex items-center gap-4">{content}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection animation="slideRight">
+              <div className="h-full overflow-hidden rounded-card-lg border border-hairline bg-mist">
+                <iframe
+                  src={MAP_EMBED}
+                  title={t.mapTitle}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full min-h-[20rem] w-full border-0 lg:min-h-[26rem]"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function PhoneGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path
+        d="M6.4 3.5h2.1l1.6 4-2 1.3a11.5 11.5 0 0 0 5.1 5.1l1.3-2 4 1.6v2.1a2.4 2.4 0 0 1-2.6 2.4C10.4 17.4 6.6 13.6 4 7.1A2.4 2.4 0 0 1 6.4 3.5Z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ClockGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.2V12l3.2 2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PinGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <path d="M12 21s6.6-5.9 6.6-10.4A6.6 6.6 0 0 0 5.4 10.6C5.4 15.1 12 21 12 21Z" strokeLinejoin="round" />
+      <circle cx="12" cy="10.4" r="2.4" />
+    </svg>
+  );
+}
+
+function MailGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
+      <rect x="3" y="5.5" width="18" height="13" rx="3" />
+      <path d="m4.5 8 6.4 4.5a2 2 0 0 0 2.2 0L19.5 8" strokeLinecap="round" />
+    </svg>
   );
 }

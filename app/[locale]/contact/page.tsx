@@ -10,7 +10,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
-  return { title: dict.contact.title };
+  return { title: `${dict.contact.heroTitle} ${dict.contact.heroAccent}` };
 }
 
 export default async function ContactPage({ params }: Props) {

@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
-import { productsApi } from "@/lib/api/products";
+import { blogApi } from "@/lib/api/articles";
 
-const baseUrl = "https://numa.uz";
+const baseUrl = "https://numafamily.uz";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const pages = ["", "/products", "/about", "/blog", "/contact"];
+  const pages = ["", "/blog", "/contact"];
 
   const staticPages = locales.flatMap((locale) =>
     pages.map((page) => ({
@@ -16,24 +16,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
-  // Product slugs come from the merged marketplace catalog. Never let a backend
-  // hiccup break the sitemap build.
+  // Article slugs come from the CMS. Never let a backend hiccup break the build.
   let slugs: string[] = [];
   try {
-    const products = await productsApi.list();
-    slugs = Array.from(new Set(products.map((p) => p.slug)));
+    const posts = await blogApi.list("family", { limit: 200 });
+    slugs = Array.from(new Set(posts.map((p) => p.slug)));
   } catch {
     slugs = [];
   }
 
-  const productPages = locales.flatMap((locale) =>
+  const articlePages = locales.flatMap((locale) =>
     slugs.map((slug) => ({
-      url: `${baseUrl}/${locale}/products/${slug}`,
+      url: `${baseUrl}/${locale}/blog/${slug}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     }))
   );
 
-  return [...staticPages, ...productPages];
+  return [...staticPages, ...articlePages];
 }

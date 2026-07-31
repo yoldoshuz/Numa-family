@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
+import { TelegramIcon, GlobeIcon, InstagramIcon } from "@/components/ui/icons";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
@@ -11,145 +9,114 @@ interface FooterProps {
   dict: Dictionary;
 }
 
+const SOCIALS = [
+  { key: "telegram", href: "https://t.me/numa_family", Icon: TelegramIcon, label: "Telegram" },
+  { key: "site", href: "https://numafamily.uz", Icon: GlobeIcon, label: "numafamily.uz" },
+  { key: "instagram", href: "https://instagram.com/numa_family", Icon: InstagramIcon, label: "Instagram" },
+];
+
 export function Footer({ locale, dict }: FooterProps) {
+  const f = dict.footer;
+
   return (
-    <footer className="bg-surface-secondary text-text-primary">
-      {/* Tagline section */}
-      <div className="container-wide py-12 sm:py-16 lg:py-20">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
-          {/* Left - Tagline */}
-          <div className="lg:w-1/3 shrink-0">
-            <div className="flex items-center gap-2 mb-6">
-              <Image src="/logo.svg" alt="Numa Family" width={28} height={28} className="h-6 w-auto" />
-            </div>
-            <h3
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight whitespace-pre-line"
-            >
-              {dict.footer.tagline}
-            </h3>
-            <p className="mt-4 text-sm text-text-secondary max-w-sm leading-relaxed">
-              {dict.footer.description}
-            </p>
-          </div>
+    <footer className="bg-sea text-white">
+      <div className="shell grid gap-10 py-12 sm:py-14 lg:grid-cols-[minmax(0,1.15fr)_repeat(3,minmax(0,1fr))] lg:gap-8 lg:py-16">
+        {/* Brand column */}
+        <div className="lg:pr-10">
+          <Link href={`/${locale}`} aria-label="NUMA Family">
+            <Image
+              src="/logo-white.png"
+              alt="NUMA Family"
+              width={1489}
+              height={423}
+              className="h-14 w-auto lg:h-16"
+            />
+          </Link>
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/85">{f.description}</p>
 
-          {/* Right - Link columns */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-6">
-            {/* Learn more column */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-4">
-                {dict.footer.learnMore}
-              </h4>
-              <ul className="space-y-2.5">
-                {Object.values(dict.footer.links).map((label, i) => (
-                  <li key={i}>
-                    <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Treatments column */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-4">
-                {dict.footer.treatments.title}
-              </h4>
-              <ul className="space-y-2.5">
-                {Object.entries(dict.footer.treatments)
-                  .filter(([k]) => k !== "title")
-                  .map(([key, label]) => (
-                    <li key={key}>
-                      <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label as string}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
-
-            {/* Resources column */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-4">
-                {dict.footer.resources.title}
-              </h4>
-              <ul className="space-y-2.5">
-                {Object.entries(dict.footer.resources)
-                  .filter(([k]) => k !== "title")
-                  .map(([key, label]) => (
-                    <li key={key}>
-                      <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label as string}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
-
-            {/* Support column */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-text-tertiary mb-4">
-                {dict.footer.support.title}
-              </h4>
-              <ul className="space-y-2.5">
-                {Object.entries(dict.footer.support)
-                  .filter(([k]) => k !== "title")
-                  .map(([key, label]) => (
-                    <li key={key}>
-                      <Link href={`/${locale}`} className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                        {label as string}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+          <p className="mt-8 text-sm font-bold">{f.socialTitle}</p>
+          <div className="mt-3 flex items-center gap-3">
+            {SOCIALS.map(({ key, href, Icon, label }) => (
+              <a
+                key={key}
+                href={href}
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label={label}
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-sea transition-transform hover:-translate-y-0.5"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Social icons */}
-      <div className="container-wide">
-        <div className="flex items-center justify-center gap-4 py-6">
-          {["facebook", "twitter", "instagram", "youtube"].map((social) => (
-            <a
-              key={social}
-              href="#"
-              className="w-9 h-9 rounded-full bg-text-primary/10 flex items-center justify-center hover:bg-text-primary/20 transition-colors"
-              aria-label={social}
-            >
-              <span className="text-xs font-bold text-text-secondary uppercase">
-                {social[0]}
-              </span>
-            </a>
+        {/* Directions — brand lines, not linked anywhere yet. */}
+        <FooterColumn title={f.directions.title}>
+          {f.directions.items.map((item) => (
+            <li key={item} className="text-[0.95rem] text-white/90">
+              {item}
+            </li>
           ))}
-        </div>
+        </FooterColumn>
+
+        <FooterColumn title={f.company.title}>
+          {f.company.items.map((item) => (
+            <li key={item.label}>
+              <Link
+                href={`/${locale}${item.href === "/" ? "" : item.href}`}
+                className="text-[0.95rem] text-white/90 transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </FooterColumn>
+
+        <FooterColumn title={f.contacts.title}>
+          <li className="text-[0.95rem] text-white/90">{f.contacts.address}</li>
+          <li>
+            <a href={`tel:${f.contacts.phone.replace(/[^+\d]/g, "")}`} className="text-[0.95rem] text-white/90 transition-colors hover:text-white">
+              {f.contacts.phone}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${f.contacts.email}`} className="text-[0.95rem] text-white/90 transition-colors hover:text-white">
+              {f.contacts.email}
+            </a>
+          </li>
+          <li>
+            <a href={`https://${f.contacts.site}`} target="_blank" rel="noreferrer noopener" className="text-[0.95rem] text-white/90 transition-colors hover:text-white">
+              {f.contacts.site}
+            </a>
+          </li>
+        </FooterColumn>
       </div>
 
-      <Separator />
-
-      {/* Legal */}
-      <div className="container-wide py-6">
-        <p className="text-[11px] text-text-tertiary text-center leading-relaxed max-w-3xl mx-auto">
-          {dict.footer.legal}
+      <div className="shell flex flex-col gap-4 pb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+        <p className="text-sm leading-relaxed text-white/90">
+          {f.copyright}
+          <br />
+          {f.rights}
         </p>
-        <p className="mt-3 text-[11px] text-text-tertiary text-center">
-          {dict.footer.copyright}
-        </p>
-      </div>
-
-      {/* Big logo */}
-      <div className="container-wide pb-12 sm:pb-16 lg:pb-20">
-        <div className="flex flex-col items-center justify-center py-10 sm:py-14">
-          <h2
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-text-primary"
-          >
-            NUMA<sup className="text-lg sm:text-xl align-super">®</sup>
-          </h2>
-          <span className="text-sm sm:text-base font-semibold tracking-[0.4em] uppercase text-text-secondary mt-1">
-            FAMILY
-          </span>
+        <div className="flex flex-wrap gap-x-10 gap-y-2 text-sm text-white/90">
+          <Link href={`/${locale}/contact`} className="transition-colors hover:text-white">
+            {f.privacy}
+          </Link>
+          <Link href={`/${locale}/contact`} className="transition-colors hover:text-white">
+            {f.terms}
+          </Link>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="lg:border-l lg:border-white/25 lg:pl-8">
+      <h3 className="text-sm font-bold tracking-wide text-white">{title}</h3>
+      <ul className="mt-5 space-y-3.5">{children}</ul>
+    </div>
   );
 }

@@ -5,7 +5,6 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/button";
 import type { SiteSection } from "@/lib/api/types";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -89,21 +88,20 @@ export function SectionRenderer({ section, locale }: RendererProps) {
                 {(ctaText || secondaryCtaText) && (
                   <div className="mt-8 flex flex-wrap gap-3">
                     {ctaText && (
-                      <Button
-                        asChild
-                        className="rounded-full bg-teal-700 hover:bg-teal-800 text-white px-6 h-11"
+                      <Link
+                        href={ctaLink}
+                        className="inline-flex h-11 items-center rounded-full bg-sea px-6 text-sm font-semibold text-white transition-colors hover:bg-sea-dark"
                       >
-                        <Link href={ctaLink}>{ctaText}</Link>
-                      </Button>
+                        {ctaText}
+                      </Link>
                     )}
                     {secondaryCtaText && (
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="rounded-full border-white/40 text-white hover:bg-white/10 px-6 h-11"
+                      <Link
+                        href={secondaryCtaLink}
+                        className="inline-flex h-11 items-center rounded-full border border-white/40 px-6 text-sm font-semibold text-white transition-colors hover:bg-white/10"
                       >
-                        <Link href={secondaryCtaLink}>{secondaryCtaText}</Link>
-                      </Button>
+                        {secondaryCtaText}
+                      </Link>
                     )}
                   </div>
                 )}
@@ -247,12 +245,12 @@ export function SectionRenderer({ section, locale }: RendererProps) {
             )}
             {ctaText && (
               <div className="mt-8">
-                <Button
-                  asChild
-                  className="rounded-full bg-white text-teal-800 hover:bg-white/90 px-7 h-12 text-sm font-semibold"
+                <Link
+                  href={ctaLink}
+                  className="inline-flex h-12 items-center rounded-full bg-white px-7 text-sm font-semibold text-sea transition-colors hover:bg-white/90"
                 >
-                  <Link href={ctaLink}>{ctaText}</Link>
-                </Button>
+                  {ctaText}
+                </Link>
               </div>
             )}
           </Container>

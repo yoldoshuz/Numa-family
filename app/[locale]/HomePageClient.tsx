@@ -1,11 +1,14 @@
-"use client";
-
 import {
   Hero,
-  NaturalSupport,
-  BiomarkersSection,
-  OmegaBento,
-  EmailSignup,
+  About,
+  Mission,
+  Ecosystem,
+  Achievements,
+  Certificates,
+  ArticlesPreview,
+  Videos,
+  Reviews,
+  Faq,
 } from "@/components/sections";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -18,11 +21,16 @@ interface Props {
 export function HomePageClient({ dict, locale }: Props) {
   return (
     <>
-      <Hero dict={dict} locale={locale} />
-      <NaturalSupport dict={dict} locale={locale} />
-      <BiomarkersSection dict={dict} />
-      <OmegaBento dict={dict} locale={locale} />
-      <EmailSignup dict={dict} />
+      <Hero dict={dict} />
+      <About dict={dict} />
+      <Mission dict={dict} />
+      <Ecosystem dict={dict} />
+      <Achievements dict={dict} />
+      <Certificates dict={dict} />
+      <ArticlesPreview dict={dict} locale={locale} />
+      <Videos dict={dict} />
+      <Reviews dict={dict} />
+      <Faq dict={dict} />
     </>
   );
 }

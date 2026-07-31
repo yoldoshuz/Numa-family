@@ -1,6 +1,10 @@
 export { Hero } from "./Hero";
-export { NaturalSupport } from "./NaturalSupport";
-export { BiomarkersSection } from "./BiomarkersSection";
-export { OmegaBento } from "./OmegaBento";
-export { BestCare } from "./BestCare";
-export { EmailSignup } from "./EmailSignup";
+export { About } from "./About";
+export { Mission } from "./Mission";
+export { Ecosystem } from "./Ecosystem";
+export { Achievements } from "./Achievements";
+export { Certificates } from "./Certificates";
+export { ArticlesPreview } from "./ArticlesPreview";
+export { Videos } from "./Videos";
+export { Reviews } from "./Reviews";
+export { Faq } from "./Faq";

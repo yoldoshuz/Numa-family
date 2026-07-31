@@ -1,143 +1,67 @@
 "use client";
 
-import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { brandSiteUrl } from "@/lib/config/sites";
+import { motion } from "motion/react";
+import { useConsultation } from "@/components/consultation/ConsultationProvider";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
-import type { Locale } from "@/lib/i18n/config";
-import type { ReactNode } from "react";
 
-interface HeroProps {
-  dict: Dictionary;
-  locale: Locale;
-}
+export function Hero({ dict }: { dict: Dictionary }) {
+  const t = dict.hero;
+  const { open } = useConsultation();
 
-/** Brand block link: external `<a>` (new tab) when a site URL exists, else an internal `<Link>`. */
-function BrandLink({
-  href,
-  external,
-  className,
-  children,
-}: {
-  href: string;
-  external: boolean;
-  className: string;
-  children: ReactNode;
-}) {
-  if (external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {children}
-      </a>
-    );
-  }
   return (
-    <Link href={href} className={className}>
-      {children}
-    </Link>
-  );
-}
-
-export function Hero({ dict, locale }: HeroProps) {
-  return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="container-wide relative z-10    pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.05] tracking-tight max-w-4xl"
-        >
-          <span className="text-teal-700">{dict.hero.title}</span>
-          <br />
-          <span className="text-text-primary">{dict.hero.subtitle}</span>
-        </motion.h1>
-
-        {/* Top row - 2 cards */}
+    <section className="relative overflow-hidden bg-haze">
+      <div className="shell relative z-10 grid items-center gap-0 lg:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.6 }}
-          className="mt-8 sm:mt-10 grid grid-cols-2 gap-2 sm:gap-4"
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="order-2 py-10 lg:order-1 lg:py-24 lg:pr-12"
         >
-          {dict.hero.top.map((item, i: number) => (
-            <BrandLink
-              key={i}
-              href={brandSiteUrl(item.name) ?? `/${locale}/products`}
-              external={Boolean(brandSiteUrl(item.name))}
-              className="relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-44 sm:h-48 md:h-56 group transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="flex flex-col justify-between p-4 sm:p-5 z-10 max-w-[55%]">
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-white/80">
-                    {item.name}
-                  </p>
-                  <p className="text-sm sm:text-lg md:text-xl font-semibold mt-1 leading-tight">
-                    {item.tagline}
-                  </p>
-                </div>
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-white/70" />
-              </div>
-              <div className="relative w-[45%] md:w-[42%] h-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  sizes="(max-width:640px) 45vw, 200px"
-                  className="object-contain object-right-bottom p-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110"
-                  priority={i === 0}
-                />
-              </div>
-            </BrandLink>
-          ))}
+          <h1 className="text-[1.85rem] leading-[1.35] font-extrabold text-ink sm:text-[2.25rem] lg:text-[2.55rem]">
+            {t.titleLine1}
+            <br />
+            {t.titleLine2}
+            <br />
+            <span className="text-brand">{t.titleAccent}</span>
+          </h1>
+
+          <p className="mt-6 max-w-lg text-[0.9rem] leading-[1.75] text-body sm:text-[0.95rem]">
+            {t.description}
+          </p>
+
+          <button
+            type="button"
+            onClick={() => open("hero")}
+            className="mt-8 inline-flex h-13 items-center rounded-lg bg-sea px-7 text-[0.95rem] font-medium text-white transition-colors hover:bg-sea-dark"
+          >
+            {t.cta}
+          </button>
         </motion.div>
 
-        {/* Bottom row - 3 cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="mt-2 sm:mt-4 grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4"
-        >
-          {dict.hero.bottom.map((item, i: number) => (
-            <BrandLink
-              key={i}
-              href={brandSiteUrl(item.name) ?? `/${locale}/products`}
-              external={Boolean(brandSiteUrl(item.name))}
-              className={`relative flex items-stretch justify-between rounded-3xl overflow-hidden bg-linear-to-br from-teal-600 via-teal-700 to-teal-800 border border-white/10 text-white h-36 sm:h-40 md:h-44 group transition-transform duration-300 hover:-translate-y-1 ${
-                i === 2 ? "col-span-2 lg:col-span-1" : ""
-              }`}
-            >
-              <div className="flex flex-col justify-between p-4 sm:p-5 z-10 max-w-[55%]">
-                <div>
-                  <p className="text-xs sm:text-sm font-medium text-white/80">
-                    {item.name}
-                  </p>
-                  <p className="text-sm sm:text-base md:text-lg font-semibold mt-1 leading-tight">
-                    {item.tagline}
-                  </p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-white/70" />
-              </div>
-              <div className="relative w-[42%] md:w-[40%] h-full overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  fill
-                  sizes="(max-width:640px) 40vw, 160px"
-                  className="object-contain object-right-bottom p-2 drop-shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-            </BrandLink>
-          ))}
-        </motion.div>
+        {/* Mobile / tablet: the photo sits above the copy. */}
+        <div className="relative order-1 -mx-5 h-56 sm:-mx-6 sm:h-72 lg:hidden">
+          <Image
+            src="/img/hero-presentation.png"
+            alt={t.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </div>
+
+      {/* Desktop: the photo bleeds off the right edge of the viewport. */}
+      <div className="absolute inset-y-0 right-0 hidden w-[54%] lg:block">
+        <Image
+          src="/img/hero-presentation.png"
+          alt={t.imageAlt}
+          fill
+          priority
+          sizes="54vw"
+          className="object-cover object-center"
+        />
       </div>
     </section>
   );

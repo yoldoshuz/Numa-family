@@ -1,134 +1,171 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { ArticleCard } from "@/components/blog/ArticleCard";
 import { useArticles } from "@/hooks/useArticles";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-import { FileText, ArrowRight } from "lucide-react";
+import type { BlogPost } from "@/lib/api/types";
 
 interface Props {
   dict: Dictionary;
   locale: Locale;
 }
 
-function pickLang<T extends Record<string, string | undefined | null>>(
-  field: T | null | undefined,
-  locale: string
-): string {
-  if (!field) return "";
-  return (field[locale] ?? field.en ?? field.ru ?? "") as string;
-}
-
 export function BlogPageClient({ dict, locale }: Props) {
-  const { data, isLoading, isError } = useArticles("family", { limit: 24 });
-  const articles = data ?? [];
+  const t = dict.blog;
+  const { data, isLoading, isError } = useArticles("family", { limit: 48 });
+  const posts = data ?? [];
+
+  // "Popular" is the two most-read posts; everything else stays chronological.
+  const popular = [...posts].sort((a, b) => (b.viewCount ?? 0) - (a.viewCount ?? 0)).slice(0, 2);
+  const popularIds = new Set(popular.map((p) => p.id));
+  const latest = posts.filter((p) => !popularIds.has(p.id));
 
   return (
-    <div className="pt-14 sm:pt-16">
-      <section className="py-14 md:py-20 lg:py-28 bg-white">
-        <Container size="lg">
-          <AnimatedSection className="mb-10 sm:mb-14">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
-                <FileText className="w-5 h-5 text-teal-700" />
-              </div>
-              <span className="text-sm font-semibold text-teal-700 uppercase tracking-wider">
-                {dict.blog.title}
-              </span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-text-primary leading-[1.05]">
-              {dict.blog.title}
+    <>
+      <section className="relative overflow-hidden bg-haze">
+        <div className="shell relative z-10 grid items-center lg:grid-cols-2">
+          <AnimatedSection className="order-2 py-10 lg:order-1 lg:py-24 lg:pr-12">
+            <h1 className="text-[2rem] leading-[1.2] font-extrabold text-ink sm:text-[2.5rem] lg:text-[2.9rem]">
+              {t.heroTitle}
+              <br />
+              <span className="text-sea">{t.heroAccent}</span>
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-text-secondary max-w-xl leading-relaxed">
-              {dict.blog.subtitle}
+            <p className="mt-5 max-w-md text-[0.9rem] leading-[1.75] text-body sm:text-[0.95rem]">
+              {t.heroDescription}
             </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#latest"
+                className="inline-flex h-12 items-center rounded-lg bg-sea px-6 text-[0.85rem] font-semibold text-white transition-colors hover:bg-sea-dark"
+              >
+                {t.tabLatest}
+              </a>
+              <a
+                href="#popular"
+                className="inline-flex h-12 items-center rounded-lg border border-brand/40 bg-white px-6 text-[0.85rem] font-semibold text-brand transition-colors hover:bg-mist"
+              >
+                {t.tabPopular}
+              </a>
+            </div>
           </AnimatedSection>
 
-          {isLoading && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="rounded-3xl bg-teal-50/40 border border-teal-100/60 h-80 animate-pulse"
-                />
-              ))}
-            </div>
-          )}
+          <div className="relative order-1 -mx-5 h-56 sm:-mx-6 sm:h-72 lg:hidden">
+            <Image
+              src="/img/mission-science.png"
+              alt={`${t.heroTitle} NUMA Family`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-          {isError && (
-            <div className="rounded-3xl border border-rose-100 bg-rose-50/60 p-8 text-center text-rose-700">
-              {dict.blog.error}
-            </div>
-          )}
-
-          {!isLoading && !isError && articles.length === 0 && (
-            <div className="rounded-3xl border border-teal-100 bg-teal-50/60 p-10 text-center text-teal-800">
-              {dict.blog.empty}
-            </div>
-          )}
-
-          {!isLoading && !isError && articles.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {articles.map((post, index) => (
-                <AnimatedSection key={post.id} delay={index * 0.05} animation="fadeUp">
-                  <Link
-                    href={`/${locale}/blog/${post.slug}`}
-                    className="block h-full rounded-3xl overflow-hidden bg-white border border-border hover:border-teal-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
-                  >
-                    <div className="relative h-44 sm:h-52 bg-linear-to-br from-teal-50 to-surface-secondary overflow-hidden">
-                      {post.coverImageUrl ? (
-                        <Image
-                          src={post.coverImageUrl}
-                          alt={pickLang(post.title, locale)}
-                          fill
-                          sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/80 shadow-sm">
-                            <FileText className="w-7 h-7 text-teal-700/60" />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-5 sm:p-6 flex flex-col">
-                      <div className="flex items-center gap-3 mb-3 text-xs text-text-tertiary">
-                        {post.publishedAt && (
-                          <span>
-                            {new Date(post.publishedAt).toLocaleDateString(
-                              locale === "ru" ? "ru-RU" : locale === "uz" ? "uz-UZ" : "en-US",
-                              { month: "short", day: "numeric", year: "numeric" }
-                            )}
-                          </span>
-                        )}
-                        {post.readTimeMinutes && (
-                          <span>· {post.readTimeMinutes} {dict.blog.readTime}</span>
-                        )}
-                      </div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2 leading-snug tracking-tight group-hover:text-teal-700 transition-colors">
-                        {pickLang(post.title, locale)}
-                      </h3>
-                      {post.excerpt && (
-                        <p className="text-sm text-text-secondary leading-relaxed mb-4 line-clamp-2">
-                          {pickLang(post.excerpt, locale)}
-                        </p>
-                      )}
-                      <div className="flex items-center gap-1.5 text-sm font-medium text-teal-700 mt-auto transition-all duration-300 group-hover:translate-x-1">
-                        {dict.blog.readMore}
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </div>
-                    </div>
-                  </Link>
-                </AnimatedSection>
-              ))}
-            </div>
-          )}
-        </Container>
+        <div className="absolute inset-y-0 right-0 hidden w-[54%] lg:block">
+          <Image
+            src="/img/mission-science.png"
+            alt={`${t.heroTitle} NUMA Family`}
+            fill
+            priority
+            sizes="54vw"
+            className="object-cover"
+          />
+        </div>
       </section>
-    </div>
+
+      {isLoading && (
+        <section className="bg-white section-y">
+          <div className="shell grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="h-96 animate-pulse rounded-card-lg bg-mist/70" />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {isError && <Notice text={t.error} />}
+      {!isLoading && !isError && posts.length === 0 && <Notice text={t.empty} />}
+
+      {popular.length > 0 && (
+        <PostSection id="popular" title={t.popularTitle}>
+          <ul className="grid gap-5 lg:grid-cols-2 lg:gap-6">
+            {popular.map((post, i) => (
+              <AnimatedSection key={post.id} delay={i * 0.08} className="h-full">
+                <li className="h-full list-none">
+                  <ArticleCard post={post} locale={locale} readMore={t.readMore} size="wide" />
+                </li>
+              </AnimatedSection>
+            ))}
+          </ul>
+        </PostSection>
+      )}
+
+      {latest.length > 0 && (
+        <PostSection id="latest" title={t.latestTitle} tight={popular.length > 0}>
+          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {latest.map((post: BlogPost, i) => (
+              <AnimatedSection key={post.id} delay={(i % 3) * 0.08} className="h-full">
+                <li className="h-full list-none">
+                  <ArticleCard post={post} locale={locale} readMore={t.readMore} />
+                </li>
+              </AnimatedSection>
+            ))}
+          </ul>
+        </PostSection>
+      )}
+    </>
+  );
+}
+
+function PostSection({
+  id,
+  title,
+  tight,
+  children,
+}: {
+  id: string;
+  title: string;
+  tight?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      id={id}
+      className={`relative overflow-hidden bg-white scroll-mt-24 ${tight ? "pb-14 sm:pb-16 lg:pb-20" : "section-y"}`}
+    >
+      {!tight && (
+        <Image
+          src="/decor/network-soft.svg"
+          alt=""
+          width={520}
+          height={620}
+          aria-hidden
+          className="pointer-events-none absolute -top-10 -left-28 hidden w-64 opacity-40 lg:block"
+        />
+      )}
+      <div className="shell relative">
+        <AnimatedSection>
+          <h2 className="text-[1.4rem] font-extrabold text-ink sm:text-[1.75rem] lg:text-[1.95rem]">
+            {title}
+          </h2>
+        </AnimatedSection>
+        <div className="mt-7 lg:mt-9">{children}</div>
+      </div>
+    </section>
+  );
+}
+
+function Notice({ text }: { text: string }) {
+  return (
+    <section className="bg-white section-y">
+      <div className="shell">
+        <p className="rounded-card-lg border border-hairline bg-paper p-10 text-center text-body">
+          {text}
+        </p>
+      </div>
+    </section>
   );
 }

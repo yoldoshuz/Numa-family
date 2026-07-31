@@ -3,8 +3,8 @@ import "./globals.css";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 
 export const metadata: Metadata = {
-  title: "Numa Family",
-  description: "Health ecosystem for the whole family",
+  title: "NUMA Family",
+  description: "Экосистема современных решений для здоровья: наука, природа и инновации",
   icons: { icon: "/favicon.ico" },
 };
 

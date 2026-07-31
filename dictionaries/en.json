@@ -1,215 +1,321 @@
 {
   "meta": {
-    "title": "Numa Family — Health ecosystem for the whole family",
-    "description": "Numa Family is a complete health ecosystem. Nutrition, kids' health, motherhood, biomarker testing, cancer screening and personalized wellness plans for the whole family.",
-    "keywords": "Numa Family, health ecosystem, nutrition, kids health, biomarkers, cancer screening, family health"
+    "title": "NUMA Family — health, trust and the power of nature in one brand",
+    "description": "NUMA Family is an ecosystem of modern health solutions that brings together science, nature and innovation. Natural products, a scientific approach and international quality standards.",
+    "keywords": "NUMA Family, natural products, health, NUMA Nutrition, NUMA Kids, Nabaviy Tabobat, NUMA Diagnostics, Bettery Organic"
   },
   "nav": {
     "home": "Home",
-    "about": "About",
-    "blog": "Articles",
-    "contact": "Contact",
-    "consultation": "Consultation"
+    "blog": "Blog",
+    "contact": "Contacts",
+    "consultation": "Consultation",
+    "menu": "Menu"
   },
   "hero": {
-    "title": "Health ecosystem",
-    "subtitle": "for the whole family",
-    "top": [
-      {
-        "name": "Numa Nutrition",
-        "tagline": "Nutrition & vitamins",
-        "image": "/images/image 19.png"
-      },
-      {
-        "name": "Numa Kids",
-        "tagline": "Kids' health",
-        "image": "/images/image 27.png"
-      }
-    ],
-    "bottom": [
-      {
-        "name": "Nabaviy Tabobat",
-        "tagline": "Healthy body",
-        "image": "/images/image 8.png"
-      },
-      {
-        "name": "Bettery Restaurant",
-        "tagline": "Healthy food restaurant",
-        "image": "/images/image 8.png"
-      },
-      {
-        "name": "Bettery Ration",
-        "tagline": "Healthy meal plans",
-        "image": "/images/image 8.png"
-      }
-    ]
-  },
-  "naturalSupport": {
-    "eyebrow": "Natural health support",
-    "heading": "Your solution for a",
-    "headingAccent": "healthy lifestyle",
-    "discount": "Upgrade your health with a 22% discount",
-    "startedCta": "Get started",
-    "title": "Natural syrups",
-    "highlight": "for wellness",
-    "description": "Clinically proven, 100% natural formulas crafted to restore vitality and boost energy.",
-    "cta": "Buy now",
-    "ctaSecondary": "Learn more",
-    "ourProducts": "Our products",
-    "ourProductsDescription": "Natural, expert-crafted formulas. Pick what fits you best.",
-    "allProducts": "All products",
-    "priceFrom": "from {price} UZS",
-    "badges": { "new": "New", "best": "Best choice", "popular": "Popular" },
-    "products": [
-      { "name": "Lotus", "tagline": "Black seed", "description": "Immune and vitality support", "price": "150,000", "badge": "new", "model": "/3d/nutrition/Bonny.glb" },
-      { "name": "Detox", "tagline": "Hepar Energy", "description": "Liver cleanse and detox", "price": "185,000", "badge": "best", "model": "/3d/nutrition/1.glb" },
-      { "name": "Igneus", "tagline": "Immunity", "description": "Energy and resilience", "price": "165,000", "badge": "popular", "model": "/3d/nutrition/2.glb" },
-      { "name": "Insulin", "tagline": "Balance", "description": "Blood sugar and metabolism", "price": "210,000", "badge": "new", "model": "/3d/Insulin/insulin balance blend.glb" },
-      { "name": "Insulin+", "tagline": "Formula", "description": "Enhanced balance formula", "price": "240,000", "badge": "best", "model": "/3d/Insulin/insulin balance blend 2.glb" },
-      { "name": "Tabobat", "tagline": "Classic", "description": "Traditional herbal elixir", "price": "130,000", "badge": "popular", "model": "/3d/Tabobat/tabobat sam 1.glb" },
-      { "name": "Tabobat+", "tagline": "Premium", "description": "Premium herbal formula", "price": "175,000", "badge": "best", "model": "/3d/Tabobat/tabobat sam 2.glb" },
-      { "name": "Tabobat Q", "tagline": "Herbal", "description": "Plant extracts", "price": "155,000", "badge": "new", "model": "/3d/Tabobat/tabobat sam 1q.glb" }
-    ],
-    "viewAll": "View all",
-    "marquee": [
-      "Test 130+ biomarkers",
-      "Screen 50+ cancer types",
-      "Personal health plan",
-      "100% natural formulas",
-      "Clinically proven",
-      "Expert support",
-      "Best care for your family"
-    ]
-  },
-  "healthPlan": {
-    "title": "Create your",
-    "highlight": "health plan",
-    "description": "Find your baseline and get a personalized wellness plan.",
-    "biomarkers": {
-      "title": "Test 130+\nbiomarkers",
-      "description": "Comprehensive blood panel: vitamins, hormones, metabolic markers, inflammation indicators.",
-      "cta": "See markers"
-    },
-    "cancer": {
-      "title": "Screen for 50+\ntypes of cancer",
-      "description": "Multi-cancer early detection using the latest diagnostic technology.",
-      "cta": "Learn more"
-    }
-  },
-  "omega": {
-    "eyebrow": "Omega 3-6-9",
-    "title": "Science meets",
-    "highlight": "nature",
-    "description": "Unlock the true power of Omega 3-6-9 — for your heart, mind and skin.",
-    "cta": "Get started",
-    "items": [
-      { "title": "Regrow your hair\nin 3-6 months", "image": "/images/image 16.png" },
-      { "title": "Stop hair loss\nand strengthen follicles", "image": "/images/image 17.png" },
-      { "title": "Clear mind &\nstrong heart", "image": "/images/image 18.png" },
-      { "title": "Cognitive\nsupport every day", "image": "/images/image 20.png" },
-      { "title": "Healthy skin\nand joints", "image": "/images/image 21.png" },
-      { "title": "Balance hormones\nand mood", "image": "/images/image 22.png" }
-    ]
-  },
-  "bestCare": {
-    "title": "The best care for your health",
-    "subtitle": "from the best specialists",
-    "description": "Get in touch with our team of leading specialists with decades of practice."
-  },
-  "articles": {
-    "title": "Latest articles",
-    "subtitle": "Expert reads on health, nutrition and family care",
-    "readMore": "Read more",
-    "readTime": "min read",
-    "empty": "Articles are coming soon",
-    "error": "Failed to load articles",
-    "viewAll": "View all articles"
-  },
-  "emailSignup": {
-    "title": "Unlock the free Guide to Protein for Weight Loss",
-    "description": "Boost your weight loss with expert-backed protein nutrition.",
-    "placeholder": "Email",
-    "cta": "Get the guide",
-    "disclaimer": "By submitting the form, you agree to receive marketing emails from Numa Family."
-  },
-  "footer": {
-    "tagline": "Full care.\nCompletely different.",
-    "description": "Numa Family is a health and wellness platform. All products are 100% natural and meet international quality standards.",
-    "learnMore": "Learn more",
-    "links": {
-      "weightLoss": "Weight loss",
-      "sexualHealth": "Sexual health",
-      "testosterone": "Testosterone",
-      "hairRegrowth": "Hair regrowth",
-      "mentalHealth": "Mental health",
-      "drugComparisons": "Drug comparisons",
-      "drugsAndMedications": "Drugs & medications",
-      "aboutTheCompany": "About the company"
-    },
-    "tools": {
-      "title": "Tools",
-      "bmiCalculator": "BMI calculator",
-      "tdeeCalculator": "TDEE calculator",
-      "calorieDeficitCalculator": "Calorie deficit",
-      "proteinCalculator": "Protein calculator",
-      "waterIntakeCalculator": "Water intake"
-    },
-    "treatments": {
-      "title": "Products",
-      "glp1Injections": "GLP-1 injections",
-      "sildenafil": "Sildenafil",
-      "cialis": "Cialis",
-      "tadalafil": "Tadalafil",
-      "minoxidilSolution": "Minoxidil solution",
-      "finasteridePills": "Finasteride"
-    },
-    "resources": {
-      "title": "Resources",
-      "editorial": "Editorial",
-      "research": "Research",
-      "howItWorks": "How it works",
-      "clinicalStudies": "Clinical studies",
-      "press": "Press"
-    },
-    "support": {
-      "title": "Support",
-      "professionals": "For professionals",
-      "providers": "For providers",
-      "customerHelpCenter": "Help center",
-      "pressCenter": "Press center"
-    },
-    "legal": "Terms of use | Privacy policy | Telemedicine consent",
-    "copyright": "Numa Family Inc. All rights reserved. Numa and NUMA are trademarks of Numa, Inc.",
-    "rights": "All rights reserved."
+    "titleLine1": "NUMA Family — health,",
+    "titleLine2": "trust and the power of nature",
+    "titleAccent": "in one brand",
+    "description": "We create natural products based on a scientific approach, modern technology and strict quality standards, so that health care becomes closer to every family.",
+    "cta": "About the company",
+    "imageAlt": "NUMA Family presentation at state level"
   },
   "about": {
-    "title": "About Numa Family",
-    "description": "We are a health ecosystem returning families to nature through innovative wellness solutions.",
-    "mission": "Our mission",
-    "missionText": "Building a complete health platform that helps families take control of their health.",
-    "values": "Our values",
-    "valuesItems": ["Natural", "Quality", "Family first", "Innovation"],
-    "story": "Our story",
-    "storyText": "Numa Family was founded to create a complete health ecosystem for families."
+    "title": "About",
+    "titleAccent": "NUMA FAMILY",
+    "paragraphs": [
+      "NUMA Family is a modern company founded in 2020 to create natural products that meet international quality standards.",
+      "We combine a scientific approach, modern technology and natural ingredients to help people take care of their health every day."
+    ],
+    "imageAlt": "NUMA Family production facility",
+    "stats": [
+      { "value": "1000+", "label": "natural\nproducts", "icon": "leaf" },
+      { "value": "100 000+", "label": "happy\ncustomers", "icon": "users" },
+      { "value": "500+", "label": "official\npartners", "icon": "handshake" }
+    ]
+  },
+  "mission": {
+    "title": "The NUMA Family mission",
+    "description": "We do more than create natural products — we build a culture of healthy living by combining the power of nature, a scientific approach and modern technology.",
+    "quotePrefix": "“NUMA Family",
+    "quoteRest": " — trust, quality and benefit in every decision”",
+    "steps": [
+      {
+        "title": "Nature",
+        "text": "We believe health starts with nature. That is why natural ingredients are the foundation of every solution we make",
+        "image": "/img/mission-nature.png"
+      },
+      {
+        "title": "Scientific approach",
+        "text": "Every product is created using modern scientific research and the long-standing experience of our specialists",
+        "image": "/img/mission-science.png"
+      },
+      {
+        "title": "Care for people",
+        "text": "Our goal is to help people look after their health and make quality products available to every family",
+        "image": "/img/mission-care.png"
+      },
+      {
+        "title": "Quality",
+        "text": "We pay attention to every stage of production, striving to guarantee a high level of quality and trust",
+        "image": "/img/mission-quality.png"
+      },
+      {
+        "title": "Trust",
+        "text": "Every NUMA Family product is created as a combination of trust, quality and benefit for health",
+        "image": "/img/mission-trust.png"
+      },
+      {
+        "title": "Our future",
+        "text": "We keep growing so that even more people can choose a healthy lifestyle together with NUMA Family",
+        "image": "/img/mission-future.png"
+      }
+    ]
+  },
+  "ecosystem": {
+    "core": "NUMA FAMILY",
+    "left": [
+      { "name": "NUMA Diagnostics", "leaves": ["Check-up programmes", "Laboratory diagnostics", "International cooperation"] },
+      { "name": "Bettery Organic", "leaves": ["Healthy nutrition", "Organic Food", "Healthy Lifestyle"] },
+      { "name": "Production", "leaves": ["Modern factory", "1000+ products", "Scientific research"] }
+    ],
+    "right": [
+      { "name": "NUMA Nutrition", "leaves": ["Syrups", "Immunity", "Natural products"] },
+      { "name": "NUMA Kids", "leaves": ["Vitamins", "Child development", "Healthy gummies"] },
+      { "name": "Nabaviy Tabobat", "leaves": ["Natural treatment", "Prevention", "Traditional knowledge"] }
+    ]
+  },
+  "achievements": {
+    "title": "OUR ACHIEVEMENTS",
+    "description": "We are proud of the results that confirm the quality, scientific approach and international recognition of NUMA Family",
+    "items": [
+      {
+        "title": "STATE RECOGNITION",
+        "text": "NUMA Family takes an active part in developing the health sector and presents its achievements at state level.",
+        "image": "/img/ach-state.png"
+      },
+      {
+        "title": "SCIENTIFIC LEADERSHIP",
+        "text": "Professor Guli Islamovna Shaykhova, MD, is one of the leading specialists in hygiene and nutrition. Her scientific experience helps develop NUMA Family projects in line with modern medical standards",
+        "image": "/img/prof-shaykhova.png"
+      },
+      {
+        "title": "INTERNATIONAL AWARDS",
+        "text": "International awards confirm the high quality of our developments and the company's contribution to a healthy lifestyle",
+        "image": "/img/ach-awards.png"
+      },
+      {
+        "title": "INTERNATIONAL COOPERATION",
+        "text": "NUMA Family develops cooperation with international scientific and medical organisations, adopting modern knowledge and the best global practices",
+        "image": "/img/ach-international.png"
+      },
+      {
+        "title": "COMPANY GROWTH",
+        "text": "NUMA Family opened another international branch in Azerbaijan. This expansion was an important step towards promoting a healthy lifestyle and presenting the company's quality products internationally",
+        "image": "/img/ach-store.png"
+      },
+      {
+        "title": "TRUSTED BY MILLIONS",
+        "text": "Omega 3-6-9 was awarded a gold medal at the Women Inventors competition: the product received a high evaluation and a gold medal. This achievement once again confirms the health benefits and innovative nature of our products",
+        "image": "/img/ach-trust.png"
+      }
+    ]
+  },
+  "certificates": {
+    "title": "OUR INTERNATIONAL CERTIFICATES",
+    "description": "We follow international quality and safety standards at every stage of production",
+    "items": [
+      {
+        "id": "euroleaf",
+        "name": "EURO-LEAF",
+        "subtitle": "European organic certificate",
+        "text": "The official organic mark of the European Union. It confirms that the products meet the strict requirements of organic production, sustainability and quality control"
+      },
+      {
+        "id": "halal",
+        "name": "HALAL CERTIFICATE",
+        "subtitle": "Halal certificate",
+        "text": "Confirms that the products meet halal requirements and are made in accordance with Islamic standards of quality, safety and purity"
+      },
+      {
+        "id": "usda",
+        "name": "USDA ORGANIC",
+        "subtitle": "US National Organic Program",
+        "text": "A certificate of the United States Department of Agriculture confirming compliance with the standards of organic production, processing, storage and distribution"
+      },
+      {
+        "id": "iso",
+        "name": "ISO 22000:2018",
+        "subtitle": "Food safety management system",
+        "text": "An international standard confirming effective quality and food safety control at every stage of production and supply"
+      },
+      {
+        "id": "gmp",
+        "name": "GMP",
+        "subtitle": "Good Manufacturing Practice",
+        "text": "An international good manufacturing practice standard confirming compliance with high requirements for production, quality control, safety and product efficacy"
+      }
+    ]
+  },
+  "articles": {
+    "title": "USEFUL ARTICLES AND NEWS",
+    "description": "Expert materials, company news and useful recommendations about health, scientific research and the development of NUMA Family",
+    "viewAll": "All articles",
+    "readMore": "Read more",
+    "empty": "Articles are coming soon",
+    "error": "Failed to load articles"
+  },
+  "videos": {
+    "title": "Video about NUMA Family",
+    "description": "Learn more about the NUMA Family philosophy, scientific approach, production and international growth through official videos, interviews and expert materials.",
+    "prev": "Previous video",
+    "next": "Next video",
+    "items": [
+      { "title": "Nabaviy Tabobat — tradition and modernity", "image": "/img/video-1.png", "url": "" },
+      { "title": "A review of NUMA Family products", "image": "/img/video-2.png", "url": "" },
+      { "title": "NUMA Family and an active lifestyle", "image": "/img/video-3.png", "url": "" },
+      { "title": "NUMA Kids — caring for children", "image": "/img/video-4.png", "url": "" }
+    ]
+  },
+  "reviews": {
+    "title": "What our customers say",
+    "description": "Customer trust is our greatest value",
+    "prev": "Previous review",
+    "next": "Next review",
+    "items": [
+      {
+        "text": "After a few weeks I felt more energy and lightness. I really liked that the products are natural and suitable for daily support of the body",
+        "name": "Malika Azizova",
+        "avatar": "/img/avatar-malika.png",
+        "rating": 5
+      },
+      {
+        "text": "For me NUMA Family means trust and quality. You can see the company takes the formula, the production and the customers seriously",
+        "name": "Azizbek Karimov",
+        "avatar": "/img/avatar-azizbek.png",
+        "rating": 5
+      },
+      {
+        "text": "I liked the company's approach: a consultation, clear information and quality products. I use them with pleasure and recommend them to my family",
+        "name": "Shahnoza Rasulova",
+        "avatar": "/img/avatar-shahnoza.png",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "description": "Answers to the most common questions about NUMA Family, its areas of work and its principles",
+    "items": [
+      {
+        "q": "What is NUMA Family?",
+        "a": "NUMA Family is an ecosystem that brings together a scientific approach, modern technology, natural products and care for people's health. The company develops several directions, including NUMA Nutrition, NUMA Kids, Nabaviy Tabobat and other projects."
+      },
+      {
+        "q": "What does NUMA Family do?",
+        "a": "The company develops natural products, carries out scientific research, runs modern production, builds international cooperation and grows projects in health and healthy living."
+      },
+      {
+        "q": "Where are NUMA Family products made?",
+        "a": "Products are made at the modern NUMA Family production facility in compliance with international quality standards and multi-level control at every stage of production."
+      },
+      {
+        "q": "In which countries is NUMA Family present?",
+        "a": "The company grows not only in Uzbekistan but also cooperates with partners in Kazakhstan, Azerbaijan, Kyrgyzstan, Russia, Belarus, Armenia and Georgia, expanding its international presence."
+      },
+      {
+        "q": "What is the NUMA Family scientific approach based on?",
+        "a": "All company projects are developed with the participation of specialists, modern research and scientific work. NUMA Family combines natural components, innovative technology and international experience."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "Ready to learn more about NUMA FAMILY?",
+    "button": "Send a request"
+  },
+  "footer": {
+    "description": "An ecosystem of modern health solutions bringing together science, nature and innovation.",
+    "socialTitle": "Follow us",
+    "directions": {
+      "title": "DIRECTIONS",
+      "items": ["NUMA Nutrition", "NUMA Kids", "Nabaviy Tabobat", "NUMA Diagnostics", "Bettery Organic"]
+    },
+    "company": {
+      "title": "COMPANY",
+      "items": [
+        { "label": "Home", "href": "/" },
+        { "label": "About", "href": "/#about" },
+        { "label": "News", "href": "/blog" },
+        { "label": "Video", "href": "/#videos" },
+        { "label": "Reviews", "href": "/#reviews" },
+        { "label": "Certificates", "href": "/#certificates" },
+        { "label": "Contacts", "href": "/contact" }
+      ]
+    },
+    "contacts": {
+      "title": "CONTACTS",
+      "address": "Tashkent, Uzbekistan",
+      "phone": "+998 71 203-22-32",
+      "email": "info@numafamily.uz",
+      "site": "www.numafamily.uz"
+    },
+    "copyright": "© 2026 NUMA FAMILY",
+    "rights": "All rights reserved",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use"
   },
   "blog": {
-    "title": "Articles",
-    "subtitle": "Expert reads on health, wellness and family care",
+    "heroTitle": "Blog",
+    "heroAccent": "NUMA Family",
+    "heroDescription": "Company news, expert materials, international achievements and useful information about a healthy lifestyle.",
+    "tabLatest": "Latest articles",
+    "tabPopular": "Popular articles",
+    "popularTitle": "Popular articles",
+    "latestTitle": "Latest articles",
     "readMore": "Read more",
     "readTime": "min read",
     "empty": "Articles are coming soon",
     "error": "Failed to load articles",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "breadcrumbHome": "Home",
+    "breadcrumbBlog": "Blog",
+    "share": "Share",
+    "related": "Related articles",
+    "notFound": "Article not found",
+    "backToBlog": "Back to blog"
   },
   "contact": {
-    "title": "Get in touch",
-    "subtitle": "We are always ready to help",
-    "phone": "+998 55 516-77-77",
-    "address": "31 Elbek str., Tashkent 100047, Uzbekistan",
+    "heroTitle": "Get in touch",
+    "heroAccent": "with NUMA Family",
+    "heroDescription": "We are always ready to answer your questions, tell you more about the company's areas of work and help you choose a convenient way to get in touch",
+    "callNow": "Call now",
+    "viaTelegram": "Via Telegram",
+    "infoTitle": "Contact information",
+    "cardTitle": "Contact us",
+    "phone": "+998 71-203-22-32",
+    "instagram": "@numa_family",
+    "hours": "Monday – Saturday: 9:00 – 20:00",
+    "address": "Tashkent, Uzbekistan",
     "email": "info@numafamily.uz",
-    "workingHours": "Mon-Sat: 9:00 - 18:00",
-    "sendMessage": "Send message",
-    "name": "Your name",
-    "message": "Message"
+    "mapTitle": "NUMA Family on the map"
+  },
+  "consultation": {
+    "title": "Get a consultation from a Numa Family specialist",
+    "description": "A personal product selection for your health, based on your goals and the condition of your body",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Enter your name",
+    "phoneLabel": "Phone number",
+    "phonePlaceholder": "Enter your phone number",
+    "messageLabel": "Question / Message (optional)",
+    "messagePlaceholder": "Describe your problem or ask a question. Our specialist will choose a suitable product...",
+    "note": "Once the form is submitted our specialist will contact you within 24 hours. The consultation is free!",
+    "submit": "Get a free consultation",
+    "submitting": "Sending...",
+    "close": "Close",
+    "required": "Please fill in your name and phone number",
+    "successTitle": "Thank you for your request!",
+    "successText": "Your request has been sent successfully.\nA Numa Family specialist\nwill contact you shortly",
+    "successNote": "We usually reply within\n15–30 minutes during working hours",
+    "successHome": "Back to home",
+    "successBlog": "Go to the blog"
   }
 }

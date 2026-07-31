@@ -1,215 +1,321 @@
 {
   "meta": {
-    "title": "Numa Family — Butun oila uchun sog'liq ekotizimi",
-    "description": "Numa Family — to'liq sog'liq ekotizimi. Ovqatlanish, bolalar sog'lig'i, biomarker testlari, saraton skriningi va butun oilangiz uchun shaxsiy sog'lomlashtirish rejalari.",
-    "keywords": "Numa Family, sog'liq ekotizimi, ovqatlanish, bolalar sog'lig'i, biomarkerlar, saraton skriningi, oilaviy sog'liq"
+    "title": "NUMA Family — sog'liq, ishonch va tabiat kuchi bir brendda",
+    "description": "NUMA Family — fan, tabiat va innovatsiyalarni birlashtirgan zamonaviy sog'liq yechimlari ekotizimi. Tabiiy mahsulotlar, ilmiy yondashuv va xalqaro sifat standartlari.",
+    "keywords": "NUMA Family, tabiiy mahsulotlar, sog'liq, NUMA Nutrition, NUMA Kids, Nabaviy Tabobat, NUMA Diagnostics, Bettery Organic"
   },
   "nav": {
     "home": "Bosh sahifa",
-    "about": "Biz haqimizda",
-    "blog": "Maqolalar",
-    "contact": "Aloqa",
-    "consultation": "Konsultatsiya"
+    "blog": "Blog",
+    "contact": "Kontaktlar",
+    "consultation": "Konsultatsiya",
+    "menu": "Menyu"
   },
   "hero": {
-    "title": "Sog'liq ekotizimi",
-    "subtitle": "butun oila uchun",
-    "top": [
-      {
-        "name": "Numa Nutrition",
-        "tagline": "Ovqatlanish va vitaminlar",
-        "image": "/images/image 19.png"
-      },
-      {
-        "name": "Numa Kids",
-        "tagline": "Bolalar sog'lig'i",
-        "image": "/images/image 27.png"
-      }
-    ],
-    "bottom": [
-      {
-        "name": "Nabaviy Tabobat",
-        "tagline": "Sog'lom tana",
-        "image": "/images/image 8.png"
-      },
-      {
-        "name": "Bettery Restaurant",
-        "tagline": "Sog'lom ovqat restorani",
-        "image": "/images/image 8.png"
-      },
-      {
-        "name": "Bettery Ration",
-        "tagline": "Sog'lom ratsion",
-        "image": "/images/image 8.png"
-      }
-    ]
-  },
-  "naturalSupport": {
-    "eyebrow": "Tabiiy sog'liq yordami",
-    "heading": "Sog'lom turmush tarzi uchun",
-    "headingAccent": "sizning yechimingiz",
-    "discount": "Sog'ligingizni 22% chegirma bilan yaxshilang",
-    "startedCta": "Boshlash",
-    "title": "Tabiiy siroplar",
-    "highlight": "sog'liq uchun",
-    "description": "Klinik tasdiqlangan, 100% tabiiy formulalar — hayotiy kuchni tiklash va energiyani oshirish uchun yaratilgan.",
-    "cta": "Sotib olish",
-    "ctaSecondary": "Ko'proq bilish",
-    "ourProducts": "Bizning mahsulotlar",
-    "ourProductsDescription": "Ekspertlar tomonidan yaratilgan tabiiy formulalar. O'zingizga mosini tanlang.",
-    "allProducts": "Barcha mahsulotlar",
-    "priceFrom": "{price} so'mdan",
-    "badges": { "new": "Yangi", "best": "Eng yaxshi", "popular": "Ommabop" },
-    "products": [
-      { "name": "Lotus", "tagline": "Qora zira", "description": "Immunitet va quvvat", "price": "150 000", "badge": "new", "model": "/3d/nutrition/Bonny.glb" },
-      { "name": "Detox", "tagline": "Hepar Energy", "description": "Jigar tozalash va detoks", "price": "185 000", "badge": "best", "model": "/3d/nutrition/1.glb" },
-      { "name": "Igneus", "tagline": "Immunitet", "description": "Energiya va bardoshlilik", "price": "165 000", "badge": "popular", "model": "/3d/nutrition/2.glb" },
-      { "name": "Insulin", "tagline": "Balance", "description": "Qand balansi va metabolizm", "price": "210 000", "badge": "new", "model": "/3d/Insulin/insulin balance blend.glb" },
-      { "name": "Insulin+", "tagline": "Formula", "description": "Kuchaytirilgan balans formulasi", "price": "240 000", "badge": "best", "model": "/3d/Insulin/insulin balance blend 2.glb" },
-      { "name": "Tabobat", "tagline": "Classic", "description": "An'anaviy o'simlik eliksiri", "price": "130 000", "badge": "popular", "model": "/3d/Tabobat/tabobat sam 1.glb" },
-      { "name": "Tabobat+", "tagline": "Premium", "description": "Premium o'simlik formulasi", "price": "175 000", "badge": "best", "model": "/3d/Tabobat/tabobat sam 2.glb" },
-      { "name": "Tabobat Q", "tagline": "Herbal", "description": "O'simlik ekstraktlari", "price": "155 000", "badge": "new", "model": "/3d/Tabobat/tabobat sam 1q.glb" }
-    ],
-    "viewAll": "Hammasini ko'rish",
-    "marquee": [
-      "130+ biomarker testi",
-      "50+ saraton turini skrining",
-      "Shaxsiy sog'liq rejasi",
-      "100% tabiiy formulalar",
-      "Klinik tasdiqlangan",
-      "Ekspert yordami",
-      "Oila uchun eng yaxshi g'amxo'rlik"
-    ]
-  },
-  "healthPlan": {
-    "title": "O'zingizning",
-    "highlight": "sog'liq rejangizni yarating",
-    "description": "Boshlang'ich darajangizni aniqlang va shaxsiy sog'lomlashtirish rejasini oling.",
-    "biomarkers": {
-      "title": "130+ biomarker\ntesti",
-      "description": "To'liq qon tahlili: vitaminlar, gormonlar, metabolik markerlar, yallig'lanish ko'rsatkichlari.",
-      "cta": "Markerlarni ko'rish"
-    },
-    "cancer": {
-      "title": "50+ tur saratonni\nskrining",
-      "description": "Eng so'nggi diagnostika texnologiyalaridan foydalangan holda ko'p saraton erta skrining.",
-      "cta": "Ko'proq bilish"
-    }
-  },
-  "omega": {
-    "eyebrow": "Omega 3-6-9",
-    "title": "Ilm va",
-    "highlight": "tabiat",
-    "description": "Omega 3-6-9 haqiqiy kuchini oching — yuragingiz, aqlingiz va teringiz uchun.",
-    "cta": "Boshlash",
-    "items": [
-      { "title": "3-6 oyda sochingizni\ntiklang", "image": "/images/image 16.png" },
-      { "title": "Soch tushishini to'xtating\nva ildizlarni mustahkamlang", "image": "/images/image 17.png" },
-      { "title": "Toza aql va\nkuchli yurak", "image": "/images/image 18.png" },
-      { "title": "Kunlik\nkognitiv qo'llab-quvvatlash", "image": "/images/image 20.png" },
-      { "title": "Sog'lom teri\nva bo'g'inlar", "image": "/images/image 21.png" },
-      { "title": "Gormonlar va kayfiyat\nmuvozanati", "image": "/images/image 22.png" }
-    ]
-  },
-  "bestCare": {
-    "title": "Eng yaxshi sog'liq g'amxo'rligi",
-    "subtitle": "eng yaxshi mutaxassislardan",
-    "description": "O'nlab yillar tajribaga ega yetakchi mutaxassislar jamoamiz bilan bog'laning."
-  },
-  "articles": {
-    "title": "So'nggi maqolalar",
-    "subtitle": "Sog'liq, ovqatlanish va oilaviy g'amxo'rlik bo'yicha ekspert materiallar",
-    "readMore": "Ko'proq o'qish",
-    "readTime": "daq o'qish",
-    "empty": "Maqolalar tez orada paydo bo'ladi",
-    "error": "Maqolalarni yuklab bo'lmadi",
-    "viewAll": "Barcha maqolalarni ko'rish"
-  },
-  "emailSignup": {
-    "title": "Vazn yo'qotish uchun bepul protein qo'llanmasini oling",
-    "description": "Ekspertlar tasdiqlagan protein ovqatlanish bilan vazn yo'qotishni tezlashtiring.",
-    "placeholder": "Email",
-    "cta": "Qo'llanmani olish",
-    "disclaimer": "Shaklni yuborish orqali siz Numa Family'dan marketing xabarlarini olishga rozilik bildirasiz."
-  },
-  "footer": {
-    "tagline": "To'liq g'amxo'rlik.\nMutlaqo boshqacha.",
-    "description": "Numa Family — sog'liq va sog'lomlashtirish platformasi. Barcha mahsulotlar 100% tabiiy va xalqaro sifat standartlariga javob beradi.",
-    "learnMore": "Batafsil",
-    "links": {
-      "weightLoss": "Vazn yo'qotish",
-      "sexualHealth": "Jinsiy sog'liq",
-      "testosterone": "Testosteron",
-      "hairRegrowth": "Soch o'sishi",
-      "mentalHealth": "Ruhiy sog'liq",
-      "drugComparisons": "Dorilar taqqoslash",
-      "drugsAndMedications": "Dorilar",
-      "aboutTheCompany": "Kompaniya haqida"
-    },
-    "tools": {
-      "title": "Vositalar",
-      "bmiCalculator": "BMI kalkulyatori",
-      "tdeeCalculator": "TDEE kalkulyatori",
-      "calorieDeficitCalculator": "Kaloriya defitsiti",
-      "proteinCalculator": "Protein kalkulyatori",
-      "waterIntakeCalculator": "Suv miqdori"
-    },
-    "treatments": {
-      "title": "Mahsulotlar",
-      "glp1Injections": "GLP-1 ukollari",
-      "sildenafil": "Sildenafil",
-      "cialis": "Cialis",
-      "tadalafil": "Tadalafil",
-      "minoxidilSolution": "Minoksidil eritmasi",
-      "finasteridePills": "Finasterid"
-    },
-    "resources": {
-      "title": "Resurslar",
-      "editorial": "Tahririyat",
-      "research": "Tadqiqotlar",
-      "howItWorks": "Qanday ishlaydi",
-      "clinicalStudies": "Klinik tadqiqotlar",
-      "press": "Matbuot"
-    },
-    "support": {
-      "title": "Qo'llab-quvvatlash",
-      "professionals": "Mutaxassislarga",
-      "providers": "Yetkazib beruvchilarga",
-      "customerHelpCenter": "Yordam markazi",
-      "pressCenter": "Matbuot markazi"
-    },
-    "legal": "Foydalanish shartlari | Maxfiylik siyosati | Telemeditsina roziligi",
-    "copyright": "Numa Family Inc. Barcha huquqlar himoyalangan. Numa va NUMA — Numa, Inc. savdo belgilari.",
-    "rights": "Barcha huquqlar himoyalangan."
+    "titleLine1": "NUMA Family — sog'liq,",
+    "titleLine2": "ishonch va tabiat kuchi",
+    "titleAccent": "bir brendda",
+    "description": "Biz sog'liq haqidagi g'amxo'rlik har bir oilaga yaqinroq bo'lishi uchun ilmiy yondashuv, zamonaviy texnologiyalar va qat'iy sifat standartlari asosida tabiiy mahsulotlar yaratamiz.",
+    "cta": "Kompaniya haqida",
+    "imageAlt": "NUMA Family taqdimoti davlat darajasida"
   },
   "about": {
-    "title": "Numa Family haqida",
-    "description": "Biz — innovatsion sog'lomlashtirish yechimlari orqali oilalarni tabiatga qaytaruvchi sog'liq ekotizimimiz.",
-    "mission": "Bizning missiyamiz",
-    "missionText": "Oilalarga o'z sog'lig'ini nazorat qilishda yordam beruvchi to'liq sog'liq platformasini yaratish.",
-    "values": "Bizning qadriyatlarimiz",
-    "valuesItems": ["Tabiiylik", "Sifat", "Oila birinchi", "Innovatsiya"],
-    "story": "Bizning hikoyamiz",
-    "storyText": "Numa Family oilalar uchun to'liq sog'liq ekotizimini yaratish maqsadida asos solindi."
+    "title": "Kompaniya haqida",
+    "titleAccent": "NUMA FAMILY",
+    "paragraphs": [
+      "NUMA Family — xalqaro sifat standartlariga javob beradigan tabiiy mahsulotlar yaratish maqsadida 2020-yilda tashkil etilgan zamonaviy kompaniya.",
+      "Biz odamlarga har kuni o'z sog'lig'i haqida g'amxo'rlik qilishga yordam berish uchun ilmiy yondashuv, zamonaviy texnologiyalar va tabiiy ingredientlarni birlashtiramiz."
+    ],
+    "imageAlt": "NUMA Family ishlab chiqarish majmuasi",
+    "stats": [
+      { "value": "1000+", "label": "tabiiy\nmahsulot", "icon": "leaf" },
+      { "value": "100 000+", "label": "mamnun\nmijoz", "icon": "users" },
+      { "value": "500+", "label": "rasmiy\nhamkor", "icon": "handshake" }
+    ]
+  },
+  "mission": {
+    "title": "NUMA Family missiyasi",
+    "description": "Biz shunchaki tabiiy mahsulot yaratmaymiz — tabiat kuchi, ilmiy yondashuv va zamonaviy texnologiyalarni birlashtirib, sog'lom turmush tarzi madaniyatini shakllantiramiz.",
+    "quotePrefix": "«NUMA Family",
+    "quoteRest": " — bu har bir yechimda ishonch, sifat va foyda»",
+    "steps": [
+      {
+        "title": "Tabiat",
+        "text": "Sog'liq tabiatdan boshlanadi deb ishonamiz. Aynan shuning uchun tabiiy ingredientlar har bir yechimimiz asosidir",
+        "image": "/img/mission-nature.png"
+      },
+      {
+        "title": "Ilmiy yondashuv",
+        "text": "Har bir mahsulot zamonaviy ilmiy ishlanmalar va mutaxassislarning ko'p yillik tajribasi asosida yaratiladi",
+        "image": "/img/mission-science.png"
+      },
+      {
+        "title": "Odamlarga g'amxo'rlik",
+        "text": "Maqsadimiz — odamlarga sog'lig'i haqida g'amxo'rlik qilishda yordam berish va sifatli mahsulotni har bir oilaga yetkazish",
+        "image": "/img/mission-care.png"
+      },
+      {
+        "title": "Sifat",
+        "text": "Yuqori sifat va ishonch darajasini ta'minlash uchun mahsulot yaratishning har bir bosqichiga e'tibor qaratamiz",
+        "image": "/img/mission-quality.png"
+      },
+      {
+        "title": "Ishonch",
+        "text": "Har bir NUMA Family mahsuloti ishonch, sifat va sog'liq uchun foydaning uyg'unligi sifatida yaratiladi",
+        "image": "/img/mission-trust.png"
+      },
+      {
+        "title": "Kelajagimiz",
+        "text": "Yanada ko'proq odam NUMA Family bilan birga sog'lom turmush tarzini tanlashi uchun rivojlanishda davom etamiz",
+        "image": "/img/mission-future.png"
+      }
+    ]
+  },
+  "ecosystem": {
+    "core": "NUMA FAMILY",
+    "left": [
+      { "name": "NUMA Diagnostics", "leaves": ["Check-up dasturlari", "Laboratoriya diagnostikasi", "Xalqaro hamkorlik"] },
+      { "name": "Bettery Organic", "leaves": ["Sog'lom ovqatlanish", "Organic Food", "Healthy Lifestyle"] },
+      { "name": "Ishlab chiqarish", "leaves": ["Zamonaviy zavod", "1000+ mahsulot", "Ilmiy tadqiqotlar"] }
+    ],
+    "right": [
+      { "name": "NUMA Nutrition", "leaves": ["Siroplar", "Immunitet", "Tabiiy mahsulot"] },
+      { "name": "NUMA Kids", "leaves": ["Vitaminlar", "Bola rivoji", "Foydali marmeladlar"] },
+      { "name": "Nabaviy Tabobat", "leaves": ["Tabiiy davolash", "Profilaktika", "An'anaviy bilimlar"] }
+    ]
+  },
+  "achievements": {
+    "title": "BIZNING YUTUQLARIMIZ",
+    "description": "NUMA Family sifati, ilmiy yondashuvi va xalqaro e'tirofini tasdiqlaydigan natijalardan faxrlanamiz",
+    "items": [
+      {
+        "title": "DAVLAT E'TIROFI",
+        "text": "NUMA Family sog'liqni saqlash sohasi rivojida faol ishtirok etadi va yutuqlarini davlat darajasida namoyish qiladi.",
+        "image": "/img/ach-state.png"
+      },
+      {
+        "title": "ILMIY RAHBARLIK",
+        "text": "Professor Guli Islomovna Shayxova — tibbiyot fanlari doktori, gigiyena va ovqatlanish sohasidagi yetakchi mutaxassislardan biri. Uning ilmiy tajribasi NUMA Family loyihalarini zamonaviy tibbiy standartlarga muvofiq rivojlantirishga yordam beradi",
+        "image": "/img/prof-shaykhova.png"
+      },
+      {
+        "title": "XALQARO MUKOFOTLAR",
+        "text": "Xalqaro mukofotlar ishlanmalarimizning yuqori sifati va kompaniyaning sog'lom turmush tarzi rivojiga qo'shgan hissasini tasdiqlaydi",
+        "image": "/img/ach-awards.png"
+      },
+      {
+        "title": "XALQARO HAMKORLIK",
+        "text": "NUMA Family xalqaro ilmiy va tibbiy tashkilotlar bilan hamkorlikni rivojlantirib, zamonaviy bilimlar va jahon amaliyotini joriy etadi",
+        "image": "/img/ach-international.png"
+      },
+      {
+        "title": "KOMPANIYA RIVOJI",
+        "text": "NUMA Family «Ozarbayjon»da navbatdagi xalqaro filialini ochdi. Bu kengayish sog'lom turmush tarzini targ'ib qilish va kompaniyaning sifatli mahsulotini xalqaro darajada taqdim etish yo'lidagi muhim qadam bo'ldi",
+        "image": "/img/ach-store.png"
+      },
+      {
+        "title": "MILLIONLAR ISHONCHI",
+        "text": "Omega 3-6-9 mahsuloti «Ixtirochi ayollar» tanlovida oltin medalga sazovor bo'ldi: mahsulot yuqori baho oldi va oltin medal bilan taqdirlandi. Bu yutuq mahsulotimizning sog'liq uchun foydasi va innovatsion xarakterini yana bir bor tasdiqlaydi",
+        "image": "/img/ach-trust.png"
+      }
+    ]
+  },
+  "certificates": {
+    "title": "BIZNING XALQARO SERTIFIKATLARIMIZ",
+    "description": "Mahsulotimiz ishlab chiqarishning barcha bosqichlarida xalqaro sifat va xavfsizlik standartlariga amal qilamiz",
+    "items": [
+      {
+        "id": "euroleaf",
+        "name": "EURO-LEAF",
+        "subtitle": "Yevropa organik sertifikati",
+        "text": "Yevropa Ittifoqining rasmiy organik mahsulot belgisi. Mahsulotning organik ishlab chiqarish, ekologiklik va sifat nazoratining qat'iy talablariga mosligini tasdiqlaydi"
+      },
+      {
+        "id": "halal",
+        "name": "HALAL CERTIFICATE",
+        "subtitle": "Halol sertifikati",
+        "text": "Mahsulot halol talablariga javob berishini va islomiy sifat, xavfsizlik hamda poklik standartlariga muvofiq ishlab chiqarilishini tasdiqlaydi"
+      },
+      {
+        "id": "usda",
+        "name": "USDA ORGANIC",
+        "subtitle": "AQSh milliy organik dasturi",
+        "text": "AQSh Qishloq xo'jaligi vazirligining sertifikati bo'lib, mahsulotning organik ishlab chiqarish, qayta ishlash, saqlash va sotish standartlariga mosligini tasdiqlaydi"
+      },
+      {
+        "id": "iso",
+        "name": "ISO 22000:2018",
+        "subtitle": "Oziq-ovqat xavfsizligi menejmenti tizimi",
+        "text": "Ishlab chiqarish va yetkazib berishning barcha bosqichlarida oziq-ovqat sifati va xavfsizligi samarali nazoratini tasdiqlovchi xalqaro standart"
+      },
+      {
+        "id": "gmp",
+        "name": "GMP",
+        "subtitle": "Good Manufacturing Practice",
+        "text": "Ishlab chiqarish, sifat nazorati, xavfsizlik va mahsulot samaradorligiga qo'yiladigan yuqori talablarga rioya qilishni tasdiqlovchi xalqaro standart"
+      }
+    ]
+  },
+  "articles": {
+    "title": "FOYDALI MAQOLALAR VA YANGILIKLAR",
+    "description": "Ekspert materiallari, kompaniya yangiliklari va sog'liq, ilmiy tadqiqotlar hamda NUMA Family rivoji haqidagi foydali tavsiyalar",
+    "viewAll": "Barcha maqolalar",
+    "readMore": "Batafsil o'qish",
+    "empty": "Maqolalar tez orada paydo bo'ladi",
+    "error": "Maqolalarni yuklab bo'lmadi"
+  },
+  "videos": {
+    "title": "NUMA Family haqida video",
+    "description": "Rasmiy videolar, intervyular va ekspert materiallari orqali NUMA Family falsafasi, ilmiy yondashuvi, ishlab chiqarishi va xalqaro rivoji haqida ko'proq bilib oling.",
+    "prev": "Oldingi video",
+    "next": "Keyingi video",
+    "items": [
+      { "title": "Nabaviy Tabobat — an'ana va zamonaviylik", "image": "/img/video-1.png", "url": "" },
+      { "title": "NUMA Family mahsuloti haqida fikr", "image": "/img/video-2.png", "url": "" },
+      { "title": "NUMA Family va faol turmush tarzi", "image": "/img/video-3.png", "url": "" },
+      { "title": "NUMA Kids — bolalar haqida g'amxo'rlik", "image": "/img/video-4.png", "url": "" }
+    ]
+  },
+  "reviews": {
+    "title": "Mijozlarimiz fikri",
+    "description": "Mijozlar ishonchi — bizning asosiy qadriyatimiz",
+    "prev": "Oldingi fikr",
+    "next": "Keyingi fikr",
+    "items": [
+      {
+        "text": "Bir necha haftadan so'ng o'zimda ko'proq quvvat va yengillik sezdim. Mahsulot tabiiy bo'lgani va organizmni har kuni qo'llab-quvvatlashga mos kelgani juda yoqdi",
+        "name": "Malika Azizova",
+        "avatar": "/img/avatar-malika.png",
+        "rating": 5
+      },
+      {
+        "text": "Men uchun NUMA Family — bu ishonch va sifat. Kompaniya tarkib, ishlab chiqarish va mijozlarga jiddiy yondashishi ko'rinib turibdi",
+        "name": "Azizbek Karimov",
+        "avatar": "/img/avatar-azizbek.png",
+        "rating": 5
+      },
+      {
+        "text": "Kompaniyaning yondashuvi yoqdi: konsultatsiya, tushunarli ma'lumot va sifatli mahsulot. Mamnuniyat bilan foydalanaman va yaqinlarimga tavsiya qilaman",
+        "name": "Shahnoza Rasulova",
+        "avatar": "/img/avatar-shahnoza.png",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "title": "Ko'p beriladigan savollar",
+    "description": "NUMA Family kompaniyasi, uning faoliyat yo'nalishlari va ish tamoyillari haqidagi eng ommabop savollarga javoblar",
+    "items": [
+      {
+        "q": "NUMA Family nima?",
+        "a": "NUMA Family — ilmiy yondashuv, zamonaviy texnologiyalar, tabiiy mahsulot va odamlar sog'lig'i haqidagi g'amxo'rlikni birlashtirgan ekotizim. Kompaniya NUMA Nutrition, NUMA Kids, Nabaviy Tabobat va boshqa loyihalarni rivojlantiradi."
+      },
+      {
+        "q": "NUMA Family kompaniyasi nima bilan shug'ullanadi?",
+        "a": "Kompaniya tabiiy mahsulot ishlab chiqish, ilmiy tadqiqotlar, zamonaviy ishlab chiqarish, xalqaro hamkorlik hamda sog'liq va sog'lom turmush tarzi sohasidagi loyihalarni rivojlantirish bilan shug'ullanadi."
+      },
+      {
+        "q": "NUMA Family mahsuloti qayerda ishlab chiqariladi?",
+        "a": "Mahsulot NUMA Family zamonaviy ishlab chiqarish majmuasida xalqaro sifat standartlari va har bir bosqichdagi ko'p darajali nazoratga rioya qilgan holda ishlab chiqariladi."
+      },
+      {
+        "q": "NUMA Family qaysi mamlakatlarda taqdim etilgan?",
+        "a": "Kompaniya nafaqat O'zbekistonda faol rivojlanmoqda, balki Qozog'iston, Ozarbayjon, Qirg'iziston, Rossiya, Belarus, Armaniston va Gruziyadagi hamkorlar bilan ishlab, xalqaro mavjudligini kengaytirmoqda."
+      },
+      {
+        "q": "NUMA Family ilmiy yondashuvi nimaga asoslangan?",
+        "a": "Kompaniyaning barcha loyihalari mutaxassislar, zamonaviy tadqiqotlar va ilmiy ishlanmalar ishtirokida rivojlanadi. NUMA Family tabiiy komponentlar, innovatsion texnologiyalar va xalqaro tajribani birlashtiradi."
+      }
+    ]
+  },
+  "ctaBand": {
+    "title": "NUMA FAMILY haqida ko'proq bilishga tayyormisiz?",
+    "button": "Ariza yuborish"
+  },
+  "footer": {
+    "description": "Fan, tabiat va innovatsiyalarni birlashtirgan zamonaviy sog'liq yechimlari ekotizimi.",
+    "socialTitle": "Ijtimoiy tarmoqlarda",
+    "directions": {
+      "title": "YO'NALISHLAR",
+      "items": ["NUMA Nutrition", "NUMA Kids", "Nabaviy Tabobat", "NUMA Diagnostics", "Bettery Organic"]
+    },
+    "company": {
+      "title": "KOMPANIYA",
+      "items": [
+        { "label": "Bosh sahifa", "href": "/" },
+        { "label": "Kompaniya haqida", "href": "/#about" },
+        { "label": "Yangiliklar", "href": "/blog" },
+        { "label": "Video", "href": "/#videos" },
+        { "label": "Fikrlar", "href": "/#reviews" },
+        { "label": "Sertifikatlar", "href": "/#certificates" },
+        { "label": "Kontaktlar", "href": "/contact" }
+      ]
+    },
+    "contacts": {
+      "title": "KONTAKTLAR",
+      "address": "Tashkent, Uzbekistan",
+      "phone": "+998 71 203-22-32",
+      "email": "info@numafamily.uz",
+      "site": "www.numafamily.uz"
+    },
+    "copyright": "© 2026 NUMA FAMILY",
+    "rights": "Barcha huquqlar himoyalangan",
+    "privacy": "Maxfiylik siyosati",
+    "terms": "Foydalanuvchi shartnomasi"
   },
   "blog": {
-    "title": "Maqolalar",
-    "subtitle": "Sog'liq, sog'lomlashtirish va oilaviy g'amxo'rlik bo'yicha ekspert materiallar",
-    "readMore": "Batafsil",
-    "readTime": "daq o'qish",
+    "heroTitle": "Blog",
+    "heroAccent": "NUMA Family",
+    "heroDescription": "Kompaniya yangiliklari, ekspert materiallari, xalqaro yutuqlar va sog'lom turmush tarzi haqidagi foydali ma'lumotlar.",
+    "tabLatest": "So'nggi maqolalar",
+    "tabPopular": "Ommabop maqolalar",
+    "popularTitle": "Ommabop maqolalar",
+    "latestTitle": "So'nggi maqolalar",
+    "readMore": "Batafsil o'qish",
+    "readTime": "daqiqa o'qish",
     "empty": "Maqolalar tez orada paydo bo'ladi",
     "error": "Maqolalarni yuklab bo'lmadi",
-    "loading": "Yuklanmoqda..."
+    "loading": "Yuklanmoqda...",
+    "breadcrumbHome": "Bosh sahifa",
+    "breadcrumbBlog": "Blog",
+    "share": "Ulashish",
+    "related": "O'xshash maqolalar",
+    "notFound": "Maqola topilmadi",
+    "backToBlog": "Blogga qaytish"
   },
   "contact": {
-    "title": "Biz bilan bog'laning",
-    "subtitle": "Biz har doim yordam berishga tayyormiz",
-    "phone": "+998 55 516-77-77",
-    "address": "31 Elbek ko'chasi, Toshkent 100047, O'zbekiston",
+    "heroTitle": "Bog'laning",
+    "heroAccent": "NUMA Family bilan",
+    "heroDescription": "Biz doimo savollaringizga javob berishga, kompaniya faoliyat yo'nalishlari haqida batafsil so'zlab berishga va qulay aloqa usulini tanlashga yordam berishga tayyormiz",
+    "callNow": "Hozir qo'ng'iroq qilish",
+    "viaTelegram": "Telegram orqali",
+    "infoTitle": "Kontakt ma'lumotlari",
+    "cardTitle": "Biz bilan bog'laning",
+    "phone": "+998 71-203-22-32",
+    "instagram": "@numa_family",
+    "hours": "Dushanba– Shanba: 9:00 – 20:00",
+    "address": "Toshkent, O'zbekiston",
     "email": "info@numafamily.uz",
-    "workingHours": "Du-Sha: 9:00 - 18:00",
-    "sendMessage": "Xabar yuborish",
-    "name": "Ismingiz",
-    "message": "Xabar"
+    "mapTitle": "NUMA Family xaritada"
+  },
+  "consultation": {
+    "title": "Numa Family mutaxassisidan konsultatsiya oling",
+    "description": "Maqsadlaringiz va organizmingiz holatiga asoslangan holda sog'lig'ingiz uchun mahsulotni individual tanlash",
+    "nameLabel": "Ismingiz",
+    "namePlaceholder": "Ismingizni kiriting",
+    "phoneLabel": "Telefon raqami",
+    "phonePlaceholder": "Telefon raqamini kiriting",
+    "messageLabel": "Savol / Xabar (ixtiyoriy)",
+    "messagePlaceholder": "Muammoingizni tasvirlang yoki savol bering. Mutaxassisimiz mos mahsulotni tanlaydi...",
+    "note": "Formani to'ldirganingizdan so'ng mutaxassisimiz 24 soat ichida siz bilan bog'lanadi. Konsultatsiya bepul!",
+    "submit": "Bepul konsultatsiya olish",
+    "submitting": "Yuborilmoqda...",
+    "close": "Yopish",
+    "required": "Ism va telefon raqamini to'ldiring",
+    "successTitle": "Arizangiz uchun rahmat!",
+    "successText": "Arizangiz muvaffaqiyatli yuborildi.\nNuma Family mutaxassisi\nyaqin orada siz bilan bog'lanadi",
+    "successNote": "Odatda ish vaqtida\n15–30 daqiqa ichida javob beramiz",
+    "successHome": "Bosh sahifaga qaytish",
+    "successBlog": "Blogga o'tish"
   }
 }

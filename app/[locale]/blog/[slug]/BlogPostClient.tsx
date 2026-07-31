@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { useArticle } from "@/hooks/useArticles";
-import { resolveMediaUrl } from "@/lib/api/products";
-import { storeSiteUrl } from "@/lib/config/sites";
-import { formatPrice } from "@/lib/utils/format";
+import { ArticleCard } from "@/components/blog/ArticleCard";
+import { TelegramIcon, GlobeIcon, InstagramIcon } from "@/components/ui/icons";
+import { useArticle, useArticles } from "@/hooks/useArticles";
+import { pickLang, formatDate } from "@/lib/utils/format";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
-import type { BlogProductCard, MultilingualText } from "@/lib/api/types";
-import { ArrowLeft, Clock, Calendar, Leaf } from "lucide-react";
 
 interface Props {
   dict: Dictionary;
@@ -19,229 +16,192 @@ interface Props {
   slug: string;
 }
 
-function pickLang(field: MultilingualText | null | undefined, locale: string): string {
-  if (!field) return "";
-  const map = field as Record<string, string>;
-  return map[locale] ?? map.en ?? map.ru ?? "";
-}
-
-function blogProductImage(card: BlogProductCard): string | null {
-  const p = card.product;
-  const fromMedia = p.media?.find((m) => m.type === "image")?.url;
-  return resolveMediaUrl(p.imageUrl ?? fromMedia ?? null);
-}
-
 export function BlogPostClient({ dict, locale, slug }: Props) {
+  const t = dict.blog;
   const { data: post, isLoading, isError } = useArticle(slug, "family");
+  const { data: all } = useArticles("family", { limit: 12 });
 
-  return (
-    <div className="pt-14 sm:pt-16">
-      <section className="py-10 md:py-16 lg:py-20 bg-white">
-        <Container size="md">
+  const related = (all ?? []).filter((p) => p.slug !== slug).slice(0, 3);
+  const title = post ? pickLang(post.title, locale) : "";
+
+  if (isLoading) {
+    return (
+      <div className="shell section-y">
+        <div className="h-8 w-1/3 animate-pulse rounded-lg bg-mist" />
+        <div className="mt-6 h-14 w-2/3 animate-pulse rounded-lg bg-mist" />
+        <div className="mt-8 aspect-[16/8] max-w-4xl animate-pulse rounded-card-lg bg-mist" />
+      </div>
+    );
+  }
+
+  if (isError || !post) {
+    return (
+      <div className="shell section-y">
+        <p className="rounded-card-lg border border-hairline bg-paper p-10 text-center text-body">
+          {isError ? t.error : t.notFound}
+        </p>
+        <div className="mt-6 text-center">
           <Link
             href={`/${locale}/blog`}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors mb-8"
+            className="inline-flex h-11 items-center rounded-lg bg-sea px-6 text-sm font-semibold text-white"
           >
-            <ArrowLeft className="w-4 h-4" />
-            {dict.blog.title}
+            {t.backToBlog}
           </Link>
+        </div>
+      </div>
+    );
+  }
 
-          {isLoading && (
-            <div className="space-y-6">
-              <div className="h-12 w-3/4 rounded-2xl bg-teal-50/60 animate-pulse" />
-              <div className="h-72 rounded-3xl bg-teal-50/40 animate-pulse" />
-              <div className="space-y-3">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="h-4 rounded bg-teal-50/40 animate-pulse" />
-                ))}
-              </div>
+  const tag = post.tags?.[0];
+
+  return (
+    <>
+      <article className="bg-white pt-8 pb-12 sm:pt-10 lg:pt-12 lg:pb-16">
+        <div className="shell">
+          <nav aria-label="breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[0.78rem]">
+            <Link href={`/${locale}`} className="text-body transition-colors hover:text-brand">
+              {t.breadcrumbHome}
+            </Link>
+            <span className="text-faint">/</span>
+            <Link href={`/${locale}/blog`} className="text-body transition-colors hover:text-brand">
+              {t.breadcrumbBlog}
+            </Link>
+            <span className="text-faint">/</span>
+            <span className="text-faint">{title}</span>
+          </nav>
+
+          <div className="max-w-4xl">
+            {tag && (
+              <span className="mt-6 inline-block rounded-full bg-brand-badge px-4 py-1.5 text-[0.7rem] font-bold tracking-wide text-white uppercase">
+                {tag}
+              </span>
+            )}
+
+            <h1 className="mt-5 text-[1.6rem] leading-[1.25] font-extrabold text-ink sm:text-[2rem] lg:text-[2.2rem]">
+              {title}
+            </h1>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3">
+              {post.publishedAt && (
+                <MetaItem text={formatDate(post.publishedAt, locale)}>
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <rect x="3.5" y="5" width="17" height="15.5" rx="3" />
+                    <path d="M3.5 9.5h17M8 3v3.5M16 3v3.5M8.5 14h5M8.5 17h3" />
+                  </svg>
+                </MetaItem>
+              )}
+              {post.readTimeMinutes && (
+                <MetaItem text={`${post.readTimeMinutes} ${t.readTime}`}>
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M12 7.5V12l3 2" strokeLinecap="round" />
+                  </svg>
+                </MetaItem>
+              )}
             </div>
-          )}
 
-          {isError && (
-            <div className="rounded-3xl border border-rose-100 bg-rose-50/60 p-8 text-center text-rose-700">
-              {dict.blog.error}
-            </div>
-          )}
-
-          {!isLoading && !isError && !post && (
-            <div className="rounded-3xl border border-teal-100 bg-teal-50/60 p-10 text-center text-teal-800">
-              {dict.blog.empty}
-            </div>
-          )}
-
-          {!isLoading && !isError && post && (
-            <article>
-              <AnimatedSection>
-                <div className="flex flex-wrap items-center gap-4 mb-5 text-xs text-text-tertiary">
-                  {post.publishedAt && (
-                    <span className="inline-flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {new Date(post.publishedAt).toLocaleDateString(
-                        locale === "ru"
-                          ? "ru-RU"
-                          : locale === "uz"
-                          ? "uz-UZ"
-                          : "en-US",
-                        { month: "short", day: "numeric", year: "numeric" }
-                      )}
-                    </span>
-                  )}
-                  {post.readTimeMinutes && (
-                    <span className="inline-flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
-                      {post.readTimeMinutes} {dict.blog.readTime}
-                    </span>
-                  )}
+            {post.coverImageUrl && (
+              <AnimatedSection delay={0.05}>
+                <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-card-lg bg-mist">
+                  <Image
+                    src={post.coverImageUrl}
+                    alt={title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 900px"
+                    className="object-cover"
+                  />
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-text-primary leading-[1.08]">
-                  {pickLang(post.title, locale)}
-                </h1>
-                {post.excerpt && (
-                  <p className="mt-5 text-base sm:text-lg text-text-secondary leading-relaxed">
-                    {pickLang(post.excerpt, locale)}
-                  </p>
-                )}
-                {post.tags?.length > 0 && (
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-medium"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </AnimatedSection>
+            )}
 
-              {post.coverImageUrl && (
-                <AnimatedSection delay={0.1} className="mt-10">
-                  <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-teal-50/40">
-                    <Image
-                      src={post.coverImageUrl}
-                      alt={pickLang(post.title, locale)}
-                      fill
-                      sizes="(max-width:1024px) 100vw, 800px"
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
+            {post.excerpt && (
+              <p className="mt-8 text-[0.95rem] leading-[1.8] text-body sm:text-base">
+                {pickLang(post.excerpt, locale)}
+              </p>
+            )}
+
+            <div
+              className="article-body mt-6"
+              dangerouslySetInnerHTML={{ __html: pickLang(post.content, locale) }}
+            />
+
+            <ShareRow label={t.share} title={title} />
+          </div>
+        </div>
+      </article>
+
+      {related.length > 0 && (
+        <section className="bg-white pb-14 sm:pb-16 lg:pb-20">
+          <div className="shell">
+            <h2 className="text-[1.4rem] font-extrabold text-ink sm:text-[1.75rem] lg:text-[1.95rem]">
+              {t.related}
+            </h2>
+            <ul className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+              {related.map((item, i) => (
+                <AnimatedSection key={item.id} delay={i * 0.08} className="h-full">
+                  <li className="h-full list-none">
+                    <ArticleCard post={item} locale={locale} readMore={t.readMore} />
+                  </li>
                 </AnimatedSection>
-              )}
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+    </>
+  );
+}
 
-              <AnimatedSection delay={0.15} className="mt-10">
-                <div
-                  className="prose prose-lg max-w-none prose-headings:tracking-tight prose-headings:text-text-primary prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-teal-700"
-                  dangerouslySetInnerHTML={{
-                    __html: pickLang(post.content, locale),
-                  }}
-                />
-              </AnimatedSection>
+function MetaItem({ text, children }: { text: string; children: React.ReactNode }) {
+  return (
+    <span className="flex items-center gap-2.5 text-[0.8rem] text-body">
+      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-node text-white">
+        {children}
+      </span>
+      {text}
+    </span>
+  );
+}
 
-              {post.products?.length > 0 && (
-                <AnimatedSection delay={0.2} className="mt-14">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-text-primary mb-5">
-                    {dict.naturalSupport?.ourProducts ?? "Products"}
-                  </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {post.products.map((card) => {
-                      const img = blogProductImage(card);
-                      const name = pickLang(card.product.name, locale);
-                      const inner = (
-                        <>
-                          <div className="relative h-40 flex items-center justify-center overflow-hidden bg-linear-to-br from-teal-50 to-white">
-                            {img ? (
-                              // eslint-disable-next-line @next/next/no-img-element
-                              <img
-                                src={img}
-                                alt={name}
-                                loading="lazy"
-                                decoding="async"
-                                className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                              />
-                            ) : (
-                              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-100/70 text-teal-700">
-                                <Leaf className="h-6 w-6" />
-                              </div>
-                            )}
-                          </div>
-                          <div className="p-4 sm:p-5">
-                            <p className="text-xs uppercase tracking-wider text-teal-700 font-semibold mb-1.5">
-                              {card.product.brand ?? card.product.store}
-                            </p>
-                            <h3 className="text-base font-semibold text-text-primary leading-snug">
-                              {name}
-                            </h3>
-                            {card.note && (
-                              <p className="mt-2 text-sm text-text-secondary">
-                                {card.note}
-                              </p>
-                            )}
-                            <div className="mt-3 flex items-baseline gap-2">
-                              {card.product.discountPrice ? (
-                                <>
-                                  <span className="text-base font-semibold text-teal-800">
-                                    {formatPrice(card.product.discountPrice, locale)}
-                                  </span>
-                                  <span className="text-xs text-text-tertiary line-through">
-                                    {formatPrice(card.product.price, locale)}
-                                  </span>
-                                </>
-                              ) : (
-                                <span className="text-base font-semibold text-teal-800">
-                                  {formatPrice(card.product.price, locale)}
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </>
-                      );
+function ShareRow({ label, title }: { label: string; title: string }) {
+  const share = (platform: "telegram" | "link" | "instagram") => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    if (platform === "telegram") {
+      window.open(
+        `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+        "_blank",
+        "noopener"
+      );
+      return;
+    }
+    if (platform === "instagram") {
+      window.open("https://instagram.com/numa_family", "_blank", "noopener");
+      return;
+    }
+    navigator.clipboard?.writeText(url);
+  };
 
-                      const cardClass =
-                        "group flex flex-col overflow-hidden rounded-2xl border border-border bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300";
-                      const site = storeSiteUrl(card.store);
+  const buttons = [
+    { key: "telegram" as const, Icon: TelegramIcon, label: "Telegram" },
+    { key: "link" as const, Icon: GlobeIcon, label: "Copy link" },
+    { key: "instagram" as const, Icon: InstagramIcon, label: "Instagram" },
+  ];
 
-                      // Redirect to the marketplace that sells this product.
-                      if (site) {
-                        return (
-                          <a
-                            key={card.productId}
-                            href={site}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={cardClass}
-                          >
-                            {inner}
-                          </a>
-                        );
-                      }
-
-                      return card.product.slug ? (
-                        <Link
-                          key={card.productId}
-                          href={`/${locale}/products/${card.product.slug}`}
-                          className={cardClass}
-                        >
-                          {inner}
-                        </Link>
-                      ) : (
-                        <div
-                          key={card.productId}
-                          className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white"
-                        >
-                          {inner}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </AnimatedSection>
-              )}
-            </article>
-          )}
-        </Container>
-      </section>
+  return (
+    <div className="mt-10 flex flex-wrap items-center gap-4">
+      <span className="text-[0.95rem] font-bold text-brand">{label}</span>
+      {buttons.map(({ key, Icon, label: aria }) => (
+        <button
+          key={key}
+          type="button"
+          onClick={() => share(key)}
+          aria-label={aria}
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white transition-transform hover:-translate-y-0.5"
+        >
+          <Icon className="h-5 w-5" />
+        </button>
+      ))}
     </div>
   );
 }
