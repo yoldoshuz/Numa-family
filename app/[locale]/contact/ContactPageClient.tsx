@@ -11,8 +11,12 @@ interface Props {
   locale: Locale;
 }
 
-// TODO: swap for the exact office coordinates once the address is confirmed.
-const MAP_EMBED = "https://www.google.com/maps?q=Tashkent%2C%20Uzbekistan&z=14&output=embed";
+/**
+ * Yandex is the map the other Numa storefronts embed, and the one people here
+ * actually navigate with. Keyless widget, centred on the Tashkent office.
+ */
+const MAP_EMBED =
+  "https://yandex.uz/map-widget/v1/?ll=69.279700%2C41.311100&z=16&pt=69.279700,41.311100,pm2rdm&lang=ru_RU";
 
 export function ContactPageClient({ dict }: Props) {
   const t = dict.contact;

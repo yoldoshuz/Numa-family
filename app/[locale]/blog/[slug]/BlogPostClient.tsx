@@ -109,7 +109,8 @@ export function BlogPostClient({ dict, locale, slug }: Props) {
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 900px"
-                    className="object-cover"
+                    quality={90}
+                    className="object-cover object-[center_25%]"
                   />
                 </div>
               </AnimatedSection>

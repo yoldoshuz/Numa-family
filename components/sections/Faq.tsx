@@ -31,19 +31,32 @@ export function Faq({ dict }: { dict: Dictionary }) {
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-start gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
+                    className="flex w-full cursor-pointer items-start gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
                   >
                     <span className="flex-1">
                       <span className="block text-[0.88rem] font-bold text-ink sm:text-[0.95rem]">
                         {item.q}
                       </span>
+                      {/*
+                        The answer was only ever clamped to two lines, so a
+                        closed item still showed most of it and the panel never
+                        looked shut. It is now hidden outright and revealed with
+                        a grid-row transition, which animates to the content's
+                        real height without measuring it.
+                      */}
                       <span
                         className={cn(
-                          "mt-2 block text-[0.8rem] leading-[1.7] text-body",
-                          !isOpen && "line-clamp-2"
+                          "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
+                          isOpen
+                            ? "mt-2 grid-rows-[1fr] opacity-100"
+                            : "grid-rows-[0fr] opacity-0"
                         )}
                       >
-                        {item.a}
+                        <span className="overflow-hidden">
+                          <span className="block text-[0.8rem] leading-[1.7] text-body">
+                            {item.a}
+                          </span>
+                        </span>
                       </span>
                     </span>
                     <svg

@@ -31,7 +31,7 @@ export function ArticleCard({ post, locale, readMore, size = "default", classNam
       <div
         className={cn(
           "relative w-full overflow-hidden bg-mist",
-          size === "wide" ? "aspect-[16/9]" : "aspect-[16/10]"
+          size === "wide" ? "aspect-[16/9]" : "aspect-[4/3]"
         )}
       >
         {post.coverImageUrl ? (
@@ -40,7 +40,10 @@ export function ArticleCard({ post, locale, readMore, size = "default", classNam
             alt={title}
             fill
             sizes={size === "wide" ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            quality={90}
+            // Covers are usually people; a centred crop in a wide box takes the
+            // top of the head off, so the crop is anchored high instead.
+            className="object-cover object-[center_25%] transition-transform duration-500 group-hover:scale-[1.03]"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-mist to-white" />
