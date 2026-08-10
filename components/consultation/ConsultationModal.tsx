@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CloseIcon } from "@/components/ui/icons";
 import { submitLead } from "@/lib/api/leads";
+import { formatUzPhoneInput, UZ_PHONE_PREFIX } from "@/lib/utils/phone";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -127,8 +128,18 @@ export function ConsultationModal({ locale, dict, source, onClose }: Props) {
                   <input
                     name="phone"
                     type="tel"
+                    inputMode="tel"
                     autoComplete="tel"
                     placeholder={t.phonePlaceholder}
+                    // The field carries the country code and regroups digits as
+                    // they are typed, so what the visitor sees is the shape the
+                    // API accepts.
+                    defaultValue={UZ_PHONE_PREFIX}
+                    onInput={(event: FormEvent<HTMLInputElement>) => {
+                      event.currentTarget.value = formatUzPhoneInput(
+                        event.currentTarget.value,
+                      );
+                    }}
                     className="h-13 w-full rounded-xl bg-white px-4 text-[0.95rem] text-ink placeholder:text-faint focus:ring-2 focus:ring-[#167888]/40 focus:outline-none"
                   />
                 </Field>

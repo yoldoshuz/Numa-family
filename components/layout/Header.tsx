@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils/cn";
 import { type Locale } from "@/lib/i18n/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useConsultation } from "@/components/consultation/ConsultationProvider";
 import { CloseIcon } from "@/components/ui/icons";
+import { BrandSwitcher } from "./BrandSwitcher";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
 interface HeaderProps {
@@ -48,16 +48,7 @@ export function Header({ locale, dict }: HeaderProps) {
       )}
     >
       <div className="shell flex h-16 items-center justify-between gap-4 lg:h-[86px]">
-        <Link href={`/${locale}`} className="shrink-0" aria-label="NUMA Family">
-          <Image
-            src="/logo.png"
-            alt="NUMA Family"
-            width={1489}
-            height={423}
-            priority
-            className="h-9 w-auto lg:h-12"
-          />
-        </Link>
+        <BrandSwitcher locale={locale} label={dict.nav.otherBrands} />
 
         <nav className="hidden flex-1 items-center justify-center gap-10 lg:flex xl:gap-16">
           {navItems.map((item) => (

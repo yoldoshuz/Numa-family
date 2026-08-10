@@ -9,7 +9,8 @@
     "blog": "Blog",
     "contact": "Kontaktlar",
     "consultation": "Konsultatsiya",
-    "menu": "Menyu"
+    "menu": "Menyu",
+    "otherBrands": "NUMA ning boshqa loyihalari"
   },
   "hero": {
     "titleLine1": "NUMA Family — sog'liq,",
@@ -28,9 +29,21 @@
     ],
     "imageAlt": "NUMA Family ishlab chiqarish majmuasi",
     "stats": [
-      { "value": "1000+", "label": "tabiiy\nmahsulot", "icon": "leaf" },
-      { "value": "100 000+", "label": "mamnun\nmijoz", "icon": "users" },
-      { "value": "500+", "label": "rasmiy\nhamkor", "icon": "handshake" }
+      {
+        "value": "1000+",
+        "label": "tabiiy\nmahsulot",
+        "icon": "leaf"
+      },
+      {
+        "value": "100 000+",
+        "label": "mamnun\nmijoz",
+        "icon": "users"
+      },
+      {
+        "value": "500+",
+        "label": "rasmiy\nhamkor",
+        "icon": "handshake"
+      }
     ]
   },
   "mission": {
@@ -74,14 +87,56 @@
   "ecosystem": {
     "core": "NUMA FAMILY",
     "left": [
-      { "name": "NUMA Diagnostics", "leaves": ["Check-up dasturlari", "Laboratoriya diagnostikasi", "Xalqaro hamkorlik"] },
-      { "name": "Bettery Organic", "leaves": ["Sog'lom ovqatlanish", "Organic Food", "Healthy Lifestyle"] },
-      { "name": "Ishlab chiqarish", "leaves": ["Zamonaviy zavod", "1000+ mahsulot", "Ilmiy tadqiqotlar"] }
+      {
+        "name": "NUMA Diagnostics",
+        "leaves": [
+          "Check-up dasturlari",
+          "Laboratoriya diagnostikasi",
+          "Xalqaro hamkorlik"
+        ]
+      },
+      {
+        "name": "Bettery Organic",
+        "leaves": [
+          "Sog'lom ovqatlanish",
+          "Organic Food",
+          "Healthy Lifestyle"
+        ]
+      },
+      {
+        "name": "Ishlab chiqarish",
+        "leaves": [
+          "Zamonaviy zavod",
+          "1000+ mahsulot",
+          "Ilmiy tadqiqotlar"
+        ]
+      }
     ],
     "right": [
-      { "name": "NUMA Nutrition", "leaves": ["Siroplar", "Immunitet", "Tabiiy mahsulot"] },
-      { "name": "NUMA Kids", "leaves": ["Vitaminlar", "Bola rivoji", "Foydali marmeladlar"] },
-      { "name": "Nabaviy Tabobat", "leaves": ["Tabiiy davolash", "Profilaktika", "An'anaviy bilimlar"] }
+      {
+        "name": "NUMA Nutrition",
+        "leaves": [
+          "Siroplar",
+          "Immunitet",
+          "Tabiiy mahsulot"
+        ]
+      },
+      {
+        "name": "NUMA Kids",
+        "leaves": [
+          "Vitaminlar",
+          "Bola rivoji",
+          "Foydali marmeladlar"
+        ]
+      },
+      {
+        "name": "Nabaviy Tabobat",
+        "leaves": [
+          "Tabiiy davolash",
+          "Profilaktika",
+          "An'anaviy bilimlar"
+        ]
+      }
     ]
   },
   "achievements": {
@@ -170,10 +225,26 @@
     "prev": "Oldingi video",
     "next": "Keyingi video",
     "items": [
-      { "title": "Nabaviy Tabobat — an'ana va zamonaviylik", "image": "/img/video-1.png", "url": "" },
-      { "title": "NUMA Family mahsuloti haqida fikr", "image": "/img/video-2.png", "url": "" },
-      { "title": "NUMA Family va faol turmush tarzi", "image": "/img/video-3.png", "url": "" },
-      { "title": "NUMA Kids — bolalar haqida g'amxo'rlik", "image": "/img/video-4.png", "url": "" }
+      {
+        "title": "Nabaviy Tabobat — an'ana va zamonaviylik",
+        "image": "/img/video-1.png",
+        "url": ""
+      },
+      {
+        "title": "NUMA Family mahsuloti haqida fikr",
+        "image": "/img/video-2.png",
+        "url": ""
+      },
+      {
+        "title": "NUMA Family va faol turmush tarzi",
+        "image": "/img/video-3.png",
+        "url": ""
+      },
+      {
+        "title": "NUMA Kids — bolalar haqida g'amxo'rlik",
+        "image": "/img/video-4.png",
+        "url": ""
+      }
     ]
   },
   "reviews": {
@@ -237,24 +308,51 @@
     "socialTitle": "Ijtimoiy tarmoqlarda",
     "directions": {
       "title": "YO'NALISHLAR",
-      "items": ["NUMA Nutrition", "NUMA Kids", "Nabaviy Tabobat", "NUMA Diagnostics", "Bettery Organic"]
+      "items": [
+        "NUMA Nutrition",
+        "NUMA Kids",
+        "Nabaviy Tabobat",
+        "NUMA Diagnostics",
+        "Bettery Organic"
+      ]
     },
     "company": {
       "title": "KOMPANIYA",
       "items": [
-        { "label": "Bosh sahifa", "href": "/" },
-        { "label": "Kompaniya haqida", "href": "/#about" },
-        { "label": "Yangiliklar", "href": "/blog" },
-        { "label": "Video", "href": "/#videos" },
-        { "label": "Fikrlar", "href": "/#reviews" },
-        { "label": "Sertifikatlar", "href": "/#certificates" },
-        { "label": "Kontaktlar", "href": "/contact" }
+        {
+          "label": "Bosh sahifa",
+          "href": "/"
+        },
+        {
+          "label": "Kompaniya haqida",
+          "href": "/#about"
+        },
+        {
+          "label": "Yangiliklar",
+          "href": "/blog"
+        },
+        {
+          "label": "Video",
+          "href": "/#videos"
+        },
+        {
+          "label": "Fikrlar",
+          "href": "/#reviews"
+        },
+        {
+          "label": "Sertifikatlar",
+          "href": "/#certificates"
+        },
+        {
+          "label": "Kontaktlar",
+          "href": "/contact"
+        }
       ]
     },
     "contacts": {
       "title": "KONTAKTLAR",
       "address": "Tashkent, Uzbekistan",
-      "phone": "+998 71 203-22-32",
+      "phone": "+998 71 203 22 32",
       "email": "info@numafamily.uz",
       "site": "www.numafamily.uz"
     },
@@ -291,7 +389,7 @@
     "viaTelegram": "Telegram orqali",
     "infoTitle": "Kontakt ma'lumotlari",
     "cardTitle": "Biz bilan bog'laning",
-    "phone": "+998 71-203-22-32",
+    "phone": "+998 71 203 22 32",
     "instagram": "@numa_family",
     "hours": "Dushanba– Shanba: 9:00 – 20:00",
     "address": "Toshkent, O'zbekiston",

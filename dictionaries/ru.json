@@ -9,7 +9,8 @@
     "blog": "Блог",
     "contact": "Контакты",
     "consultation": "Консультация",
-    "menu": "Меню"
+    "menu": "Меню",
+    "otherBrands": "Другие проекты NUMA"
   },
   "hero": {
     "titleLine1": "NUMA Family — здоровье,",
@@ -28,9 +29,21 @@
     ],
     "imageAlt": "Производственный комплекс NUMA Family",
     "stats": [
-      { "value": "1000+", "label": "натуральных\nпродуктов", "icon": "leaf" },
-      { "value": "100 000+", "label": "довольных\nклиентов", "icon": "users" },
-      { "value": "500+", "label": "официальных\nпартнёров", "icon": "handshake" }
+      {
+        "value": "1000+",
+        "label": "натуральных\nпродуктов",
+        "icon": "leaf"
+      },
+      {
+        "value": "100 000+",
+        "label": "довольных\nклиентов",
+        "icon": "users"
+      },
+      {
+        "value": "500+",
+        "label": "официальных\nпартнёров",
+        "icon": "handshake"
+      }
     ]
   },
   "mission": {
@@ -74,14 +87,56 @@
   "ecosystem": {
     "core": "NUMA FAMILY",
     "left": [
-      { "name": "NUMA Diagnostics", "leaves": ["Check-up программы", "Лабораторная диагностика", "Международное сотрудничество"] },
-      { "name": "Bettery Organic", "leaves": ["Здоровое питание", "Organic Food", "Healthy Lifestyle"] },
-      { "name": "Производство", "leaves": ["Современный завод", "1000+ продуктов", "Научные исследования"] }
+      {
+        "name": "NUMA Diagnostics",
+        "leaves": [
+          "Check-up программы",
+          "Лабораторная диагностика",
+          "Международное сотрудничество"
+        ]
+      },
+      {
+        "name": "Bettery Organic",
+        "leaves": [
+          "Здоровое питание",
+          "Organic Food",
+          "Healthy Lifestyle"
+        ]
+      },
+      {
+        "name": "Производство",
+        "leaves": [
+          "Современный завод",
+          "1000+ продуктов",
+          "Научные исследования"
+        ]
+      }
     ],
     "right": [
-      { "name": "NUMA Nutrition", "leaves": ["Сиропы", "Иммунитет", "Натуральная продукция"] },
-      { "name": "NUMA Kids", "leaves": ["Витамины", "Развитие ребёнка", "Полезные мармеладки"] },
-      { "name": "Nabaviy Tabobat", "leaves": ["Натуральное лечение", "Профилактика", "Традиционные знания"] }
+      {
+        "name": "NUMA Nutrition",
+        "leaves": [
+          "Сиропы",
+          "Иммунитет",
+          "Натуральная продукция"
+        ]
+      },
+      {
+        "name": "NUMA Kids",
+        "leaves": [
+          "Витамины",
+          "Развитие ребёнка",
+          "Полезные мармеладки"
+        ]
+      },
+      {
+        "name": "Nabaviy Tabobat",
+        "leaves": [
+          "Натуральное лечение",
+          "Профилактика",
+          "Традиционные знания"
+        ]
+      }
     ]
   },
   "achievements": {
@@ -170,10 +225,26 @@
     "prev": "Предыдущее видео",
     "next": "Следующее видео",
     "items": [
-      { "title": "Nabaviy Tabobat — традиции и современность", "image": "/img/video-1.png", "url": "" },
-      { "title": "Отзыв о продукции NUMA Family", "image": "/img/video-2.png", "url": "" },
-      { "title": "NUMA Family и активный образ жизни", "image": "/img/video-3.png", "url": "" },
-      { "title": "NUMA Kids — забота о детях", "image": "/img/video-4.png", "url": "" }
+      {
+        "title": "Nabaviy Tabobat — традиции и современность",
+        "image": "/img/video-1.png",
+        "url": ""
+      },
+      {
+        "title": "Отзыв о продукции NUMA Family",
+        "image": "/img/video-2.png",
+        "url": ""
+      },
+      {
+        "title": "NUMA Family и активный образ жизни",
+        "image": "/img/video-3.png",
+        "url": ""
+      },
+      {
+        "title": "NUMA Kids — забота о детях",
+        "image": "/img/video-4.png",
+        "url": ""
+      }
     ]
   },
   "reviews": {
@@ -237,24 +308,51 @@
     "socialTitle": "Мы в социальных сетях",
     "directions": {
       "title": "НАПРАВЛЕНИЯ",
-      "items": ["NUMA Nutrition", "NUMA Kids", "Nabaviy Tabobat", "NUMA Diagnostics", "Bettery Organic"]
+      "items": [
+        "NUMA Nutrition",
+        "NUMA Kids",
+        "Nabaviy Tabobat",
+        "NUMA Diagnostics",
+        "Bettery Organic"
+      ]
     },
     "company": {
       "title": "КОМПАНИЯ",
       "items": [
-        { "label": "Главная", "href": "/" },
-        { "label": "О компании", "href": "/#about" },
-        { "label": "Новости", "href": "/blog" },
-        { "label": "Видео", "href": "/#videos" },
-        { "label": "Отзывы", "href": "/#reviews" },
-        { "label": "Сертификаты", "href": "/#certificates" },
-        { "label": "Контакты", "href": "/contact" }
+        {
+          "label": "Главная",
+          "href": "/"
+        },
+        {
+          "label": "О компании",
+          "href": "/#about"
+        },
+        {
+          "label": "Новости",
+          "href": "/blog"
+        },
+        {
+          "label": "Видео",
+          "href": "/#videos"
+        },
+        {
+          "label": "Отзывы",
+          "href": "/#reviews"
+        },
+        {
+          "label": "Сертификаты",
+          "href": "/#certificates"
+        },
+        {
+          "label": "Контакты",
+          "href": "/contact"
+        }
       ]
     },
     "contacts": {
       "title": "КОНТАКТЫ",
       "address": "Tashkent, Uzbekistan",
-      "phone": "+998 71 203-22-32",
+      "phone": "+998 71 203 22 32",
       "email": "info@numafamily.uz",
       "site": "www.numafamily.uz"
     },
@@ -291,7 +389,7 @@
     "viaTelegram": "Через Telegram",
     "infoTitle": "Контактная информация",
     "cardTitle": "Свяжитесть с нами",
-    "phone": "+998 71-203-22-32",
+    "phone": "+998 71 203 22 32",
     "instagram": "@numa_family",
     "hours": "Понедельник– Суббота: 9:00 – 20:00",
     "address": "Ташкент, Узбекистан",
