@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { SIBLING_SITES } from "@/lib/constants";
-import { cn } from "@/lib/utils/cn";
 import type { Locale } from "@/lib/i18n/config";
 
 interface BrandSwitcherProps {
@@ -55,27 +53,24 @@ export function BrandSwitcher({ locale, label }: BrandSwitcherProps) {
       onMouseEnter={() => schedule(true)}
       onMouseLeave={() => schedule(false)}
     >
-      <div className="flex items-center gap-1">
-        <Link href={`/${locale}`} aria-label="NUMA Family">
-          <Image
-            src="/logo.png"
-            alt="NUMA Family"
-            width={1489}
-            height={423}
-            priority
-            className="h-9 w-auto lg:h-12"
-          />
-        </Link>
-        <button
-          type="button"
-          aria-label={label}
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="grid size-7 place-items-center rounded-full text-body transition hover:bg-mist hover:text-sea focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea"
-        >
-          <Chevron className={cn("size-4 transition-transform", open && "rotate-90")} />
-        </button>
-      </div>
+      {/* The logo is the trigger — no separate affordance beside it. */}
+      <button
+        type="button"
+        aria-label={label}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        onClick={() => setOpen((value) => !value)}
+        className="flex items-center rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea"
+      >
+        <Image
+          src="/logo.png"
+          alt="NUMA Family"
+          width={1489}
+          height={423}
+          priority
+          className="h-9 w-auto lg:h-12"
+        />
+      </button>
 
       {open && (
         <div
@@ -91,32 +86,22 @@ export function BrandSwitcher({ locale, label }: BrandSwitcherProps) {
               role="menuitem"
               className="flex items-center gap-3 rounded-xl p-2.5 transition hover:bg-white/20"
             >
-              <span className="size-9 shrink-0 rounded-lg bg-gradient-to-br from-white/70 to-white/25 ring-1 ring-white/50" />
+              <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white p-1">
+                <Image
+                  src={site.logo}
+                  alt=""
+                  width={72}
+                  height={72}
+                  className="h-full w-full object-contain"
+                />
+              </span>
               <span className="flex-1 text-sm font-bold tracking-wide text-white">
                 {site.label}
               </span>
-              <Chevron className="size-4 text-white/80" />
             </a>
           ))}
         </div>
       )}
     </div>
-  );
-}
-
-function Chevron({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
   );
 }
