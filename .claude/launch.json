@@ -4,8 +4,41 @@
     {
       "name": "dev",
       "runtimeExecutable": "node",
-      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
+      "runtimeArgs": [
+        "node_modules/next/dist/bin/next",
+        "dev"
+      ],
       "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "nutrition",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd /d D:\\Projects\\Frontend\\numa-nutrition && node node_modules/next/dist/bin/next dev -p 3101"
+      ],
+      "port": 3101,
+      "autoPort": true
+    },
+    {
+      "name": "kids",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd /d D:\\Projects\\Frontend\\numa-kids && node node_modules/next/dist/bin/next dev -p 3102"
+      ],
+      "port": 3102,
+      "autoPort": true
+    },
+    {
+      "name": "tabobat",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd /d D:\\Projects\\Frontend\\nabaviy-tabobat && node node_modules/next/dist/bin/next dev -p 3103"
+      ],
+      "port": 3103,
       "autoPort": true
     }
   ]

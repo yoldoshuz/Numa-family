@@ -403,7 +403,7 @@
     "namePlaceholder": "Enter your name",
     "phoneLabel": "Phone number",
     "phonePlaceholder": "Enter your phone number",
-    "messageLabel": "Question / Message (optional)",
+    "messageLabel": "Question / Message",
     "messagePlaceholder": "Describe your problem or ask a question. Our specialist will choose a suitable product...",
     "note": "Once the form is submitted our specialist will contact you within 24 hours. The consultation is free!",
     "submit": "Get a free consultation",
@@ -414,6 +414,9 @@
     "successText": "Your request has been sent successfully.\nA Numa Family specialist\nwill contact you shortly",
     "successNote": "We usually reply within\n15–30 minutes during working hours",
     "successHome": "Back to home",
-    "successBlog": "Go to the blog"
+    "successBlog": "Go to the blog",
+    "problemRequired": "Describe the problem — at least 10 characters",
+    "rateLimit": "Too many requests. Please try again later",
+    "networkError": "Could not send the request. Please try again"
   }
 }

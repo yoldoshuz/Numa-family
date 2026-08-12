@@ -14,7 +14,7 @@ import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
 interface ConsultationContextValue {
-  open: (source?: string) => void;
+  open: () => void;
   close: () => void;
   isOpen: boolean;
 }
@@ -37,13 +37,8 @@ interface Props {
 
 export function ConsultationProvider({ locale, dict, children }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const [source, setSource] = useState("header");
 
-  const open = useCallback((from = "header") => {
-    setSource(from);
-    setIsOpen(true);
-  }, []);
-
+  const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
 
   // Lock the page behind the modal so the backdrop doesn't scroll away.
@@ -61,9 +56,7 @@ export function ConsultationProvider({ locale, dict, children }: Props) {
   return (
     <ConsultationContext.Provider value={value}>
       {children}
-      {isOpen && (
-        <ConsultationModal locale={locale} dict={dict} source={source} onClose={close} />
-      )}
+      {isOpen && <ConsultationModal locale={locale} dict={dict} onClose={close} />}
     </ConsultationContext.Provider>
   );
 }

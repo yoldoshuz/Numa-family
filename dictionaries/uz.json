@@ -403,7 +403,7 @@
     "namePlaceholder": "Ismingizni kiriting",
     "phoneLabel": "Telefon raqami",
     "phonePlaceholder": "Telefon raqamini kiriting",
-    "messageLabel": "Savol / Xabar (ixtiyoriy)",
+    "messageLabel": "Savol / Xabar",
     "messagePlaceholder": "Muammoingizni tasvirlang yoki savol bering. Mutaxassisimiz mos mahsulotni tanlaydi...",
     "note": "Formani to'ldirganingizdan so'ng mutaxassisimiz 24 soat ichida siz bilan bog'lanadi. Konsultatsiya bepul!",
     "submit": "Bepul konsultatsiya olish",
@@ -414,6 +414,9 @@
     "successText": "Arizangiz muvaffaqiyatli yuborildi.\nNuma Family mutaxassisi\nyaqin orada siz bilan bog'lanadi",
     "successNote": "Odatda ish vaqtida\n15–30 daqiqa ichida javob beramiz",
     "successHome": "Bosh sahifaga qaytish",
-    "successBlog": "Blogga o'tish"
+    "successBlog": "Blogga o'tish",
+    "problemRequired": "Muammoni tavsiflang — kamida 10 ta belgi",
+    "rateLimit": "Juda ko'p ariza yuborildi. Birozdan so'ng urinib ko'ring",
+    "networkError": "Arizani yuborib bo'lmadi. Yana bir bor urinib ko'ring"
   }
 }

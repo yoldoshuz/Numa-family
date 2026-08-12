@@ -32,7 +32,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
 
           <button
             type="button"
-            onClick={() => open("hero")}
+            onClick={() => open()}
             className="mt-8 inline-flex h-13 items-center rounded-lg bg-sea px-7 text-[0.95rem] font-medium text-white transition-colors hover:bg-sea-dark"
           >
             {t.cta}

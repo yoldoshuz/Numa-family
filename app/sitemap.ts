@@ -4,6 +4,13 @@ import { blogApi } from "@/lib/api/articles";
 
 const baseUrl = "https://numafamily.uz";
 
+/**
+ * The article list below is read from the CMS with axios, which Next's fetch
+ * cache knows nothing about — without this the sitemap is whatever the backend
+ * answered at build time and never learns about a new article.
+ */
+export const revalidate = 300;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages = ["", "/blog", "/contact"];
 

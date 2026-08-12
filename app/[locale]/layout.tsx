@@ -24,6 +24,20 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+/**
+ * How long a rendered page may be reused before it is built again, in seconds.
+ *
+ * Article bodies arrive in the browser through React Query, so what the reader
+ * sees is already live. This is for the parts that are resolved on the server
+ * and would otherwise be frozen at build time — chiefly an article's own
+ * `<title>`, description and OG image, which `blog/[slug]` reads from the API
+ * inside `generateMetadata`. Axios is invisible to Next's fetch cache, so
+ * without this nothing ever marks those stale.
+ *
+ * Must stay a literal — Next evaluates this statically and rejects an import.
+ */
+export const revalidate = 300;
+
 export async function generateMetadata({
   params,
 }: {

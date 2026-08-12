@@ -4,19 +4,23 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CloseIcon } from "@/components/ui/icons";
-import { submitLead } from "@/lib/api/leads";
-import { formatUzPhoneInput, UZ_PHONE_PREFIX } from "@/lib/utils/phone";
+import {
+  classifyConsultationError,
+  PROBLEM_MAX_LENGTH,
+  PROBLEM_MIN_LENGTH,
+  submitConsultation,
+} from "@/lib/api/consultations";
+import { formatUzPhoneInput, toApiPhone, UZ_PHONE_PREFIX } from "@/lib/utils/phone";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
 interface Props {
   locale: Locale;
   dict: Dictionary;
-  source: string;
   onClose: () => void;
 }
 
-export function ConsultationModal({ locale, dict, source, onClose }: Props) {
+export function ConsultationModal({ locale, dict, onClose }: Props) {
   const t = dict.consultation;
   const [done, setDone] = useState(false);
   const [sending, setSending] = useState(false);
@@ -39,18 +43,32 @@ export function ConsultationModal({ locale, dict, source, onClose }: Props) {
     const phone = String(form.get("phone") ?? "").trim();
     const message = String(form.get("message") ?? "").trim();
 
-    if (!name || !phone) {
+    const apiPhone = toApiPhone(phone);
+
+    if (!name || !apiPhone) {
       setError(t.required);
+      return;
+    }
+    // The API refuses a request with no description of the problem — a card
+    // that only says "call me back" is of no use to the manager who gets it.
+    if (message.length < PROBLEM_MIN_LENGTH) {
+      setError(t.problemRequired);
       return;
     }
 
     setError(null);
     setSending(true);
     try {
-      await submitLead({ name, phone, message, locale, source });
+      await submitConsultation({
+        name,
+        phone: apiPhone,
+        problem: message.slice(0, PROBLEM_MAX_LENGTH),
+      });
       setDone(true);
-    } catch {
-      setError(t.required);
+    } catch (err) {
+      setError(
+        classifyConsultationError(err) === "rateLimit" ? t.rateLimit : t.networkError,
+      );
     } finally {
       setSending(false);
     }
@@ -146,10 +164,13 @@ export function ConsultationModal({ locale, dict, source, onClose }: Props) {
               </div>
 
               <div className="mt-4 sm:mt-5">
-                <Field label={t.messageLabel}>
+                <Field label={t.messageLabel} required>
                   <textarea
                     name="message"
                     rows={4}
+                    required
+                    minLength={PROBLEM_MIN_LENGTH}
+                    maxLength={PROBLEM_MAX_LENGTH}
                     placeholder={t.messagePlaceholder}
                     className="w-full resize-none rounded-xl bg-white px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-faint focus:ring-2 focus:ring-[#167888]/40 focus:outline-none"
                   />

@@ -17,7 +17,7 @@ export function CtaBand({ dict }: { dict: Dictionary }) {
         </p>
         <button
           type="button"
-          onClick={() => open("cta-band")}
+          onClick={() => open()}
           className="h-13 w-full max-w-sm rounded-full bg-white px-10 text-[0.95rem] font-bold text-ink shadow-[0_6px_20px_rgba(8,40,48,0.18)] transition-transform hover:-translate-y-0.5 sm:w-auto"
         >
           {dict.ctaBand.button}

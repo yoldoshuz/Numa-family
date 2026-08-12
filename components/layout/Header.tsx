@@ -69,7 +69,7 @@ export function Header({ locale, dict }: HeaderProps) {
           <LanguageSwitcher currentLocale={locale} className="hidden sm:block" />
           <button
             type="button"
-            onClick={() => open("header")}
+            onClick={() => open()}
             className="hidden h-10 items-center rounded-lg bg-brand px-5 text-sm font-medium text-white transition-colors hover:bg-brand-deep sm:inline-flex"
           >
             {dict.nav.consultation}
@@ -114,7 +114,7 @@ export function Header({ locale, dict }: HeaderProps) {
                 type="button"
                 onClick={() => {
                   setMenuOpen(false);
-                  open("mobile-menu");
+                  open();
                 }}
                 className="h-10 flex-1 rounded-lg bg-brand px-5 text-sm font-medium text-white"
               >
