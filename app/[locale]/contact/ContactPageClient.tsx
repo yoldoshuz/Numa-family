@@ -13,10 +13,12 @@ interface Props {
 
 /**
  * Yandex is the map the other Numa storefronts embed, and the one people here
- * actually navigate with. Keyless widget, centred on the Tashkent office.
+ * actually navigate with. Keyless widget, resolved from the office address
+ * rather than a literal pin: the previous coordinate pointed at the city
+ * centre, several kilometres from Yashnabod.
  */
 const MAP_EMBED =
-  "https://yandex.uz/map-widget/v1/?ll=69.279700%2C41.311100&z=16&pt=69.279700,41.311100,pm2rdm&lang=ru_RU";
+  "https://yandex.uz/map-widget/v1/?text=%D0%A2%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%AD%D0%BB%D0%B1%D0%B5%D0%BA%2C%2031&z=17&lang=ru_RU";
 
 export function ContactPageClient({ dict }: Props) {
   const t = dict.contact;
