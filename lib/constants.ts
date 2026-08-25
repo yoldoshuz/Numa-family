@@ -37,3 +37,26 @@ export const SIBLING_SITES = [
   },
 ] as const;
 
+
+/**
+ * The one place any contact detail is written down.
+ *
+ * The tester's round found dead handles on every site — an Instagram account
+ * that was never registered and a Telegram username that resolves to nothing —
+ * so these live in a single constant per site rather than being retyped into
+ * each footer, contact card and share row. `@Numa_uz_admin` is the group's
+ * shared admin: the same account answers for Family, Nutrition, Kids and
+ * Nabaviy Tabobat, which is why it is identical in all four repos.
+ */
+export const CONTACTS = {
+  phone: "+998 55 513 33 33",
+  phoneHref: "tel:+998555133333",
+  email: "numafamilyuz@gmail.com",
+  emailHref: "mailto:numafamilyuz@gmail.com",
+  instagram: "@numa.uz",
+  instagramHref: "https://www.instagram.com/numa.uz",
+  telegram: "@Numa_uz_admin",
+  telegramHref: "https://t.me/Numa_uz_admin",
+  site: "www.numafamily.uz",
+  siteHref: "https://numafamily.uz",
+} as const;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { ArticleCard } from "@/components/blog/ArticleCard";
 import { TelegramIcon, GlobeIcon, InstagramIcon } from "@/components/ui/icons";
+import { CONTACTS } from "@/lib/constants";
 import { useArticle, useArticles } from "@/hooks/useArticles";
 import { pickLang, formatDate } from "@/lib/utils/format";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -177,7 +178,7 @@ function ShareRow({ label, title }: { label: string; title: string }) {
       return;
     }
     if (platform === "instagram") {
-      window.open("https://instagram.com/numa_family", "_blank", "noopener");
+      window.open(CONTACTS.instagramHref, "_blank", "noopener");
       return;
     }
     navigator.clipboard?.writeText(url);

@@ -5,18 +5,35 @@ import { motion } from "motion/react";
 import { useConsultation } from "@/components/consultation/ConsultationProvider";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
+/**
+ * The photo's own wall tone, sampled off its light edges.
+ *
+ * The shot is a cool near-white studio wall; the section was a flat
+ * `--color-haze` (#fafbfa). Two tones that close read as one surface right up
+ * until they touch, and then the vertical crop line is the only edge on the
+ * screen. The section settles onto the photo's own tone before the image takes
+ * over, so the join has nothing to announce itself with — no veil over the
+ * photograph, just a background that already matches it.
+ */
+const HERO_WALL = "#e9efee";
+
 export function Hero({ dict }: { dict: Dictionary }) {
   const t = dict.hero;
   const { open } = useConsultation();
 
   return (
-    <section className="relative overflow-hidden bg-haze">
+    <section
+      className="relative overflow-hidden"
+      style={{
+        backgroundImage: `linear-gradient(90deg, #fafbfa 0%, #fafbfa 30%, #f1f6f5 42%, ${HERO_WALL} 50%, ${HERO_WALL} 100%)`,
+      }}
+    >
       <div className="shell relative z-10 grid items-center gap-0 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="order-2 py-10 lg:order-1 lg:py-24 lg:pr-12"
+          className="order-2 py-10 lg:order-1 lg:py-24 lg:pr-16"
         >
           <h1 className="text-[1.85rem] leading-[1.35] font-extrabold text-ink sm:text-[2.25rem] lg:text-[2.55rem]">
             {t.titleLine1}
@@ -42,24 +59,29 @@ export function Hero({ dict }: { dict: Dictionary }) {
         {/* Mobile / tablet: the photo sits above the copy. */}
         <div className="relative order-1 -mx-5 h-56 sm:-mx-6 sm:h-72 lg:hidden">
           <Image
-            src="/img/hero-presentation.png"
+            src="/img/numa-family-hero-photo.png"
             alt={t.imageAlt}
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
         </div>
       </div>
 
-      {/* Desktop: the photo bleeds off the right edge of the viewport. */}
-      <div className="absolute inset-y-0 right-0 hidden w-[54%] lg:block">
+      {/*
+        Desktop: the photo bleeds off the right edge of the viewport.
+        `w-[52%]` rather than the old 54: the headline's longest line runs to
+        roughly 46% of a 1440, and the copy column paints above this panel, so
+        anything wider puts live text on top of a dark suit.
+      */}
+      <div className="absolute inset-y-0 right-0 hidden w-[52%] lg:block">
         <Image
-          src="/img/hero-presentation.png"
+          src="/img/numa-family-hero-photo.png"
           alt={t.imageAlt}
           fill
           priority
-          sizes="54vw"
+          sizes="52vw"
           className="object-cover object-center"
         />
       </div>

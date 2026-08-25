@@ -53,14 +53,23 @@ export function BrandSwitcher({ locale, label }: BrandSwitcherProps) {
       onMouseEnter={() => schedule(true)}
       onMouseLeave={() => schedule(false)}
     >
-      {/* The logo is the trigger — no separate affordance beside it. */}
+      {/*
+        The logo used to be the whole trigger, with nothing to say it was one —
+        so the menu into the rest of the group went unfound. It now sits in a
+        pill that tints under the pointer, with a switcher grid beside it — the
+        same "there is more than this one product here" mark the app launchers
+        use, readable at a glance and without a caret.
+      */}
       <button
         type="button"
         aria-label={label}
+        title={label}
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((value) => !value)}
-        className="flex items-center rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea"
+        className={`group -mx-2 flex cursor-pointer items-center gap-2.5 rounded-xl px-2 py-1.5 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sea lg:gap-3 ${
+          open ? "bg-sea/10" : "hover:bg-sea/8"
+        }`}
       >
         <Image
           src="/logo.png"
@@ -70,6 +79,7 @@ export function BrandSwitcher({ locale, label }: BrandSwitcherProps) {
           priority
           className="h-9 w-auto lg:h-12"
         />
+        <SwitcherGrid open={open} />
       </button>
 
       {open && (
@@ -103,5 +113,32 @@ export function BrandSwitcher({ locale, label }: BrandSwitcherProps) {
         </div>
       )}
     </div>
+  );
+}
+
+
+/**
+ * Nine dots — the switcher mark.
+ *
+ * Deliberately not a caret: a caret next to a wordmark reads as "this label has
+ * a submenu", while the grid reads as "there are sibling products behind this".
+ * It sits at 55% until the pointer arrives, so it hints rather than competes
+ * with the logo, and the dots spread a hair on hover so the whole trigger
+ * answers the cursor.
+ */
+function SwitcherGrid({ open }: { open: boolean }) {
+  return (
+    <span
+      aria-hidden
+      className={`grid shrink-0 grid-cols-3 transition-[gap,opacity] duration-200 ${
+        open
+          ? "gap-[3px] opacity-100"
+          : "gap-[2px] opacity-55 group-hover:gap-[3px] group-hover:opacity-100"
+      }`}
+    >
+      {Array.from({ length: 9 }, (_, index) => (
+        <span key={index} className="size-[3.5px] rounded-full bg-sea" />
+      ))}
+    </span>
   );
 }

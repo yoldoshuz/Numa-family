@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TelegramIcon, GlobeIcon, InstagramIcon } from "@/components/ui/icons";
+import { CONTACTS } from "@/lib/constants";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
@@ -10,9 +11,9 @@ interface FooterProps {
 }
 
 const SOCIALS = [
-  { key: "telegram", href: "https://t.me/numa_family", Icon: TelegramIcon, label: "Telegram" },
-  { key: "site", href: "https://numafamily.uz", Icon: GlobeIcon, label: "numafamily.uz" },
-  { key: "instagram", href: "https://instagram.com/numa_family", Icon: InstagramIcon, label: "Instagram" },
+  { key: "telegram", href: CONTACTS.telegramHref, Icon: TelegramIcon, label: `Telegram ${CONTACTS.telegram}` },
+  { key: "site", href: CONTACTS.siteHref, Icon: GlobeIcon, label: CONTACTS.site },
+  { key: "instagram", href: CONTACTS.instagramHref, Icon: InstagramIcon, label: `Instagram ${CONTACTS.instagram}` },
 ];
 
 export function Footer({ locale, dict }: FooterProps) {

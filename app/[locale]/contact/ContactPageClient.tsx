@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { InstagramIcon } from "@/components/ui/icons";
+import { InstagramIcon, TelegramIcon } from "@/components/ui/icons";
+import { CONTACTS } from "@/lib/constants";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
@@ -28,14 +29,21 @@ export function ContactPageClient({ dict }: Props) {
     { key: "phone", value: t.phone, href: telHref, icon: <PhoneGlyph /> },
     {
       key: "instagram",
-      value: t.instagram,
-      href: `https://instagram.com/${t.instagram.replace("@", "")}`,
+      value: CONTACTS.instagram,
+      href: CONTACTS.instagramHref,
       external: true,
       icon: <InstagramIcon className="h-5 w-5" />,
     },
+    {
+      key: "telegram",
+      value: CONTACTS.telegram,
+      href: CONTACTS.telegramHref,
+      external: true,
+      icon: <TelegramIcon className="h-5 w-5" />,
+    },
     { key: "hours", value: t.hours, icon: <ClockGlyph /> },
     { key: "address", value: t.address, icon: <PinGlyph /> },
-    { key: "email", value: t.email, href: `mailto:${t.email}`, icon: <MailGlyph /> },
+    { key: "email", value: CONTACTS.email, href: CONTACTS.emailHref, icon: <MailGlyph /> },
   ];
 
   return (
@@ -67,7 +75,7 @@ export function ContactPageClient({ dict }: Props) {
                 {t.callNow}
               </a>
               <a
-                href="https://t.me/numa_family"
+                href={CONTACTS.telegramHref}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="text-[0.9rem] font-medium text-brand-soft transition-colors hover:text-brand"
