@@ -30,18 +30,18 @@
     "imageAlt": "NUMA Family ishlab chiqarish majmuasi",
     "stats": [
       {
-        "value": "1000+",
+        "value": "50+",
         "label": "tabiiy\nmahsulot",
         "icon": "leaf"
       },
       {
-        "value": "100 000+",
-        "label": "mamnun\nmijoz",
+        "value": "1 000 000+",
+        "label": "mamnun\nmijozlar",
         "icon": "users"
       },
       {
-        "value": "500+",
-        "label": "rasmiy\nhamkor",
+        "value": "20+",
+        "label": "davlatga\neksport",
         "icon": "handshake"
       }
     ]
@@ -107,7 +107,7 @@
         "name": "Ishlab chiqarish",
         "leaves": [
           "Zamonaviy zavod",
-          "1000+ mahsulot",
+          "50+ mahsulot",
           "Ilmiy tadqiqotlar"
         ]
       }
@@ -309,11 +309,26 @@
     "directions": {
       "title": "YO'NALISHLAR",
       "items": [
-        "NUMA Nutrition",
-        "NUMA Kids",
-        "Nabaviy Tabobat",
-        "NUMA Diagnostics",
-        "Bettery Organic"
+        {
+          "label": "NUMA Nutrition",
+          "href": "https://numa-nutritition.vercel.app"
+        },
+        {
+          "label": "NUMA Kids",
+          "href": "https://numa-kids-olive.vercel.app/uz"
+        },
+        {
+          "label": "Nabaviy Tabobat",
+          "href": "https://nabaviy-tabobat.vercel.app"
+        },
+        {
+          "label": "NUMA Diagnostics",
+          "href": ""
+        },
+        {
+          "label": "Bettery Organic",
+          "href": ""
+        }
       ]
     },
     "company": {

@@ -30,18 +30,18 @@
     "imageAlt": "Производственный комплекс NUMA Family",
     "stats": [
       {
-        "value": "1000+",
+        "value": "50+",
         "label": "натуральных\nпродуктов",
         "icon": "leaf"
       },
       {
-        "value": "100 000+",
+        "value": "1 000 000+",
         "label": "довольных\nклиентов",
         "icon": "users"
       },
       {
-        "value": "500+",
-        "label": "официальных\nпартнёров",
+        "value": "20+",
+        "label": "стран\nэкспорта",
         "icon": "handshake"
       }
     ]
@@ -107,7 +107,7 @@
         "name": "Производство",
         "leaves": [
           "Современный завод",
-          "1000+ продуктов",
+          "50+ продуктов",
           "Научные исследования"
         ]
       }
@@ -176,7 +176,7 @@
     ]
   },
   "certificates": {
-    "title": "НАШИ МЕЖДУНАРОДНЫЙ СЕРТИФИКАТЫ",
+    "title": "НАШИ МЕЖДУНАРОДНЫЕ СЕРТИФИКАТЫ",
     "description": "Мы придерживаемся международных стандартов качества и безопасности на всех этапах производства нашей продукции",
     "items": [
       {
@@ -309,11 +309,26 @@
     "directions": {
       "title": "НАПРАВЛЕНИЯ",
       "items": [
-        "NUMA Nutrition",
-        "NUMA Kids",
-        "Nabaviy Tabobat",
-        "NUMA Diagnostics",
-        "Bettery Organic"
+        {
+          "label": "NUMA Nutrition",
+          "href": "https://numa-nutritition.vercel.app"
+        },
+        {
+          "label": "NUMA Kids",
+          "href": "https://numa-kids-olive.vercel.app/ru"
+        },
+        {
+          "label": "Nabaviy Tabobat",
+          "href": "https://nabaviy-tabobat.vercel.app"
+        },
+        {
+          "label": "NUMA Diagnostics",
+          "href": ""
+        },
+        {
+          "label": "Bettery Organic",
+          "href": ""
+        }
       ]
     },
     "company": {

@@ -30,18 +30,18 @@
     "imageAlt": "NUMA Family production facility",
     "stats": [
       {
-        "value": "1000+",
+        "value": "50+",
         "label": "natural\nproducts",
         "icon": "leaf"
       },
       {
-        "value": "100 000+",
+        "value": "1,000,000+",
         "label": "happy\ncustomers",
         "icon": "users"
       },
       {
-        "value": "500+",
-        "label": "official\npartners",
+        "value": "20+",
+        "label": "export\ncountries",
         "icon": "handshake"
       }
     ]
@@ -107,7 +107,7 @@
         "name": "Production",
         "leaves": [
           "Modern factory",
-          "1000+ products",
+          "50+ products",
           "Scientific research"
         ]
       }
@@ -309,11 +309,26 @@
     "directions": {
       "title": "DIRECTIONS",
       "items": [
-        "NUMA Nutrition",
-        "NUMA Kids",
-        "Nabaviy Tabobat",
-        "NUMA Diagnostics",
-        "Bettery Organic"
+        {
+          "label": "NUMA Nutrition",
+          "href": "https://numa-nutritition.vercel.app"
+        },
+        {
+          "label": "NUMA Kids",
+          "href": "https://numa-kids-olive.vercel.app/en"
+        },
+        {
+          "label": "Nabaviy Tabobat",
+          "href": "https://nabaviy-tabobat.vercel.app"
+        },
+        {
+          "label": "NUMA Diagnostics",
+          "href": ""
+        },
+        {
+          "label": "Bettery Organic",
+          "href": ""
+        }
       ]
     },
     "company": {

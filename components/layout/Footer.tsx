@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { TelegramIcon, GlobeIcon, InstagramIcon } from "@/components/ui/icons";
+import { TelegramIcon, GlobeIcon, InstagramIcon, FacebookIcon } from "@/components/ui/icons";
 import { CONTACTS } from "@/lib/constants";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -10,10 +10,13 @@ interface FooterProps {
   dict: Dictionary;
 }
 
+// The channel, not the administrator: a footer icon is a "where to find us",
+// not an invitation into somebody's private chat.
 const SOCIALS = [
   { key: "telegram", href: CONTACTS.telegramHref, Icon: TelegramIcon, label: `Telegram ${CONTACTS.telegram}` },
-  { key: "site", href: CONTACTS.siteHref, Icon: GlobeIcon, label: CONTACTS.site },
   { key: "instagram", href: CONTACTS.instagramHref, Icon: InstagramIcon, label: `Instagram ${CONTACTS.instagram}` },
+  { key: "facebook", href: CONTACTS.facebookHref, Icon: FacebookIcon, label: "Facebook" },
+  { key: "site", href: CONTACTS.siteHref, Icon: GlobeIcon, label: CONTACTS.site },
 ];
 
 export function Footer({ locale, dict }: FooterProps) {
@@ -52,11 +55,26 @@ export function Footer({ locale, dict }: FooterProps) {
           </div>
         </div>
 
-        {/* Directions — brand lines, not linked anywhere yet. */}
+        {/*
+          Directions. Each one links to that brand's live site; the two with no
+          site of their own stay plain text rather than becoming links that go
+          nowhere, which is what the whole column used to be.
+        */}
         <FooterColumn title={f.directions.title}>
           {f.directions.items.map((item) => (
-            <li key={item} className="text-[0.95rem] text-white/90">
-              {item}
+            <li key={item.label}>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-[0.95rem] text-white/90 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span className="text-[0.95rem] text-white/90">{item.label}</span>
+              )}
             </li>
           ))}
         </FooterColumn>

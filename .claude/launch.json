@@ -40,6 +40,16 @@
       ],
       "port": 3103,
       "autoPort": true
+    },
+    {
+      "name": "admin",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd /d D:ProjectsFrontendNuma-admin && node node_modules/next/dist/bin/next dev -p 3110"
+      ],
+      "port": 3110,
+      "autoPort": true
     }
   ]
 }

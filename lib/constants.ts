@@ -41,12 +41,13 @@ export const SIBLING_SITES = [
 /**
  * The one place any contact detail is written down.
  *
- * The tester's round found dead handles on every site — an Instagram account
- * that was never registered and a Telegram username that resolves to nothing —
- * so these live in a single constant per site rather than being retyped into
- * each footer, contact card and share row. `@Numa_uz_admin` is the group's
- * shared admin: the same account answers for Family, Nutrition, Kids and
- * Nabaviy Tabobat, which is why it is identical in all four repos.
+ * There are two Telegram destinations and they are not interchangeable.
+ * `telegram` is the public channel — that is what belongs anywhere the site is
+ * simply listing where to find the brand: the footer, the contact card, the
+ * structured data. `telegramAdmin` is a person, and it belongs only behind a
+ * button that offers to carry on a conversation. Sending a visitor who clicked
+ * a footer icon into a private chat with an administrator was the complaint
+ * that split these apart.
  */
 export const CONTACTS = {
   phone: "+998 55 513 33 33",
@@ -55,8 +56,13 @@ export const CONTACTS = {
   emailHref: "mailto:numafamilyuz@gmail.com",
   instagram: "@numa.uz",
   instagramHref: "https://www.instagram.com/numa.uz",
-  telegram: "@Numa_uz_admin",
-  telegramHref: "https://t.me/Numa_uz_admin",
+  /** Public channel — footers, contact lists, `sameAs`. */
+  telegram: "@numa_uz",
+  telegramHref: "https://t.me/numa_uz",
+  /** A live administrator — only behind a "write to us" button. */
+  telegramAdmin: "@Numa_uz_admin",
+  telegramAdminHref: "https://t.me/Numa_uz_admin",
+  facebookHref: "https://www.facebook.com/share/1EVPsKHEgL/",
   site: "www.numafamily.uz",
   siteHref: "https://numafamily.uz",
 } as const;

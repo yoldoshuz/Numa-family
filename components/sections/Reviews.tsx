@@ -6,11 +6,19 @@ import { CarouselRow } from "@/components/ui/CarouselRow";
 import { StarIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/utils/cn";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
+import type { ReviewCard } from "@/lib/api/reviews";
 
-export function Reviews({ dict }: { dict: Dictionary }) {
+/**
+ * Customer reviews.
+ *
+ * `cards` is what the CMS published, already in the reader's language; when it
+ * is absent the copy bundled in the dictionary renders instead.
+ */
+export function Reviews({ dict, cards }: { dict: Dictionary; cards?: ReviewCard[] | null }) {
   const t = dict.reviews;
+  const items = cards ?? t.items;
   // The Figma lifts the middle card out of the row as the "featured" quote.
-  const featured = Math.floor(t.items.length / 2);
+  const featured = Math.floor(items.length / 2);
 
   return (
     <section id="reviews" className="relative overflow-hidden bg-white pb-14 sm:pb-16 lg:pb-20">
@@ -33,7 +41,7 @@ export function Reviews({ dict }: { dict: Dictionary }) {
 
         <AnimatedSection delay={0.05} className="mt-8 lg:mt-11">
           <CarouselRow prevLabel={t.prev} nextLabel={t.next} trackClassName="items-center py-3">
-            {t.items.map((review, i) => {
+            {items.map((review, i) => {
               const isFeatured = i === featured;
               return (
                 <figure

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { InstagramIcon, TelegramIcon } from "@/components/ui/icons";
+import { InstagramIcon, TelegramIcon, FacebookIcon } from "@/components/ui/icons";
 import { CONTACTS } from "@/lib/constants";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -41,6 +41,13 @@ export function ContactPageClient({ dict }: Props) {
       external: true,
       icon: <TelegramIcon className="h-5 w-5" />,
     },
+    {
+      key: "facebook",
+      value: "Facebook",
+      href: CONTACTS.facebookHref,
+      external: true,
+      icon: <FacebookIcon className="h-5 w-5" />,
+    },
     { key: "hours", value: t.hours, icon: <ClockGlyph /> },
     { key: "address", value: t.address, icon: <PinGlyph /> },
     { key: "email", value: CONTACTS.email, href: CONTACTS.emailHref, icon: <MailGlyph /> },
@@ -74,8 +81,9 @@ export function ContactPageClient({ dict }: Props) {
               >
                 {t.callNow}
               </a>
+              {/* An offer to talk, so this one goes to the administrator. */}
               <a
-                href={CONTACTS.telegramHref}
+                href={CONTACTS.telegramAdminHref}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="text-[0.9rem] font-medium text-brand-soft transition-colors hover:text-brand"
