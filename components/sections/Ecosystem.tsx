@@ -39,8 +39,14 @@ export function Ecosystem({ dict }: { dict: Dictionary }) {
             <Fan
               side="left"
               gap={BRANCH_GAP}
-              items={t.left.map((branch) => (
-                <BranchRow key={branch.name} branch={branch} side="left" />
+              items={t.left.map((branch, i) => (
+                <BranchRow
+                  key={branch.name}
+                  branch={branch}
+                  side="left"
+                  bridgeStart={i > 0 ? BRANCH_GAP / 2 : 0}
+                  bridgeEnd={i < t.left.length - 1 ? BRANCH_GAP / 2 : 0}
+                />
               ))}
             />
 
@@ -53,8 +59,14 @@ export function Ecosystem({ dict }: { dict: Dictionary }) {
             <Fan
               side="right"
               gap={BRANCH_GAP}
-              items={t.right.map((branch) => (
-                <BranchRow key={branch.name} branch={branch} side="right" />
+              items={t.right.map((branch, i) => (
+                <BranchRow
+                  key={branch.name}
+                  branch={branch}
+                  side="right"
+                  bridgeStart={i > 0 ? BRANCH_GAP / 2 : 0}
+                  bridgeEnd={i < t.right.length - 1 ? BRANCH_GAP / 2 : 0}
+                />
               ))}
             />
           </div>
@@ -105,10 +117,25 @@ function Fan({
   side,
   items,
   gap = LEAF_GAP,
+  bridgeStart = 0,
+  bridgeEnd = 0,
 }: {
   side: Side;
   items: React.ReactNode[];
   gap?: number;
+  /**
+   * Pixels the rail runs past the first / last row's centre line, instead of
+   * stopping on it.
+   *
+   * A branch's leaves get their own bracket, so with three branches stacked the
+   * leaf column read as one vertical line broken twice by a 100px hole. Each
+   * branch bridges half the gap to its neighbour — `BRANCH_GAP / 2` up and the
+   * same down — and the two halves meet exactly in the middle, closing the
+   * column into a single continuous line. The outermost ends stay capped on
+   * the first and last leaf, so the line still starts and stops on a node.
+   */
+  bridgeStart?: number;
+  bridgeEnd?: number;
 }) {
   const nodes = (
     <div
@@ -136,9 +163,23 @@ function Fan({
             last={index === items.length - 1}
             only={items.length === 1}
             gap={gap}
+            bridgeStart={bridgeStart}
+            bridgeEnd={bridgeEnd}
           />
         );
-        const node = <div key={`node-${index}`}>{item}</div>;
+        /*
+         * `h-full`, and it is load-bearing. The grid stretches this wrapper to
+         * the row height, but a plain block inside it keeps its own content
+         * height and sits at the top — so every branch shorter than the
+         * tallest one ended up with its pill ~27px above the arm that was
+         * drawn at the row's centre line, and five of the six arms stopped in
+         * mid-air beside the pill they were meant to touch.
+         */
+        const node = (
+          <div key={`node-${index}`} className="flex h-full">
+            {item}
+          </div>
+        );
         return side === "left" ? [node, rail] : [rail, node];
       })}
     </div>
@@ -176,13 +217,21 @@ function Rail({
   last,
   only,
   gap,
+  bridgeStart = 0,
+  bridgeEnd = 0,
 }: {
   side: Side;
   first: boolean;
   last: boolean;
   only: boolean;
   gap: number;
+  bridgeStart?: number;
+  bridgeEnd?: number;
 }) {
+  // A single-row fan needs no rail — unless it is bridging to a neighbour, in
+  // which case the rail is the whole point.
+  const hasRail = !only || bridgeStart > 0 || bridgeEnd > 0;
+
   return (
     <div className="relative" aria-hidden>
       <span
@@ -191,15 +240,15 @@ function Rail({
           side === "left" ? "left-0 right-1/2" : "left-1/2 right-0",
         )}
       />
-      {only ? null : (
+      {hasRail && (
         <span
           className={cn(
             "absolute border-l border-brand",
             side === "left" ? "right-1/2" : "left-1/2",
           )}
           style={{
-            top: first ? "50%" : `-${gap}px`,
-            bottom: last ? "50%" : `-${gap}px`,
+            top: first ? (bridgeStart > 0 ? `-${bridgeStart}px` : "50%") : `-${gap}px`,
+            bottom: last ? (bridgeEnd > 0 ? `-${bridgeEnd}px` : "50%") : `-${gap}px`,
           }}
         />
       )}
@@ -221,10 +270,22 @@ function Stub({ className }: { className?: string }) {
   );
 }
 
-function BranchRow({ branch, side }: { branch: Branch; side: Side }) {
+function BranchRow({
+  branch,
+  side,
+  bridgeStart = 0,
+  bridgeEnd = 0,
+}: {
+  branch: Branch;
+  side: Side;
+  bridgeStart?: number;
+  bridgeEnd?: number;
+}) {
   const leaves = (
     <Fan
       side={side}
+      bridgeStart={bridgeStart}
+      bridgeEnd={bridgeEnd}
       items={branch.leaves.map((leaf) => (
         <span
           key={leaf}
@@ -245,7 +306,7 @@ function BranchRow({ branch, side }: { branch: Branch; side: Side }) {
   );
 
   return (
-    <div className="flex items-stretch">
+    <div className="flex h-full items-stretch">
       {side === "left" ? (
         <>
           {leaves}

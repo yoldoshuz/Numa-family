@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { TelegramIcon, GlobeIcon, InstagramIcon, FacebookIcon } from "@/components/ui/icons";
+import { TelegramIcon, GlobeIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from "@/components/ui/icons";
 import { CONTACTS } from "@/lib/constants";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -15,6 +15,7 @@ interface FooterProps {
 const SOCIALS = [
   { key: "telegram", href: CONTACTS.telegramHref, Icon: TelegramIcon, label: `Telegram ${CONTACTS.telegram}` },
   { key: "instagram", href: CONTACTS.instagramHref, Icon: InstagramIcon, label: `Instagram ${CONTACTS.instagram}` },
+  { key: "youtube", href: CONTACTS.youtubeHref, Icon: YouTubeIcon, label: "YouTube NUMA UZ" },
   { key: "facebook", href: CONTACTS.facebookHref, Icon: FacebookIcon, label: "Facebook" },
   { key: "site", href: CONTACTS.siteHref, Icon: GlobeIcon, label: CONTACTS.site },
 ];

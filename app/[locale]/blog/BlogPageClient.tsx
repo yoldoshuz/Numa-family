@@ -95,7 +95,7 @@ export function BlogPageClient({ dict, locale }: Props) {
             {popular.map((post, i) => (
               <AnimatedSection key={post.id} delay={i * 0.08} className="h-full">
                 <li className="h-full list-none">
-                  <ArticleCard post={post} locale={locale} readMore={t.readMore} size="wide" />
+                  <ArticleCard post={post} locale={locale} readMore={t.readMore} tagLabels={dict.blogTags} size="wide" />
                 </li>
               </AnimatedSection>
             ))}
@@ -109,7 +109,7 @@ export function BlogPageClient({ dict, locale }: Props) {
             {latest.map((post: BlogPost, i) => (
               <AnimatedSection key={post.id} delay={(i % 3) * 0.08} className="h-full">
                 <li className="h-full list-none">
-                  <ArticleCard post={post} locale={locale} readMore={t.readMore} />
+                  <ArticleCard post={post} locale={locale} readMore={t.readMore} tagLabels={dict.blogTags} />
                 </li>
               </AnimatedSection>
             ))}

@@ -48,21 +48,35 @@ export const SIBLING_SITES = [
  * button that offers to carry on a conversation. Sending a visitor who clicked
  * a footer icon into a private chat with an administrator was the complaint
  * that split these apart.
+ *
+ * Every handle below was opened and checked, because all three of the ones
+ * that shipped went somewhere wrong:
+ *
+ * - `t.me/numa_uz` — with the underscore — is a stranger's channel titled "E".
+ *   The brand's channel is `t.me/numauz`, titled "Numa.uz", and it is the one
+ *   the company's own site links to.
+ * - `instagram.com/numa.uz` is NUMA Nutrition's account. This is the Family
+ *   site, so it links to Family's own account, `@numa_family`.
+ * - `numafamily.uz` does not resolve — the domain has never been cut over. The
+ *   group's live site is `numa.uz`, so that is what the "our website" icon and
+ *   the footer's site line point at until the brand domain exists.
  */
 export const CONTACTS = {
   phone: "+998 55 513 33 33",
   phoneHref: "tel:+998555133333",
   email: "numafamilyuz@gmail.com",
   emailHref: "mailto:numafamilyuz@gmail.com",
-  instagram: "@numa.uz",
-  instagramHref: "https://www.instagram.com/numa.uz",
-  /** Public channel — footers, contact lists, `sameAs`. */
-  telegram: "@numa_uz",
-  telegramHref: "https://t.me/numa_uz",
+  /** NUMA FAMILY's own account — not `numa.uz`, which is Nutrition's. */
+  instagram: "@numa_family",
+  instagramHref: "https://www.instagram.com/numa_family",
+  /** Public channel — footers, contact lists, `sameAs`. No underscore. */
+  telegram: "@numauz",
+  telegramHref: "https://t.me/numauz",
   /** A live administrator — only behind a "write to us" button. */
   telegramAdmin: "@Numa_uz_admin",
   telegramAdminHref: "https://t.me/Numa_uz_admin",
-  facebookHref: "https://www.facebook.com/share/1EVPsKHEgL/",
-  site: "www.numafamily.uz",
-  siteHref: "https://numafamily.uz",
+  facebookHref: "https://www.facebook.com/numauzb",
+  youtubeHref: "https://www.youtube.com/@NUMAUZ",
+  site: "numa.uz",
+  siteHref: "https://numa.uz",
 } as const;

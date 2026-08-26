@@ -99,8 +99,8 @@
         "name": "Bettery Organic",
         "leaves": [
           "Здоровое питание",
-          "Organic Food",
-          "Healthy Lifestyle"
+          "Органические продукты",
+          "Здоровый образ жизни"
         ]
       },
       {
@@ -224,26 +224,46 @@
     "description": "Узнайте больше о философии NUMA Family, научном подходе, производстве и международном развитии через официальные видео, интервью и экспертные материалы.",
     "prev": "Предыдущее видео",
     "next": "Следующее видео",
+    "play": "Смотреть видео",
+    "close": "Закрыть",
+    "channel": "Все видео на YouTube",
+    "watchOnYouTube": "Смотреть на YouTube",
     "items": [
       {
-        "title": "Nabaviy Tabobat — традиции и современность",
-        "image": "/img/video-1.png",
-        "url": ""
+        "id": "ow-_BGVUMGQ",
+        "title": "NUMA Diagnostics и клиника MEDIPOL (Турция) подписали меморандум о сотрудничестве"
       },
       {
-        "title": "Отзыв о продукции NUMA Family",
-        "image": "/img/video-2.png",
-        "url": ""
+        "id": "DLRh3i24cTo",
+        "title": "Продолжаем знакомить вас с командой NUMA Family"
       },
       {
-        "title": "NUMA Family и активный образ жизни",
-        "image": "/img/video-3.png",
-        "url": ""
+        "id": "2OY8LS0hwAA",
+        "title": "Народный артист Узбекистана Ражаб Адашев"
       },
       {
-        "title": "NUMA Kids — забота о детях",
-        "image": "/img/video-4.png",
-        "url": ""
+        "id": "3IiOPbsj9II",
+        "title": "Профессор Шухрат Боисович — о продукте Igneus"
+      },
+      {
+        "id": "IY7iYkBU6ec",
+        "title": "Искренний отзыв нашего клиента"
+      },
+      {
+        "id": "dNmiTIpp1Qc",
+        "title": "«Я думал, что жизнь закончилась» — история клиента"
+      },
+      {
+        "id": "owC3HOsUx-w",
+        "title": "Заболевания сердечно-сосудистой системы и Omega 3-6-9"
+      },
+      {
+        "id": "A148iaoqOPE",
+        "title": "Об иммунитете"
+      },
+      {
+        "id": "3t0EYk-l144",
+        "title": "Numa Nutrimakon"
       }
     ]
   },
@@ -327,7 +347,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": ""
+          "href": "https://www.instagram.com/bettery.organic"
         }
       ]
     },
@@ -369,7 +389,7 @@
       "address": "Ташкент, Яшнабадский район, ул. Элбек, 31",
       "phone": "+998 55 513 33 33",
       "email": "numafamilyuz@gmail.com",
-      "site": "www.numafamily.uz"
+      "site": "numa.uz"
     },
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "Все права защищены",
@@ -396,6 +416,12 @@
     "notFound": "Статья не найдена",
     "backToBlog": "Вернуться в блог"
   },
+  "blogTags": {
+    "expert": "Экспертное мнение",
+    "production": "Производство",
+    "achievements": "Достижения",
+    "international": "Международное развитие"
+  },
   "contact": {
     "heroTitle": "Свяжитесь",
     "heroAccent": "с NUMA Family",
@@ -405,7 +431,7 @@
     "infoTitle": "Контактная информация",
     "cardTitle": "Свяжитесть с нами",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa.uz",
+    "instagram": "@numa_family",
     "hours": "Понедельник– Суббота: 9:00 – 20:00",
     "address": "Ташкент, Яшнабадский район, ул. Элбек, 31",
     "email": "numafamilyuz@gmail.com",

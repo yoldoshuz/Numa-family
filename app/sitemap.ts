@@ -2,7 +2,13 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
 import { blogApi } from "@/lib/api/articles";
 
-const baseUrl = "https://numafamily.uz";
+/*
+ * Where this site actually answers. It was `https://numafamily.uz`, which has
+ * never resolved, so every URL the sitemap published was dead — the worst
+ * possible thing to hand a crawler. The env var is the seam for the day the
+ * brand domain is finally cut over; until then it is the deploy URL.
+ */
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://numa-family.vercel.app";
 
 /**
  * The article list below is read from the CMS with axios, which Next's fetch

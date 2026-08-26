@@ -54,6 +54,11 @@ export function BlogPostClient({ dict, locale, slug }: Props) {
   }
 
   const tag = post.tags?.[0];
+  // The CMS rubric is an English slug; the badge shows it in the page's own
+  // language, falling through to the slug for anything not yet translated.
+  const tagLabel = tag
+    ? ((dict.blogTags as Record<string, string>)[tag] ?? tag)
+    : undefined;
 
   return (
     <>
@@ -72,9 +77,9 @@ export function BlogPostClient({ dict, locale, slug }: Props) {
           </nav>
 
           <div className="max-w-4xl">
-            {tag && (
+            {tagLabel && (
               <span className="mt-6 inline-block rounded-full bg-brand-badge px-4 py-1.5 text-[0.7rem] font-bold tracking-wide text-white uppercase">
-                {tag}
+                {tagLabel}
               </span>
             )}
 
@@ -143,7 +148,7 @@ export function BlogPostClient({ dict, locale, slug }: Props) {
               {related.map((item, i) => (
                 <AnimatedSection key={item.id} delay={i * 0.08} className="h-full">
                   <li className="h-full list-none">
-                    <ArticleCard post={item} locale={locale} readMore={t.readMore} />
+                    <ArticleCard post={item} locale={locale} readMore={t.readMore} tagLabels={dict.blogTags} />
                   </li>
                 </AnimatedSection>
               ))}

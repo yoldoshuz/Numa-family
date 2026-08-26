@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://numa.uz/sitemap.xml
+Sitemap: https://numa-family.vercel.app/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

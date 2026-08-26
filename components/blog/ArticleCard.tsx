@@ -10,15 +10,30 @@ interface Props {
   post: BlogPost;
   locale: Locale;
   readMore: string;
+  /**
+   * `dict.blogTags` — the rubric slugs the CMS stores ("expert", "production")
+   * translated for the page's own language. Without it the Russian and Uzbek
+   * blog printed English badges, which is what the review caught.
+   */
+  tagLabels?: Record<string, string>;
   /** "wide" is the two-up layout used for the popular articles on /blog. */
   size?: "default" | "wide";
   className?: string;
 }
 
-export function ArticleCard({ post, locale, readMore, size = "default", className }: Props) {
+export function ArticleCard({
+  post,
+  locale,
+  readMore,
+  tagLabels,
+  size = "default",
+  className,
+}: Props) {
   const title = pickLang(post.title, locale);
   const excerpt = pickLang(post.excerpt, locale);
   const tag = post.tags?.[0];
+  // An unknown slug still reads better than an empty badge, so fall through.
+  const tagLabel = tag ? (tagLabels?.[tag] ?? tag) : undefined;
 
   return (
     <Link
@@ -51,9 +66,9 @@ export function ArticleCard({ post, locale, readMore, size = "default", classNam
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        {tag && (
+        {tagLabel && (
           <span className="mb-3.5 self-start rounded-full bg-brand-badge px-3.5 py-1.5 text-[0.68rem] font-semibold tracking-wide text-white uppercase">
-            {tag}
+            {tagLabel}
           </span>
         )}
 

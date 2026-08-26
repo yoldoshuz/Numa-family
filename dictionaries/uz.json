@@ -99,8 +99,8 @@
         "name": "Bettery Organic",
         "leaves": [
           "Sog'lom ovqatlanish",
-          "Organic Food",
-          "Healthy Lifestyle"
+          "Organik mahsulotlar",
+          "Sog'lom turmush tarzi"
         ]
       },
       {
@@ -220,30 +220,50 @@
     "error": "Maqolalarni yuklab bo'lmadi"
   },
   "videos": {
-    "title": "NUMA Family haqida video",
-    "description": "Rasmiy videolar, intervyular va ekspert materiallari orqali NUMA Family falsafasi, ilmiy yondashuvi, ishlab chiqarishi va xalqaro rivoji haqida ko'proq bilib oling.",
+    "title": "NUMA Family haqida videolar",
+    "description": "NUMA Family falsafasi, ilmiy yondashuvi, ishlab chiqarishi va xalqaro rivojlanishi haqida rasmiy videolar, intervyular va ekspert materiallari orqali batafsil bilib oling.",
     "prev": "Oldingi video",
     "next": "Keyingi video",
+    "play": "Videoni ko'rish",
+    "close": "Yopish",
+    "channel": "Barcha videolar YouTube'da",
+    "watchOnYouTube": "YouTube'da ko'rish",
     "items": [
       {
-        "title": "Nabaviy Tabobat — an'ana va zamonaviylik",
-        "image": "/img/video-1.png",
-        "url": ""
+        "id": "ow-_BGVUMGQ",
+        "title": "NUMA Diagnostics va Turkiyaning MEDIPOL klinikasi o'rtasida hamkorlik memorandumi imzolandi"
       },
       {
-        "title": "NUMA Family mahsuloti haqida fikr",
-        "image": "/img/video-2.png",
-        "url": ""
+        "id": "DLRh3i24cTo",
+        "title": "Numa oilasi bilan sizni yaqindan tanishtirishda davom etamiz"
       },
       {
-        "title": "NUMA Family va faol turmush tarzi",
-        "image": "/img/video-3.png",
-        "url": ""
+        "id": "2OY8LS0hwAA",
+        "title": "O'zbekiston xalq artisti Rajab Adashev"
       },
       {
-        "title": "NUMA Kids — bolalar haqida g'amxo'rlik",
-        "image": "/img/video-4.png",
-        "url": ""
+        "id": "3IiOPbsj9II",
+        "title": "Professor Shuxrat Boisovich — Igneus mahsuloti haqida"
+      },
+      {
+        "id": "IY7iYkBU6ec",
+        "title": "Mamnun mijozimizning samimiy fikr-mulohazalari"
+      },
+      {
+        "id": "dNmiTIpp1Qc",
+        "title": "«Hayot tugadi deb o'ylagandim»"
+      },
+      {
+        "id": "owC3HOsUx-w",
+        "title": "Yurak qon-tomir tizimi kasalliklari — Omega 3-6-9"
+      },
+      {
+        "id": "A148iaoqOPE",
+        "title": "Immunitet haqida"
+      },
+      {
+        "id": "3t0EYk-l144",
+        "title": "Numa Nutrimakon"
       }
     ]
   },
@@ -327,7 +347,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": ""
+          "href": "https://www.instagram.com/bettery.organic"
         }
       ]
     },
@@ -369,7 +389,7 @@
       "address": "Toshkent, Yashnobod tumani, Elbek koʻchasi, 31",
       "phone": "+998 55 513 33 33",
       "email": "numafamilyuz@gmail.com",
-      "site": "www.numafamily.uz"
+      "site": "numa.uz"
     },
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "Barcha huquqlar himoyalangan",
@@ -396,6 +416,12 @@
     "notFound": "Maqola topilmadi",
     "backToBlog": "Blogga qaytish"
   },
+  "blogTags": {
+    "expert": "Ekspert fikri",
+    "production": "Ishlab chiqarish",
+    "achievements": "Yutuqlar",
+    "international": "Xalqaro rivojlanish"
+  },
   "contact": {
     "heroTitle": "Bog'laning",
     "heroAccent": "NUMA Family bilan",
@@ -405,7 +431,7 @@
     "infoTitle": "Kontakt ma'lumotlari",
     "cardTitle": "Biz bilan bog'laning",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa.uz",
+    "instagram": "@numa_family",
     "hours": "Dushanba– Shanba: 9:00 – 20:00",
     "address": "Toshkent, Yashnobod tumani, Elbek koʻchasi, 31",
     "email": "numafamilyuz@gmail.com",

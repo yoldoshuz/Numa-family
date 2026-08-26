@@ -99,8 +99,8 @@
         "name": "Bettery Organic",
         "leaves": [
           "Healthy nutrition",
-          "Organic Food",
-          "Healthy Lifestyle"
+          "Organic food",
+          "Healthy lifestyle"
         ]
       },
       {
@@ -220,30 +220,50 @@
     "error": "Failed to load articles"
   },
   "videos": {
-    "title": "Video about NUMA Family",
-    "description": "Learn more about the NUMA Family philosophy, scientific approach, production and international growth through official videos, interviews and expert materials.",
+    "title": "Videos about NUMA Family",
+    "description": "Learn more about the NUMA Family philosophy, our scientific approach, manufacturing and international growth through official videos, interviews and expert material.",
     "prev": "Previous video",
     "next": "Next video",
+    "play": "Watch video",
+    "close": "Close",
+    "channel": "All videos on YouTube",
+    "watchOnYouTube": "Watch on YouTube",
     "items": [
       {
-        "title": "Nabaviy Tabobat — tradition and modernity",
-        "image": "/img/video-1.png",
-        "url": ""
+        "id": "ow-_BGVUMGQ",
+        "title": "NUMA Diagnostics and Türkiye's MEDIPOL clinic sign a cooperation memorandum"
       },
       {
-        "title": "A review of NUMA Family products",
-        "image": "/img/video-2.png",
-        "url": ""
+        "id": "DLRh3i24cTo",
+        "title": "Meet the people behind NUMA Family"
       },
       {
-        "title": "NUMA Family and an active lifestyle",
-        "image": "/img/video-3.png",
-        "url": ""
+        "id": "2OY8LS0hwAA",
+        "title": "Rajab Adashev, People's Artist of Uzbekistan"
       },
       {
-        "title": "NUMA Kids — caring for children",
-        "image": "/img/video-4.png",
-        "url": ""
+        "id": "3IiOPbsj9II",
+        "title": "Professor Shukhrat Boisovich on the Igneus product"
+      },
+      {
+        "id": "IY7iYkBU6ec",
+        "title": "An honest review from one of our customers"
+      },
+      {
+        "id": "dNmiTIpp1Qc",
+        "title": "“I thought my life was over” — a customer's story"
+      },
+      {
+        "id": "owC3HOsUx-w",
+        "title": "Cardiovascular disease and Omega 3-6-9"
+      },
+      {
+        "id": "A148iaoqOPE",
+        "title": "About immunity"
+      },
+      {
+        "id": "3t0EYk-l144",
+        "title": "Numa Nutrimakon"
       }
     ]
   },
@@ -327,7 +347,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": ""
+          "href": "https://www.instagram.com/bettery.organic"
         }
       ]
     },
@@ -369,7 +389,7 @@
       "address": "Tashkent, Yashnabad district, Elbek street, 31",
       "phone": "+998 55 513 33 33",
       "email": "numafamilyuz@gmail.com",
-      "site": "www.numafamily.uz"
+      "site": "numa.uz"
     },
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "All rights reserved",
@@ -396,6 +416,12 @@
     "notFound": "Article not found",
     "backToBlog": "Back to blog"
   },
+  "blogTags": {
+    "expert": "Expert opinion",
+    "production": "Production",
+    "achievements": "Achievements",
+    "international": "International growth"
+  },
   "contact": {
     "heroTitle": "Get in touch",
     "heroAccent": "with NUMA Family",
@@ -405,7 +431,7 @@
     "infoTitle": "Contact information",
     "cardTitle": "Contact us",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa.uz",
+    "instagram": "@numa_family",
     "hours": "Monday – Saturday: 9:00 – 20:00",
     "address": "Tashkent, Yashnabad district, Elbek street, 31",
     "email": "numafamilyuz@gmail.com",
