@@ -8,7 +8,17 @@ type Side = "left" | "right";
 
 /** Row gaps, in pixels: the rail is stretched by these to stay continuous. */
 const LEAF_GAP = 12;
-const BRANCH_GAP = 48;
+/*
+ * The same gap between branches as between leaves, deliberately.
+ *
+ * A branch's three leaves were spaced 12px apart but the branches themselves
+ * 48px, so the column of nine leaves ran 12-12-48-12-12-48-12-12 and the two
+ * wide steps read as white bands cutting the column into three. One step for
+ * all nine turns it back into a single evenly spaced list; the branch pills
+ * stay centred on their own three, so the grouping is still legible from the
+ * connectors rather than from holes in the layout.
+ */
+const BRANCH_GAP = LEAF_GAP;
 
 export function Ecosystem({ dict }: { dict: Dictionary }) {
   const t = dict.ecosystem;
