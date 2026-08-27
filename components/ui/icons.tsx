@@ -121,6 +121,16 @@ export function CloseIcon(props: IconProps) {
   );
 }
 
+/** A page with lines — "there is a document behind this". */
+export function DocumentIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M14 2.8H7.2A1.7 1.7 0 0 0 5.5 4.5v15a1.7 1.7 0 0 0 1.7 1.7h9.6a1.7 1.7 0 0 0 1.7-1.7V7.3L14 2.8Z" />
+      <path d="M13.8 2.9v4.5h4.5M8.8 13h6.4M8.8 16.6h6.4" />
+    </svg>
+  );
+}
+
 /* ------------------------------------------------------------------ *
  * Certificate marks — simplified, single-colour redraws of the badges
  * shown in the "Наши международный сертификаты" row.

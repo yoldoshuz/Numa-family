@@ -8,6 +8,7 @@ import {
   classifyConsultationError,
   PROBLEM_MAX_LENGTH,
   PROBLEM_MIN_LENGTH,
+  SUBJECT_MAX_LENGTH,
   submitConsultation,
 } from "@/lib/api/consultations";
 import { formatUzPhoneInput, toApiPhone, UZ_PHONE_PREFIX } from "@/lib/utils/phone";
@@ -41,6 +42,7 @@ export function ConsultationModal({ locale, dict, onClose }: Props) {
     const form = new FormData(e.currentTarget);
     const name = String(form.get("name") ?? "").trim();
     const phone = String(form.get("phone") ?? "").trim();
+    const subject = String(form.get("subject") ?? "").trim();
     const message = String(form.get("message") ?? "").trim();
 
     const apiPhone = toApiPhone(phone);
@@ -62,6 +64,7 @@ export function ConsultationModal({ locale, dict, onClose }: Props) {
       await submitConsultation({
         name,
         phone: apiPhone,
+        subject: subject.slice(0, SUBJECT_MAX_LENGTH),
         problem: message.slice(0, PROBLEM_MAX_LENGTH),
       });
       setDone(true);
@@ -158,6 +161,24 @@ export function ConsultationModal({ locale, dict, onClose }: Props) {
                         event.currentTarget.value,
                       );
                     }}
+                    className="h-13 w-full rounded-xl bg-white px-4 text-[0.95rem] text-ink placeholder:text-faint focus:ring-2 focus:ring-[#167888]/40 focus:outline-none"
+                  />
+                </Field>
+              </div>
+
+              {/*
+                Optional, and deliberately unmarked: the CRM prints it as its
+                own line on the deal card, so a one-line "what is this about" is
+                worth asking for — but a required field between the phone number
+                and the question is one more thing to abandon the form over.
+              */}
+              <div className="mt-4 sm:mt-5">
+                <Field label={t.subjectLabel}>
+                  <input
+                    name="subject"
+                    type="text"
+                    maxLength={SUBJECT_MAX_LENGTH}
+                    placeholder={t.subjectPlaceholder}
                     className="h-13 w-full rounded-xl bg-white px-4 text-[0.95rem] text-ink placeholder:text-faint focus:ring-2 focus:ring-[#167888]/40 focus:outline-none"
                   />
                 </Field>

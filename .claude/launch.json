@@ -16,7 +16,7 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": [
         "/c",
-        "cd /d D:\\Projects\\Frontend\\numa-nutrition && node node_modules/next/dist/bin/next dev -p 3101"
+        "cd /d \"D:/Projects/Frontend/numa-nutrition\" && node node_modules/next/dist/bin/next dev -p 3101"
       ],
       "port": 3101,
       "autoPort": true
@@ -26,7 +26,7 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": [
         "/c",
-        "cd /d D:\\Projects\\Frontend\\numa-kids && node node_modules/next/dist/bin/next dev -p 3102"
+        "cd /d \"D:/Projects/Frontend/numa-kids\" && node node_modules/next/dist/bin/next dev -p 3102"
       ],
       "port": 3102,
       "autoPort": true
@@ -36,7 +36,7 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": [
         "/c",
-        "cd /d D:\\Projects\\Frontend\\nabaviy-tabobat && node node_modules/next/dist/bin/next dev -p 3103"
+        "cd /d \"D:/Projects/Frontend/nabaviy-tabobat\" && node node_modules/next/dist/bin/next dev -p 3103"
       ],
       "port": 3103,
       "autoPort": true
@@ -46,7 +46,7 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": [
         "/c",
-        "cd /d D:ProjectsFrontendNuma-admin && node node_modules/next/dist/bin/next dev -p 3110"
+        "cd /d \"D:/Projects/Frontend/Numa-admin\" && node node_modules/next/dist/bin/next dev -p 3110"
       ],
       "port": 3110,
       "autoPort": true

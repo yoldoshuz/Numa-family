@@ -10,7 +10,8 @@
     "contact": "Contacts",
     "consultation": "Consultation",
     "menu": "Menu",
-    "otherBrands": "Other NUMA projects"
+    "otherBrands": "Other NUMA projects",
+    "comingSoon": "Coming soon"
   },
   "hero": {
     "titleLine1": "NUMA Family — health,",
@@ -347,7 +348,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": "https://www.instagram.com/bettery.organic"
+          "href": "https://betteryorganic.uz"
         }
       ]
     },
@@ -394,7 +395,8 @@
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "All rights reserved",
     "privacy": "Privacy policy",
-    "terms": "Terms of use"
+    "terms": "Terms of use",
+    "certificate": "ISO 22000 certificate (PDF)"
   },
   "blog": {
     "heroTitle": "Blog",
@@ -431,7 +433,7 @@
     "infoTitle": "Contact information",
     "cardTitle": "Contact us",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa_family",
+    "instagram": "@numa.uz",
     "hours": "Monday – Saturday: 9:00 – 20:00",
     "address": "Tashkent, Yashnabad district, Elbek street, 31",
     "email": "numafamilyuz@gmail.com",
@@ -444,6 +446,8 @@
     "namePlaceholder": "Enter your name",
     "phoneLabel": "Phone number",
     "phonePlaceholder": "Enter your phone number",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "For example: choosing vitamins",
     "messageLabel": "Question / Message",
     "messagePlaceholder": "Describe your problem or ask a question. Our specialist will choose a suitable product...",
     "note": "Once the form is submitted our specialist will contact you within 24 hours. The consultation is free!",
@@ -456,7 +460,7 @@
     "successNote": "We usually reply within\n15–30 minutes during working hours",
     "successHome": "Back to home",
     "successBlog": "Go to the blog",
-    "problemRequired": "Describe the problem — at least 10 characters",
+    "problemRequired": "Describe the problem",
     "rateLimit": "Too many requests. Please try again later",
     "networkError": "Could not send the request. Please try again"
   }

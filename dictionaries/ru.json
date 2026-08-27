@@ -10,7 +10,8 @@
     "contact": "Контакты",
     "consultation": "Консультация",
     "menu": "Меню",
-    "otherBrands": "Другие проекты NUMA"
+    "otherBrands": "Другие проекты NUMA",
+    "comingSoon": "Скоро"
   },
   "hero": {
     "titleLine1": "NUMA Family — здоровье,",
@@ -347,7 +348,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": "https://www.instagram.com/bettery.organic"
+          "href": "https://betteryorganic.uz"
         }
       ]
     },
@@ -394,7 +395,8 @@
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "Все права защищены",
     "privacy": "Политика конфиденциальности",
-    "terms": "Пользовательское соглашение"
+    "terms": "Пользовательское соглашение",
+    "certificate": "Сертификат ISO 22000 (PDF)"
   },
   "blog": {
     "heroTitle": "Блог",
@@ -431,7 +433,7 @@
     "infoTitle": "Контактная информация",
     "cardTitle": "Свяжитесть с нами",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa_family",
+    "instagram": "@numa.uz",
     "hours": "Понедельник– Суббота: 9:00 – 20:00",
     "address": "Ташкент, Яшнабадский район, ул. Элбек, 31",
     "email": "numafamilyuz@gmail.com",
@@ -444,6 +446,8 @@
     "namePlaceholder": "Введите ваше имя",
     "phoneLabel": "Номер телефона",
     "phonePlaceholder": "Введите номер телефона",
+    "subjectLabel": "Тема обращения",
+    "subjectPlaceholder": "Например: подбор витаминов",
     "messageLabel": "Вопрос / Сообщение",
     "messagePlaceholder": "Опишите вашу проблему или задайте вопрос. Наш специалист подберёт подходящий продукт...",
     "note": "После заполнения формы наш специалист свяжется с вами в течение 24 часов. Консультация бесплатна!",
@@ -456,7 +460,7 @@
     "successNote": "Обычно мы отвечаем в течение\n15–30 минут в рабочее время",
     "successHome": "Вернуться на главную",
     "successBlog": "Перейти в блог",
-    "problemRequired": "Опишите проблему — не менее 10 символов",
+    "problemRequired": "Опишите проблему",
     "rateLimit": "Слишком много заявок. Попробуйте позже",
     "networkError": "Не удалось отправить заявку. Попробуйте ещё раз"
   }

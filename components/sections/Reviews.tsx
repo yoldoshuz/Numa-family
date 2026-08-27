@@ -40,7 +40,7 @@ export function Reviews({ dict, cards }: { dict: Dictionary; cards?: ReviewCard[
         </AnimatedSection>
 
         <AnimatedSection delay={0.05} className="mt-8 lg:mt-11">
-          <CarouselRow prevLabel={t.prev} nextLabel={t.next} trackClassName="items-center py-3">
+          <CarouselRow prevLabel={t.prev} nextLabel={t.next} trackClassName="items-center pb-15 px-5">
             {items.map((review, i) => {
               const isFeatured = i === featured;
               return (

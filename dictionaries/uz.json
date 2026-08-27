@@ -10,7 +10,8 @@
     "contact": "Kontaktlar",
     "consultation": "Konsultatsiya",
     "menu": "Menyu",
-    "otherBrands": "NUMA ning boshqa loyihalari"
+    "otherBrands": "NUMA ning boshqa loyihalari",
+    "comingSoon": "Tez orada"
   },
   "hero": {
     "titleLine1": "NUMA Family — sog'liq,",
@@ -347,7 +348,7 @@
         },
         {
           "label": "Bettery Organic",
-          "href": "https://www.instagram.com/bettery.organic"
+          "href": "https://betteryorganic.uz"
         }
       ]
     },
@@ -394,7 +395,8 @@
     "copyright": "© 2026 NUMA FAMILY",
     "rights": "Barcha huquqlar himoyalangan",
     "privacy": "Maxfiylik siyosati",
-    "terms": "Foydalanuvchi shartnomasi"
+    "terms": "Foydalanuvchi shartnomasi",
+    "certificate": "ISO 22000 sertifikati (PDF)"
   },
   "blog": {
     "heroTitle": "Blog",
@@ -431,7 +433,7 @@
     "infoTitle": "Kontakt ma'lumotlari",
     "cardTitle": "Biz bilan bog'laning",
     "phone": "+998 55 513 33 33",
-    "instagram": "@numa_family",
+    "instagram": "@numa.uz",
     "hours": "Dushanba– Shanba: 9:00 – 20:00",
     "address": "Toshkent, Yashnobod tumani, Elbek koʻchasi, 31",
     "email": "numafamilyuz@gmail.com",
@@ -444,6 +446,8 @@
     "namePlaceholder": "Ismingizni kiriting",
     "phoneLabel": "Telefon raqami",
     "phonePlaceholder": "Telefon raqamini kiriting",
+    "subjectLabel": "Murojaat mavzusi",
+    "subjectPlaceholder": "Masalan: vitamin tanlash",
     "messageLabel": "Savol / Xabar",
     "messagePlaceholder": "Muammoingizni tasvirlang yoki savol bering. Mutaxassisimiz mos mahsulotni tanlaydi...",
     "note": "Formani to'ldirganingizdan so'ng mutaxassisimiz 24 soat ichida siz bilan bog'lanadi. Konsultatsiya bepul!",
@@ -456,7 +460,7 @@
     "successNote": "Odatda ish vaqtida\n15–30 daqiqa ichida javob beramiz",
     "successHome": "Bosh sahifaga qaytish",
     "successBlog": "Blogga o'tish",
-    "problemRequired": "Muammoni tavsiflang — kamida 10 ta belgi",
+    "problemRequired": "Muammoni tavsiflang",
     "rateLimit": "Juda ko'p ariza yuborildi. Birozdan so'ng urinib ko'ring",
     "networkError": "Arizani yuborib bo'lmadi. Yana bir bor urinib ko'ring"
   }

@@ -48,7 +48,11 @@ export function Header({ locale, dict }: HeaderProps) {
       )}
     >
       <div className="shell flex h-16 items-center justify-between gap-4 lg:h-[86px]">
-        <BrandSwitcher locale={locale} label={dict.nav.otherBrands} />
+        <BrandSwitcher
+          locale={locale}
+          label={dict.nav.otherBrands}
+          soonLabel={dict.nav.comingSoon}
+        />
 
         <nav className="hidden flex-1 items-center justify-center gap-10 lg:flex xl:gap-16">
           {navItems.map((item) => (

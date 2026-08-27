@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TelegramIcon, GlobeIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from "@/components/ui/icons";
-import { CONTACTS } from "@/lib/constants";
+import { CONTACTS, ISO_22000_CERTIFICATE } from "@/lib/constants";
 import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
@@ -91,6 +91,20 @@ export function Footer({ locale, dict }: FooterProps) {
               </Link>
             </li>
           ))}
+          {/*
+            A plain `<a>`, not the locale-aware `Link`: this is a file in
+            `public/`, and prefixing it with `/ru` would 404.
+          */}
+          <li>
+            <a
+              href={ISO_22000_CERTIFICATE}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-[0.95rem] text-white/90 transition-colors hover:text-white"
+            >
+              {f.certificate}
+            </a>
+          </li>
         </FooterColumn>
 
         <FooterColumn title={f.contacts.title}>
