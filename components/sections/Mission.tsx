@@ -10,12 +10,14 @@ export function Mission({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="relative overflow-hidden bg-white pb-14 sm:pb-16 lg:pb-20">
+      {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
       <Image
         src="/decor/network-soft.svg"
         alt=""
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute top-24 -left-28 hidden w-72 opacity-45 lg:block"
       />
 

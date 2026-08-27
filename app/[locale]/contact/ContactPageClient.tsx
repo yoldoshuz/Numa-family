@@ -56,6 +56,7 @@ export function ContactPageClient({ dict }: Props) {
   return (
     <>
       <section className="relative overflow-hidden bg-white">
+        {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
         <Image
           src="/decor/network-dense.svg"
           alt=""
@@ -63,6 +64,7 @@ export function ContactPageClient({ dict }: Props) {
           height={540}
           aria-hidden
           priority
+          unoptimized
           className="pointer-events-none absolute -top-6 -right-10 w-72 opacity-70 sm:w-96 lg:right-0 lg:w-[34rem] lg:opacity-100"
         />
 

@@ -22,12 +22,14 @@ export function Reviews({ dict, cards }: { dict: Dictionary; cards?: ReviewCard[
 
   return (
     <section id="reviews" className="relative overflow-hidden bg-white pb-14 sm:pb-16 lg:pb-20">
+      {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
       <Image
         src="/decor/network-soft.svg"
         alt=""
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute -top-16 -right-24 hidden w-72 opacity-45 lg:block"
       />
 

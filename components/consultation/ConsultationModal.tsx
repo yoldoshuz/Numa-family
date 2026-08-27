@@ -96,12 +96,14 @@ export function ConsultationModal({ locale, dict, onClose }: Props) {
               "radial-gradient(120% 95% at 14% 20%, #ffffff 0%, rgba(255,255,255,0) 58%), linear-gradient(135deg, #eff4f5 0%, #dae7ea 38%, #86aeb8 72%, #226f7f 100%)",
           }}
         />
+        {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
         <Image
           src="/decor/network-teal.svg"
           alt=""
           width={460}
           height={400}
           aria-hidden
+          unoptimized
           className="pointer-events-none absolute -top-14 -left-14 w-52 opacity-90 sm:w-72"
         />
         <Image
@@ -110,6 +112,7 @@ export function ConsultationModal({ locale, dict, onClose }: Props) {
           width={460}
           height={400}
           aria-hidden
+          unoptimized
           className="pointer-events-none absolute -right-10 -bottom-12 w-52 opacity-80 sm:w-72"
         />
 
