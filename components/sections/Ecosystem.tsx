@@ -25,12 +25,14 @@ export function Ecosystem({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="relative overflow-hidden bg-white pb-14 sm:pb-16 lg:pb-20">
+      {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
       <Image
         src="/decor/network-soft.svg"
         alt=""
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute -top-10 -left-28 hidden w-72 opacity-40 lg:block"
       />
       <Image
@@ -39,6 +41,7 @@ export function Ecosystem({ dict }: { dict: Dictionary }) {
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute -right-24 bottom-0 hidden w-72 opacity-40 lg:block"
       />
 

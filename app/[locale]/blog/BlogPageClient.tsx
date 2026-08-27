@@ -136,6 +136,7 @@ function PostSection({
       id={id}
       className={`relative overflow-hidden bg-white scroll-mt-24 ${tight ? "pb-14 sm:pb-16 lg:pb-20" : "section-y"}`}
     >
+      {/* SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
       {!tight && (
         <Image
           src="/decor/network-soft.svg"
@@ -143,6 +144,7 @@ function PostSection({
           width={520}
           height={620}
           aria-hidden
+          unoptimized
           className="pointer-events-none absolute -top-10 -left-28 hidden w-64 opacity-40 lg:block"
         />
       )}

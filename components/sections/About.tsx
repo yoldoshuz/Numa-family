@@ -15,12 +15,14 @@ export function About({ dict }: { dict: Dictionary }) {
   return (
     <section id="about" className="relative overflow-hidden bg-white section-y">
       {/* Faint molecular mesh bleeding in from both gutters. */}
+      {/* The SVG skips the optimizer: it 400s without `dangerouslyAllowSVG`, which stays off. */}
       <Image
         src="/decor/network-soft.svg"
         alt=""
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute top-10 -left-24 hidden w-72 opacity-45 lg:block"
       />
       <Image
@@ -29,6 +31,7 @@ export function About({ dict }: { dict: Dictionary }) {
         width={520}
         height={620}
         aria-hidden
+        unoptimized
         className="pointer-events-none absolute -top-6 -right-20 hidden w-64 opacity-45 lg:block"
       />
 
