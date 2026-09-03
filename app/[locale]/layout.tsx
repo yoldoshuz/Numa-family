@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Montserrat } from "next/font/google";
-import { locales, type Locale } from "@/lib/i18n/config";
+import { defaultLocale, locales, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -61,7 +61,7 @@ export async function generateMetadata({
       type: "website",
     },
     alternates: {
-      languages: { ru: "/ru", en: "/en", uz: "/uz" },
+      languages: { uz: "/uz", ru: "/ru", en: "/en", "x-default": `/${defaultLocale}` },
     },
     robots: { index: true, follow: true },
   };

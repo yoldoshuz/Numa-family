@@ -28,13 +28,13 @@ export const SIBLING_SITES = [
   {
     id: "kids",
     label: "NUMA KIDS",
-    href: "https://numa-kids-olive.vercel.app/ru",
+    href: "https://numa-kids-olive.vercel.app/uz",
     logo: "/brands/kids.png",
   },
   {
     id: "family",
     label: "NUMA FAMILY",
-    href: "https://numa-family.vercel.app/ru",
+    href: "https://numa-family.vercel.app/uz",
     logo: "/brands/family.png",
   },
   {
