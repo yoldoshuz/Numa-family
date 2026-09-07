@@ -327,6 +327,17 @@
   "footer": {
     "description": "Fan, tabiat va innovatsiyalarni birlashtirgan zamonaviy sog'liq yechimlari ekotizimi.",
     "socialTitle": "Ijtimoiy tarmoqlarda",
+    "callback": {
+      "title": "Sizga qo'ng'iroq qilamizmi?",
+      "hint": "Raqamingizni qoldiring — mutaxassisimiz o'zi bog'lanadi.",
+      "phoneLabel": "Telefon raqami",
+      "submit": "Bog'lanish",
+      "sending": "Yuborilmoqda…",
+      "success": "Rahmat! Tez orada qo'ng'iroq qilamiz.",
+      "errorPhone": "Telefon raqamingizni to'liq kiriting",
+      "errorRateLimit": "Juda ko'p ariza yuborildi. Birozdan so'ng urinib ko'ring",
+      "errorNetwork": "Arizani yuborib bo'lmadi. Yana bir bor urinib ko'ring"
+    },
     "directions": {
       "title": "YO'NALISHLAR",
       "items": [

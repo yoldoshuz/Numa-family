@@ -327,6 +327,17 @@
   "footer": {
     "description": "An ecosystem of modern health solutions bringing together science, nature and innovation.",
     "socialTitle": "Follow us",
+    "callback": {
+      "title": "Shall we call you back?",
+      "hint": "Leave your number — our specialist will get in touch.",
+      "phoneLabel": "Phone number",
+      "submit": "Get in touch",
+      "sending": "Sending…",
+      "success": "Thank you! We'll call you shortly.",
+      "errorPhone": "Enter the full phone number",
+      "errorRateLimit": "Too many requests. Please try again a little later",
+      "errorNetwork": "Could not send the request. Please try again"
+    },
     "directions": {
       "title": "DIRECTIONS",
       "items": [

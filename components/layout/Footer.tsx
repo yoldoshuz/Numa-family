@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CallbackForm } from "@/components/layout/CallbackForm";
 import { TelegramIcon, GlobeIcon, InstagramIcon, FacebookIcon, YouTubeIcon } from "@/components/ui/icons";
 import { CONTACTS, ISO_22000_CERTIFICATE } from "@/lib/constants";
 import type { Locale } from "@/lib/i18n/config";
@@ -54,6 +55,8 @@ export function Footer({ locale, dict }: FooterProps) {
               </a>
             ))}
           </div>
+
+          <CallbackForm copy={f.callback} />
         </div>
 
         {/*
