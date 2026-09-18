@@ -1,10 +1,27 @@
+import Image from "next/image";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { CERTIFICATE_MARKS, DocumentIcon } from "@/components/ui/icons";
+import { DocumentIcon } from "@/components/ui/icons";
 import { ISO_22000_CERTIFICATE } from "@/lib/constants";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
 /** The only mark we hold the document for — see `ISO_22000_CERTIFICATE`. */
 const DOCUMENTED_ID = "iso";
+
+/**
+ * The real badge artwork, keyed by the id the dictionary gives each row.
+ *
+ * These used to be hand-drawn SVG approximations living in `icons.tsx` —
+ * near-misses that put the wrong issuing body on two of the five marks. They
+ * are certification bodies' registered marks, so they are shown as issued or
+ * not at all; redrawing them is not ours to do.
+ */
+const CERTIFICATE_MARKS: Record<string, string> = {
+  euroleaf: "/img/cert-euro-leaf.png",
+  halal: "/img/cert-halal.png",
+  usda: "/img/cert-usda-organic.png",
+  iso: "/img/cert-iso-22000.png",
+  gmp: "/img/cert-gmp.png",
+};
 
 export function Certificates({ dict }: { dict: Dictionary }) {
   const t = dict.certificates;
@@ -23,7 +40,7 @@ export function Certificates({ dict }: { dict: Dictionary }) {
 
         <ul className="mt-9 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-5 lg:gap-6">
           {t.items.map((cert, i) => {
-            const Mark = CERTIFICATE_MARKS[cert.id];
+            const mark = CERTIFICATE_MARKS[cert.id];
             /*
              * Only the mark we hold the PDF for is clickable. The card keeps
              * exactly the same height either way — the affordance is a 13px
@@ -48,7 +65,18 @@ export function Certificates({ dict }: { dict: Dictionary }) {
                       : {})}
                     className="flex h-full flex-col items-center rounded-card-lg border border-hairline bg-paper px-5 py-7 text-center lift focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
                   >
-                    {Mark && <Mark className="h-20 w-20" />}
+                    {mark && (
+                      // Decorative: the heading right below already names the
+                      // mark, so an alt would read it out twice.
+                      <Image
+                        src={mark}
+                        alt=""
+                        width={80}
+                        height={80}
+                        sizes="80px"
+                        className="h-20 w-20 object-contain"
+                      />
+                    )}
                     <h3 className="mt-5 flex items-center gap-1.5 text-[0.95rem] font-extrabold tracking-wide text-ink">
                       {cert.name}
                       {documented && (

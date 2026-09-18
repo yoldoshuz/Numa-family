@@ -42,7 +42,14 @@ export function Reviews({ dict, cards }: { dict: Dictionary; cards?: ReviewCard[
         </AnimatedSection>
 
         <AnimatedSection delay={0.05} className="mt-8 lg:mt-11">
-          <CarouselRow prevLabel={t.prev} nextLabel={t.next} trackClassName="items-center pb-15 px-5">
+          {/*
+            `pb-25` and not `pb-15`: the track now carries `-my-10`, so 40px of
+            this is spent buying back the room the shadows need, and the gap
+            under the row stays the 60px it was. The horizontal room this used
+            to ask for as `px-5` is part of the track itself now, snapping
+            included.
+          */}
+          <CarouselRow prevLabel={t.prev} nextLabel={t.next} trackClassName="items-center pb-25">
             {items.map((review, i) => {
               const isFeatured = i === featured;
               return (

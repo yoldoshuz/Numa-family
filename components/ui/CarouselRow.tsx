@@ -48,10 +48,41 @@ export function CarouselRow({ children, prevLabel, nextLabel, trackClassName, cl
 
   return (
     <div className={cn("relative", className)}>
+      {/*
+        `overflow-x: auto` is what makes this a scroller, and CSS will not let
+        one axis scroll while the other stays visible — the moment one is not
+        `visible`, the other computes to `auto` too. So the track clips its
+        children vertically whether it wants to or not, and it was clipping the
+        one thing that reaches past them: the review row's featured card, lifted
+        out of the line by `-my-4`, lost its top edge and the card shadows were
+        sliced off flush with the box.
+
+        The room is bought with padding and handed straight back as negative
+        margin, so the children sit exactly where they did before while the
+        scrollport now extends past them. 40px is what the deepest shadow here
+        needs: `--shadow-card-hover` sits 18px down with a 44px blur, so it
+        reaches 40px below the card that casts it, and 22px to either side.
+        Callers overriding `pb-*` have to keep the `-my-10` in mind — what they
+        set is 40px more than the gap they actually want.
+
+        `scroll-px-6` is what makes the horizontal half of that hold. A snap
+        container aligns `snap-align: start` children to the snapport, and the
+        snapport is the padding box unless scroll-padding says otherwise — so
+        the moment the row had anything to scroll, it parked the first card
+        flush against the padding edge, scrolled the 24px of shadow room out of
+        sight and sliced the card's left shadow off. Insetting the snapport by
+        the same 24px makes the resting position keep that room on screen.
+
+        `lg:mx-8` rather than the `lg:mx-14` this used to carry: 32px of margin
+        plus 24px of padding is the same 56px inset as before, and holding the
+        padding constant across the breakpoint keeps the content box — which is
+        what the cards' `calc((100% - 2.5rem) / 3)` divides — exactly the width
+        it has always been.
+      */}
       <div
         ref={trackRef}
         onScroll={sync}
-        className={cn("snap-row gap-5 pb-2 lg:mx-14", trackClassName)}
+        className={cn("snap-row gap-5 -mx-6 -my-10 px-6 py-10 scroll-px-6 lg:mx-8", trackClassName)}
       >
         {children}
       </div>
